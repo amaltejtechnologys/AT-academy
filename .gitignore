@@ -36,3 +36,9 @@ Desktop.ini
 check_admin.py
 fix_hiring_partners.py
 fix2.py
+check_images.py
+fix_certs.py
+
+# Django logs
+*.log
+django.log

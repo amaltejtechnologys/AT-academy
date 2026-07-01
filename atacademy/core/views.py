@@ -1,11 +1,11 @@
 import json
 from django.shortcuts import render, get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseNotFound
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from .models import (
     Course, Branch, Testimonial, SuccessStory, Blog, GalleryImage,
-    Programme, Technology,
+    Programme, Technology, HiringPartner,
 )
 from .forms import EnquiryForm, CallbackForm, RecruiterForm
 
@@ -15,6 +15,7 @@ def home(request):
         'featured_courses': Course.objects.all().order_by('order')[:4],
         'testimonials': Testimonial.objects.all().order_by('order'),
         'success_stories': SuccessStory.objects.all().order_by('order'),
+        'hiring_partners': HiringPartner.objects.all().order_by('order'),
     }
     return render(request, 'index.html', context)
 
@@ -91,7 +92,10 @@ def alumni(request):
 
 
 def recruiters(request):
-    return render(request, 'placements/recruiters.html')
+    context = {
+        'hiring_partners': HiringPartner.objects.all().order_by('order'),
+    }
+    return render(request, 'placements/recruiters.html', context)
 
 
 def success_stories(request):
@@ -115,6 +119,10 @@ def apply_jobs(request):
 
 def find_course(request):
     return render(request, 'find_my_course.html')
+
+
+def custom_404(request, exception):
+    return HttpResponseNotFound(render(request, '404.html').content)
 
 
 @csrf_exempt
