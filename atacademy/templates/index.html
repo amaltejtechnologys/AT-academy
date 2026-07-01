@@ -1,0 +1,493 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Certifications Marquee -->
+<div class="container-fluid mx-auto lg:mt-0">
+  <div class="main_container overflow-hidden w-full pause-on-hover pb-3">
+    <div class="animate-scroll-left flex gap-4" style="width: 4000px;">
+      {% for cert in certifications %}
+        <div class="flex gap-x-5 shrink-0">
+          {% if cert.get_image_url %}
+            <img alt="{{ cert.name }}" loading="lazy" width="200" height="100" class="object-contain hover:shadow-lg" src="{{ cert.get_image_url }}">
+          {% endif %}
+        </div>
+      {% endfor %}
+      {% for cert in certifications %}
+        <div class="flex gap-x-5 shrink-0">
+          {% if cert.get_image_url %}
+            <img alt="{{ cert.name }}" loading="lazy" width="200" height="100" class="object-contain hover:shadow-lg" src="{{ cert.get_image_url }}">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section with Enquiry Form -->
+<section style="background-color:#fbf5f6;border-color:#fbf5f6" class="rounded-lg">
+  <div class="main_container">
+    <div class="flex flex-col lg:flex-row gap-8 py-8 lg:py-12">
+      <!-- Left - Text Content -->
+      <div class="flex-1">
+        <!-- Mobile Logo -->
+        <div class="block lg:hidden w-full" style="background:linear-gradient(160deg, #f8f4f2 0%, #eef4fb 100%)">
+          <div class="flex flex-col items-center pt-5 pb-5 px-5">
+            <div class="flex items-center gap-3 mb-1">
+              <img alt="AT Academy Logo" width="52" height="52" class="w-12 h-12 object-contain" src="{% static 'images/at_academy_logo.png' %}">
+              <div class="text-left">
+                <h2 class="text-2xl xl:text-3xl font-medium text-black leading-tight md:text-2xl mb-4">Excel with <span class="relative inline-block text-[#2A619D]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="orangered" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Title -->
+        <div class="hidden lg:block mb-6">
+          <h1 class="text-3xl xl:text-4xl font-medium text-black leading-tight">Excel with <span class="relative inline-block text-[#2A619D]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="orangered" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h1>
+        </div>
+
+        <!-- Feature Grid -->
+        <div class="px-4 lg:px-0 pb-6">
+          <div class="grid grid-cols-2 gap-2.5">
+            <div class="flex items-center gap-3 rounded-lg px-2 py-3 shadow-sm" style="background:#fff;border:1.5px solid #FE543D22">
+              <div class="flex-shrink-0 w-7 h-7 rounded-xl flex items-center justify-center">
+                {% if settings.career_guidance_icon %}
+                  <img alt="Career Guidance" width="36" height="36" class="w-10 h-10 object-contain" src="{{ settings.career_guidance_icon.url }}">
+                {% else %}
+                  <div class="w-10 h-10 rounded-xl bg-[#fff0ee] flex items-center justify-center">
+                    <svg class="w-6 h-6 text-[#FE543D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="flex flex-col leading-tight">
+                <span class="font-bold text-sm" style="color:#FE543D">Free</span>
+                <span class="text-xs text-[#52525B]">Career Guidance</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-lg px-2 py-3 shadow-sm" style="background:#fff;border:1.5px solid #2A619D22">
+              <div class="flex-shrink-0 w-7 h-7 rounded-xl flex items-center justify-center">
+                {% if settings.materials_icon %}
+                  <img alt="Materials" width="36" height="36" class="w-10 h-10 object-contain" src="{{ settings.materials_icon.url }}">
+                {% else %}
+                  <div class="w-10 h-10 rounded-xl bg-[#eef4ff] flex items-center justify-center">
+                    <svg class="w-6 h-6 text-[#2A619D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="flex flex-col leading-tight">
+                <span class="font-bold text-sm text-[#2A619D]">Free</span>
+                <span class="text-xs text-[#52525B]">Study Materials</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-lg px-2 py-3 shadow-sm" style="background:#fff;border:1.5px solid #2A619D22">
+              <div class="flex-shrink-0 w-7 h-7 rounded-xl flex items-center justify-center">
+                {% if settings.interview_prep_icon %}
+                  <img alt="Interview Prep" width="36" height="36" class="w-10 h-10 object-contain" src="{{ settings.interview_prep_icon.url }}">
+                {% else %}
+                  <div class="w-10 h-10 rounded-xl bg-[#eef4ff] flex items-center justify-center">
+                    <svg class="w-6 h-6 text-[#2A619D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="flex flex-col leading-tight">
+                <span class="font-bold text-sm text-[#2A619D]">Free</span>
+                <span class="text-xs text-[#52525B]">Interview Preparation</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 rounded-lg px-2 py-3 shadow-sm" style="background:#fff;border:1.5px solid #FE543D22">
+              <div class="flex-shrink-0 w-7 h-7 rounded-xl flex items-center justify-center">
+                {% if settings.placement_icon %}
+                  <img alt="Placement" width="36" height="36" class="w-10 h-10 object-contain" src="{{ settings.placement_icon.url }}">
+                {% else %}
+                  <div class="w-10 h-10 rounded-xl bg-[#fff0ee] flex items-center justify-center">
+                    <svg class="w-6 h-6 text-[#FE543D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="flex flex-col leading-tight">
+                <span class="font-bold text-sm" style="color:#FE543D">Free</span>
+                <span class="text-xs text-[#52525B]">Placement Assistance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="hidden lg:flex justify-center px-4">
+          {% if settings.excel_banner %}
+            <img alt="Excel with {{ settings.site_name }}" width="500" height="500" class="rounded-2xl" src="{{ settings.excel_banner.url }}">
+          {% else %}
+            <div class="w-[500px] h-[400px] rounded-2xl bg-gradient-to-br from-[#f8f4f2] to-[#eef4fb] flex items-center justify-center">
+              <span class="text-gray-400 text-sm">Upload banner image in admin</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right - Enquiry Form -->
+      <div class="w-full flex justify-center lg:justify-end mt-5 lg:mt-0">
+        <div class="w-full max-w-md sm:max-w-lg bg-white p-6 rounded-lg shadow">
+          <div class="text-center mb-4">
+            <div class="text-2xl text-black font-bold">Get Expert Guidance</div>
+            <div class="text-sm text-gray-900 font-medium">Fill the details to get guidance from expert counsellor</div>
+          </div>
+          <form onsubmit="submitEnquiry(event)" class="space-y-2 w-full">
+            <div class="mb-4">
+              <label class="block text-xs font-medium text-gray-700 mb-1">Name <span class="text-red-500">*</span></label>
+              <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-xs font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+              <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+              <div class="w-full">
+                <label class="block text-xs font-medium text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+                <div class="flex gap-2">
+                  <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium select-none">+91</span>
+                    <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2a619d] bg-white">
+                  </div>
+                  <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#2a619d] text-white hover:bg-[#214d7d] active:scale-95 shadow-sm">Send OTP</button>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="block text-xs font-medium text-gray-700 mb-1">I want a career in <span class="text-red-500">*</span></label>
+              <select name="course" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                <option value="" selected="">I want a career in</option>
+                {% for course in nav_courses %}
+                  <option value="{{ course.name }}">{{ course.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="block text-xs font-medium text-gray-700 mb-1">My qualification is <span class="text-red-500">*</span></label>
+              <select name="qualification" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                <option value="" selected="">My qualification is</option>
+                <option value="Fresher / Student">Fresher / Student</option>
+                <option value="Working IT Professional">Working IT Professional</option>
+                <option value="Career Switcher">Career Switcher</option>
+              </select>
+            </div>
+            <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#2a619d] hover:bg-[#214d7d] active:scale-[0.98] shadow-md">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Top 5 Courses -->
+{% if featured_courses %}
+<section class="py-10 bg-white">
+  <div class="main_container">
+    <div class="text-center mb-6">
+      <h2 class="text-2xl xl:text-3xl font-medium">Top 5 <span class="relative inline-block text-[#2a619d]">Courses<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for course in featured_courses %}
+        <div class="group rounded-xl bg-white overflow-hidden shadow-[0_4px_14px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#2a619d] transition-all duration-300 hover:shadow-xl">
+          <div class="relative w-full h-48 overflow-hidden">
+            {% if course.image %}
+              <img alt="{{ course.name }}" loading="lazy" width="192" height="288" class="object-cover transition-all duration-500 group-hover:scale-105 h-48 w-full" src="{{ course.image }}">
+            {% endif %}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:bg-black/20"></div>
+          </div>
+          <div class="p-4 space-y-3">
+            <h3 class="text-md font-bold text-[#162f51] leading-snug line-clamp-2 min-h-[48px]">{{ course.name }}</h3>
+            <div class="flex gap-3">
+              <div class="flex-1 bg-[#faf2ec] rounded-lg p-2">
+                <div class="text-xs text-gray-500">Fee</div>
+                <div class="text-[#e6662a] text-sm font-bold">{{ course.fee }}</div>
+              </div>
+              <div class="flex-1 bg-[#eef4ff] rounded-lg p-2">
+                <div class="text-xs text-gray-500">Duration</div>
+                <div class="text-[#1d3b70] text-sm font-bold">{{ course.duration }}</div>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <div class="flex-1 flex items-center justify-center gap-1.5 bg-[#e8f5e9] rounded-lg px-1 py-1.5">
+                <span class="text-xs">Placement Assistance</span>
+              </div>
+              <div class="flex-1 flex items-center justify-center gap-1.5 bg-[#d2e7f6] rounded-lg px-1 py-1.5">
+                <span class="text-xs">100% Internship</span>
+              </div>
+            </div>
+            <div class="flex gap-4 mb-1 justify-between">
+              <button onclick="openEnquiryModal('{{ course.name }}')" class="px-4 py-2 rounded-md font-semibold text-sm bg-[#2a619d] text-white hover:bg-white hover:text-[#2a619d] hover:border hover:border-[#2a619d] h-10 flex items-center justify-center flex-1">Enquire Now</button>
+              <a href="{% url 'course_detail' course.slug %}" class="px-4 py-2 rounded-md font-semibold text-sm border border-[#2a619d] text-[#2a619d] hover:bg-[#2a619d] hover:text-white h-10 flex items-center justify-center flex-1">Know More</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="flex justify-center mt-8">
+      <a href="{% url 'course_list' %}" class="cursor-pointer text-sm bg-[#2a619d] text-white hover:bg-white hover:text-[#2a619d] hover:border hover:border-[#2a619d] h-10 px-4 flex items-center justify-center font-semibold rounded-md">View All Courses</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Excel with Teks Academy -->
+<section style="background-color:#fbf5f6;border-color:#fbf5f6" class="rounded-lg">
+  <div class="main_container py-10">
+    <div class="flex flex-col lg:flex-row gap-8 items-center">
+      <div class="flex-1">
+        <div class="mb-6">
+          <h2 class="text-2xl xl:text-3xl font-medium">Excel with <span class="relative inline-block text-[#2A619D]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="orangered" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="flex items-center gap-3 rounded-lg px-3 py-4 shadow-sm bg-white border border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-[#e8f5e9] flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-[#2e7d32]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <span class="font-bold text-sm text-[#2e7d32]">100%</span>
+              <span class="text-xs text-gray-600 block">Placement Assistance</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 rounded-lg px-3 py-4 shadow-sm bg-white border border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-[#eef4ff] flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-[#1565c0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+              <span class="font-bold text-sm text-[#1565c0]">100%</span>
+              <span class="text-xs text-gray-600 block">Internship Program</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 rounded-lg px-3 py-4 shadow-sm bg-white border border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-[#fff0ee] flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-[#FE543D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            </div>
+            <div>
+              <span class="font-bold text-sm text-[#FE543D]">Free</span>
+              <span class="text-xs text-gray-600 block">Study Materials</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 rounded-lg px-3 py-4 shadow-sm bg-white border border-gray-100">
+            <div class="w-12 h-12 rounded-full bg-[#eef4ff] flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-[#1565c0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <div>
+              <span class="font-bold text-sm text-[#1565c0]">Expert</span>
+              <span class="text-xs text-gray-600 block">Faculty Guidance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right - Callback Form -->
+      <div class="w-full lg:w-[450px]">
+        <div class="bg-[#2A619D] p-1 px-6 lg:p-10 rounded-lg">
+          <form onsubmit="submitCallback(event)" class="space-y-2 bg-white rounded-xl p-4">
+            <div class="mb-4">
+              <label class="block text-xs font-medium text-gray-700 mb-1">Name <span class="text-red-500">*</span></label>
+              <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-xs font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+              <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+              <div class="w-full">
+                <label class="block text-xs font-medium text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+                <div class="flex gap-2">
+                  <div class="relative flex-1">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium select-none">+91</span>
+                    <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2a619d] bg-white">
+                  </div>
+                  <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#2a619d] text-white hover:bg-[#214d7d] active:scale-95 shadow-sm">Send OTP</button>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4 relative">
+              <label class="block text-xs font-medium text-gray-700 mb-1">Course <span class="text-red-500">*</span></label>
+              <select name="course" class="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                <option value="" selected="">Select a course</option>
+                {% for course in nav_courses %}
+                  <option value="{{ course.name }}">{{ course.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="block text-xs font-medium text-gray-700 mb-1">Branch <span class="text-red-500">*</span></label>
+              <select name="branch" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+                <option value="" selected="">Select Branch</option>
+                {% for branch in nav_branches %}
+                  <option value="{{ branch.name }}">{{ branch.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#2a619d] hover:bg-[#214d7d] active:scale-[0.98] shadow-md">Request Call Back</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career Services in a Nutshell -->
+<section style="background-color:#fff;border-color:#fff" class="rounded-lg">
+  <div class="main_container md:pb-5">
+    <div class="hidden md:block px-4 py-6">
+      <div class="text-center mb-5">
+        <h2 class="text-xl font-bold text-gray-900">Career Services <span class="relative inline-block text-[#2A619D]">in a Nutshell<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="orangered" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
+      </div>
+      <div class="mb-5 flex justify-center">
+        {% if settings.nutshell_illustration %}
+          <img alt="Career services section illustration" loading="lazy" width="500" height="500" class="w-[88%] rounded-2xl" src="{{ settings.nutshell_illustration.url }}">
+        {% else %}
+          <div class="w-[88%] h-[300px] rounded-2xl bg-gradient-to-br from-[#f8f4f2] to-[#eef4fb] flex items-center justify-center">
+            <span class="text-gray-400 text-sm">Upload illustration in admin</span>
+          </div>
+        {% endif %}
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div class="flex items-center gap-3 rounded-[10px] px-4 py-3 border bg-[#FFF0EE] border-[#FE543D33]">
+          <div class="w-[26px] h-[26px] rounded-full flex items-center justify-center text-white text-[11px] font-bold bg-[#FE543D]">1</div>
+          {% if settings.nutshell_1 %}<img alt="seminar" width="28" height="28" class="w-6 h-6 object-contain" src="{{ settings.nutshell_1.url }}">{% endif %}
+          <span class="text-[13px] font-medium text-gray-800"><span class="text-[#FE543D] font-bold">Technical</span> seminars for Students</span>
+        </div>
+        <div class="flex items-center gap-3 rounded-[10px] px-4 py-3 border bg-[#eef4ff] border-[#2A619D33]">
+          <div class="w-[26px] h-[26px] rounded-full flex items-center justify-center text-white text-[11px] font-bold bg-[#2A619D]">2</div>
+          {% if settings.nutshell_2 %}<img alt="resume" width="28" height="28" class="w-6 h-6 object-contain" src="{{ settings.nutshell_2.url }}">{% endif %}
+          <span class="text-[13px] font-medium text-gray-800"><span class="text-[#2A619D] font-bold">Resume</span> Preparation</span>
+        </div>
+        <div class="flex items-center gap-3 rounded-[10px] px-4 py-3 border bg-[#FFF0EE] border-[#FE543D33]">
+          <div class="w-[26px] h-[26px] rounded-full flex items-center justify-center text-white text-[11px] font-bold bg-[#FE543D]">3</div>
+          {% if settings.nutshell_3 %}<img alt="mock" width="28" height="28" class="w-6 h-6 object-contain" src="{{ settings.nutshell_3.url }}">{% endif %}
+          <span class="text-[13px] font-medium text-gray-800"><span class="text-[#FE543D] font-bold">Mock</span> Interviews</span>
+        </div>
+        <div class="flex items-center gap-3 rounded-[10px] px-4 py-3 border bg-[#eef4ff] border-[#2A619D33]">
+          <div class="w-[26px] h-[26px] rounded-full flex items-center justify-center text-white text-[11px] font-bold bg-[#2A619D]">4</div>
+          {% if settings.nutshell_4 %}<img alt="placement" width="28" height="28" class="w-6 h-6 object-contain" src="{{ settings.nutshell_4.url }}">{% endif %}
+          <span class="text-[13px] font-medium text-gray-800"><span class="text-[#2A619D] font-bold">Placement</span> Assistance</span>
+        </div>
+        <div class="flex items-center gap-3 rounded-[10px] px-4 py-3 border bg-[#FFF0EE] border-[#FE543D33]">
+          <div class="w-[26px] h-[26px] rounded-full flex items-center justify-center text-white text-[11px] font-bold bg-[#FE543D]">5</div>
+          {% if settings.nutshell_5 %}<img alt="internship" width="28" height="28" class="w-6 h-6 object-contain" src="{{ settings.nutshell_5.url }}">{% endif %}
+          <span class="text-[13px] font-medium text-gray-800"><span class="text-[#FE543D] font-bold">100%</span> Internship</span>
+        </div>
+        <div class="flex items-center gap-3 rounded-[10px] px-4 py-3 border bg-[#eef4ff] border-[#2A619D33]">
+          <div class="w-[26px] h-[26px] rounded-full flex items-center justify-center text-white text-[11px] font-bold bg-[#2A619D]">6</div>
+          {% if settings.nutshell_6 %}<img alt="projects" width="28" height="28" class="w-6 h-6 object-contain" src="{{ settings.nutshell_6.url }}">{% endif %}
+          <span class="text-[13px] font-medium text-gray-800"><span class="text-[#2A619D] font-bold">Real-time</span> Projects</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+{% if testimonials %}
+<section class="py-10 bg-white">
+  <div class="main_container">
+    <div class="text-center mb-6">
+      <h2 class="text-2xl xl:text-3xl font-medium">What Our <span class="relative inline-block text-[#2a619d]">Students Say<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+    </div>
+    <div class="overflow-hidden">
+      <div class="flex gap-6 animate-scroll-left" style="width: 4000px;">
+        {% for t in testimonials %}
+          <div class="flex-shrink-0 w-80 bg-white rounded-xl p-6 shadow-[0_4px_14px_rgba(0,0,0,0.08)] border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-[#2a619d]/10 flex items-center justify-center">
+                <span class="text-[#2a619d] font-bold text-sm">{{ t.name|truncatechars:1 }}</span>
+              </div>
+              <div>
+                <p class="font-semibold text-[#162f51] text-sm">{{ t.name }}</p>
+                {% if t.course %}<p class="text-xs text-gray-500">{{ t.course }}</p>{% endif %}
+              </div>
+            </div>
+            <div class="flex text-[#FE543D] text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            {% if t.description %}<p class="text-sm text-gray-600">{{ t.description|truncatewords:20 }}</p>{% endif %}
+          </div>
+        {% endfor %}
+        {% for t in testimonials %}
+          <div class="flex-shrink-0 w-80 bg-white rounded-xl p-6 shadow-[0_4px_14px_rgba(0,0,0,0.08)] border border-gray-100">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full bg-[#2a619d]/10 flex items-center justify-center">
+                <span class="text-[#2a619d] font-bold text-sm">{{ t.name|truncatechars:1 }}</span>
+              </div>
+              <div>
+                <p class="font-semibold text-[#162f51] text-sm">{{ t.name }}</p>
+                {% if t.course %}<p class="text-xs text-gray-500">{{ t.course }}</p>{% endif %}
+              </div>
+            </div>
+            <div class="flex text-[#FE543D] text-sm mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            {% if t.description %}<p class="text-sm text-gray-600">{{ t.description|truncatewords:20 }}</p>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- 700+ Hiring Partners -->
+{% if hiring_partners %}
+<section style="background-color:#fff;border-color:#fff" class="rounded-lg">
+  <div class="bg-[#fbf5f6] py-12 mt-7 border border-[#fbf5f6] rounded-lg shadow-md md:mt-5">
+    <div class="text-center">
+      <div class="mb-3">
+        <div class="text-2xl xl:text-3xl font-medium">700+ Hiring <span class="relative inline-block text-[#2a619d]">Partners<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></div>
+      </div>
+      <div class="w-full">
+        <div class="flex flex-col">
+          <div class="main_container overflow-hidden">
+            <div class="marquee-container">
+              <div class="marquee-track" style="animation: marquee 30s linear infinite;">
+                {% for partner in hiring_partners %}
+                  <div class="marquee-item flex items-center justify-center" style="width: 150px; height: 100px; margin: 0 12px;">
+                    <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white shadow-sm border border-gray-100">
+                      <span class="text-lg font-bold text-gray-700">{{ partner.name }}</span>
+                    </div>
+                  </div>
+                {% endfor %}
+                {% for partner in hiring_partners %}
+                  <div class="marquee-item flex items-center justify-center" style="width: 150px; height: 100px; margin: 0 12px;">
+                    <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white shadow-sm border border-gray-100">
+                      <span class="text-lg font-bold text-gray-700">{{ partner.name }}</span>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Success Stories -->
+{% if success_stories %}
+<section class="py-10 bg-white">
+  <div class="main_container">
+    <div class="text-center mb-6">
+      <h2 class="text-2xl xl:text-3xl font-medium">Success <span class="relative inline-block text-[#2a619d]">Stories<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {% for story in success_stories %}
+        <div class="bg-white rounded-xl p-6 shadow-[0_4px_14px_rgba(0,0,0,0.08)] border border-gray-100">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-full bg-[#FE543D]/10 flex items-center justify-center">
+              <span class="text-[#FE543D] font-bold">{{ story.name|truncatechars:1 }}</span>
+            </div>
+            <div class="text-left">
+              <p class="font-semibold text-[#162f51]">{{ story.name }}</p>
+              {% if story.course %}<p class="text-xs text-gray-500">{{ story.course }}</p>{% endif %}
+            </div>
+          </div>
+          {% if story.description %}<p class="text-sm text-gray-600 text-left">{{ story.description|truncatewords:30 }}</p>{% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

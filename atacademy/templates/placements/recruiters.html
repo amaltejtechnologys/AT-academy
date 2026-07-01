@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Recruiters{% endblock %}
+{% block content %}
+<section class="py-10 bg-white">
+  <div class="main_container">
+    <nav class="text-sm text-gray-500 mb-6"><a href="{% url 'home' %}" class="hover:text-[#2a619d]">Home</a> &raquo; <span class="text-[#162f51]">Recruiters</span></nav>
+    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8">Our <span class="relative inline-block text-[#2a619d]">Recruiters<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
+    {% if hiring_partners %}
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        {% for partner in hiring_partners %}
+          <div class="bg-white rounded-xl p-4 shadow-[0_4px_14px_rgba(0,0,0,0.08)] border border-gray-100 flex items-center justify-center hover:shadow-lg transition-shadow">
+            <span class="text-lg font-bold text-gray-700">{{ partner.name }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}<div class="text-center py-12 text-gray-500">Recruiters info coming soon.</div>{% endif %}
+    <div class="mt-8 text-center">
+      <h2 class="text-xl font-bold text-[#162f51] mb-4">Want to hire our students?</h2>
+      <button onclick="openCallbackModal()" class="bg-[#2a619d] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#214d7d] transition-colors">Contact Us</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

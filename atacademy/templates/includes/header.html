@@ -1,0 +1,217 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Mobile Bottom Nav -->
+<div class="block lg:hidden">
+  <nav aria-label="Mobile navigation" class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-10 border-t border-gray-200 bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+    <ul class="grid grid-cols-5">
+      <li class="relative">
+        <a class="flex min-h-[58px] flex-col items-center justify-center gap-1 px-1 py-2.5 text-center text-[10px] font-medium leading-tight text-gray-600 transition-colors hover:text-[#FE543D]" href="{% url 'course_list' %}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+          <span>Courses</span>
+        </a>
+      </li>
+      <li class="relative">
+        <a href="https://wa.me/918143724232?text=Hi%20I%20am%20interested%20in%20your%20courses" class="flex min-h-[58px] flex-col items-center justify-center gap-1 px-1 py-2.5 text-center text-[10px] font-medium leading-tight text-gray-600 transition-colors hover:text-[#FE543D]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path></svg>
+          <span>Chat</span>
+        </a>
+      </li>
+      <li class="relative">
+        <a href="tel:{{ settings.phone|cut:' ' }}" class="flex min-h-[58px] flex-col items-center justify-center gap-1 px-1 py-2.5 text-center text-[10px] font-medium leading-tight text-gray-600 transition-colors hover:text-[#FE543D]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>Call</span>
+        </a>
+      </li>
+      <li class="relative">
+        <a href="#" onclick="openCallbackModal(); return false;" class="flex min-h-[58px] flex-col items-center justify-center gap-1 px-1 py-2.5 text-center text-[10px] font-medium leading-tight text-gray-600 transition-colors hover:text-[#FE543D]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+          <span>Enquiry</span>
+        </a>
+      </li>
+      <li class="relative">
+        <a href="{% url 'gallery' %}" class="flex min-h-[58px] flex-col items-center justify-center gap-1 px-1 py-2.5 text-center text-[10px] font-medium leading-tight text-gray-600 transition-colors hover:text-[#FE543D]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+          <span>Gallery</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Floating Chat Button -->
+<div class="fixed bottom-20 right-4 z-50 hidden lg:block">
+  <a href="https://wa.me/918143724232?text=Hi%20I%20am%20interested%20in%20your%20courses" target="_blank" class="flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition-colors">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="font-semibold text-sm">Chat</span>
+  </a>
+</div>
+
+<!-- Desktop Header -->
+<header class="fixed top-0 left-0 w-full z-40 bg-white transition-all duration-300 shadow-md">
+  <!-- Top Info Bar -->
+  <div class="hidden md:block bg-[#2a619d] text-white text-xs py-2">
+    <div class="main_container flex items-center justify-between">
+      <div class="flex items-center w-full gap-6">
+        <div class="flex items-center gap-2">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-sm" height="1em" width="1em"><path fill="none" d="M0 0h24v24H0z"></path><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"></path></svg>
+          <span>{{ settings.phone }}</span>
+        </div>
+        <button type="button" class="hover:text-white transition-colors text-md flex items-center gap-1 cursor-pointer">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="14" width="14"><path d="M16 64C16 28.7 44.7 0 80 0L304 0c35.3 0 64 28.7 64 64l0 384c0 35.3-28.7 64-64 64L80 512c-35.3 0-64-28.7-64-64L16 64zM144 448c0 8.8 7.2 16 16 16l64 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-64 0c-8.8 0-16 7.2-16 16zM304 64L80 64l0 320 224 0 0-320z"></path></svg>
+          Download Mobile App
+        </button>
+        <a target="_blank" class="hover:text-white transition-colors text-md flex items-center gap-1" href="{% url 'blog_list' %}">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="14" width="14"><path d="M552 64H112c-20.858 0-38.643 13.377-45.248 32H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h496c13.255 0 24-10.745 24-24V88c0-13.255-10.745-24-24-24zM48 392V144h16v248c0 4.411-3.589 8-8 8s-8-3.589-8-8zm480 8H111.422c.374-2.614.578-5.283.578-8V112h416v288zM172 280h136c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12zm280-80h-48v-40c0-8.837-7.163-16-16-16h-40c-8.837 0-16 7.163-16 16v40h-48c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16h160c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16z"></path></svg>
+          Blogs
+        </a>
+        <a target="_blank" class="hover:text-white transition-colors text-md flex items-center gap-1" href="https://wa.me/918143724232?text=Hi%20I%20am%20interested%20in%20your%20courses">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Nav Bar -->
+  <div class="main_container">
+    <div class="flex items-center justify-between h-16 lg:h-[72px]">
+      <!-- Logo -->
+      <a href="{% url 'home' %}" class="flex-shrink-0">
+        <img src="{% static 'images/at_academy_logo.png' %}" alt="AT Academy Logo" class="h-10 lg:h-12 object-contain">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+        <a href="{% url 'home' %}" class="font-semibold hover:text-[#2a619d] transition-colors">Home</a>
+
+        <!-- Courses Dropdown -->
+        <li class="relative group list-none">
+          <div class="font-semibold flex items-center gap-1 cursor-pointer hover:text-[#2a619d] transition-colors">
+            <a href="{% url 'course_list' %}" class="transition-colors">Courses</a>
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="transition-transform duration-150 ease-in-out text-sm mt-1 rotate-0 group-hover:rotate-180" height="1em" width="1em"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L224 284.505l154.707-154.07c9.373-9.373 24.569-9.373 33.941 0l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
+          </div>
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible -translate-y-1 transition-all duration-200 z-50">
+            <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-4 w-[500px]">
+              <div class="grid grid-cols-2 gap-2">
+                {% for course in nav_courses %}
+                  <a href="{% url 'course_detail' course.slug %}" class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group/item">
+                    <div class="w-8 h-8 rounded-full bg-[#eef4ff] flex items-center justify-center flex-shrink-0">
+                      <svg class="w-4 h-4 text-[#2a619d]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-7-7h14"></path></svg>
+                    </div>
+                    <span class="text-sm font-medium text-gray-700 group-hover/item:text-[#2a619d] transition-colors">{{ course.name }}</span>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Branches Dropdown -->
+        <li class="relative group list-none">
+          <div class="font-semibold flex items-center gap-1 cursor-pointer hover:text-[#2a619d] transition-colors">
+            <span class="transition-colors">Branches</span>
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="transition-transform duration-150 ease-in-out text-sm mt-1 rotate-0 group-hover:rotate-180" height="1em" width="1em"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L224 284.505l154.707-154.07c9.373-9.373 24.569-9.373 33.941 0l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
+          </div>
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible -translate-y-1 transition-all duration-200 z-50">
+            <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-4 w-[600px]">
+              <div class="grid grid-cols-2 gap-2">
+                {% for branch in nav_branches %}
+                  <a href="{% url 'branch_detail' branch.slug %}" class="flex items-center gap-2 p-2 rounded-lg border border-gray-200 hover:border-[#2a619d] hover:shadow-md transition-all group/branch">
+                    <div class="flex-1 min-w-0">
+                      <h3 class="font-semibold text-[#2a619d] text-xs leading-tight truncate">{{ branch.name }}</h3>
+                      {% if branch.phone %}
+                        <div class="flex items-center gap-1 mt-0.5">
+                          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="text-gray-400 flex-shrink-0" height="9" width="9"><path fill="none" d="M0 0h24v24H0z"></path><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
+                          <span class="text-[12px] text-gray-500 truncate">{{ branch.phone }}</span>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <a href="{% url 'success_stories' %}" class="font-semibold hover:text-[#2a619d] transition-colors">Success Stories</a>
+
+        <!-- Resources Dropdown -->
+        <li class="relative group list-none">
+          <div class="font-semibold flex items-center gap-1 cursor-pointer hover:text-[#2a619d] transition-colors">
+            <span class="transition-colors">Resources</span>
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="transition-transform duration-150 ease-in-out text-sm mt-1 rotate-0 group-hover:rotate-180" height="1em" width="1em"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L224 284.505l154.707-154.07c9.373-9.373 24.569-9.373 33.941 0l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
+          </div>
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible -translate-y-1 transition-all duration-200 z-50">
+            <div class="bg-white rounded-xl shadow-xl border border-gray-100 p-4 w-48">
+              <a href="{% url 'blog_list' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Blogs</a>
+              <a href="{% url 'gallery' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Gallery</a>
+              <a href="{% url 'videos' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Videos</a>
+            </div>
+          </div>
+        </li>
+
+        <a href="{% url 'contact' %}" class="font-semibold hover:text-[#2a619d] transition-colors">Contact</a>
+      </nav>
+
+      <!-- CTA + Enquiry -->
+      <div class="hidden lg:flex items-center gap-3">
+        <button onclick="openCallbackModal()" class="border border-[#2a619d] text-[#2a619d] px-4 py-2 rounded-md font-semibold text-sm hover:bg-[#2a619d] hover:text-white transition-colors">Enquiry Now</button>
+        <a href="tel:{{ settings.phone|cut:' ' }}" class="bg-[#2a619d] text-white px-4 py-2 rounded-md font-semibold text-sm hover:bg-[#214d7d] transition-colors flex items-center gap-2">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16" width="16"><path fill="none" d="M0 0h24v24H0z"></path><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"></path></svg>
+          {{ settings.phone }}
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="document.getElementById('mobileMenu').classList.toggle('translate-x-full')" class="lg:hidden p-2 text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Slide Menu -->
+  <div id="mobileMenu" class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+    <div class="p-4">
+      <div class="flex items-center justify-between mb-6">
+        <img src="{% static 'images/at_academy_logo.png' %}" alt="AT Academy Logo" class="h-10 object-contain">
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('translate-x-full')" class="p-2 text-gray-500 hover:text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="space-y-1">
+        <a href="{% url 'home' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-800 hover:bg-gray-50 transition-colors">Home</a>
+        <a href="{% url 'course_list' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-800 hover:bg-gray-50 transition-colors">Courses</a>
+        <div class="px-4 py-3">
+          <span class="font-semibold text-gray-800">Branches</span>
+          <div class="mt-2 space-y-2 pl-2">
+            {% for branch in nav_branches %}
+              <a href="{% url 'branch_detail' branch.slug %}" class="flex items-center gap-2 p-2 rounded-lg border border-gray-200 hover:border-[#2a619d] hover:shadow-md transition-all">
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-semibold text-[#2a619d] text-xs leading-tight truncate">{{ branch.name }}</h3>
+                  {% if branch.phone %}
+                    <span class="text-[12px] text-gray-500 truncate block">{{ branch.phone }}</span>
+                  {% endif %}
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+        <a href="{% url 'success_stories' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-800 hover:bg-gray-50 transition-colors">Success Stories</a>
+        <a href="{% url 'blog_list' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-800 hover:bg-gray-50 transition-colors">Blogs</a>
+        <a href="{% url 'gallery' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-800 hover:bg-gray-50 transition-colors">Gallery</a>
+        <a href="{% url 'contact' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-800 hover:bg-gray-50 transition-colors">Contact</a>
+      </nav>
+      <div class="mt-6 space-y-3">
+        <button onclick="openCallbackModal(); document.getElementById('mobileMenu').classList.add('translate-x-full');" class="w-full border border-[#2a619d] text-[#2a619d] px-4 py-2.5 rounded-md font-semibold text-sm hover:bg-[#2a619d] hover:text-white transition-colors">Enquiry Now</button>
+        <a href="tel:{{ settings.phone|cut:' ' }}" class="w-full bg-[#2a619d] text-white px-4 py-2.5 rounded-md font-semibold text-sm hover:bg-[#214d7d] transition-colors flex items-center justify-center gap-2">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16" width="16"><path fill="none" d="M0 0h24v24H0z"></path><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"></path></svg>
+          {{ settings.phone }}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div class="h-20 lg:h-[88px]"></div>

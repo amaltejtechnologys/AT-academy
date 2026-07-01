@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ settings.site_name }}{% endblock %} | Best Software Training Institute</title>
+  <meta name="description" content="{% block meta_description %}Best software training institute in Hyderabad{% endblock %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: { primary: '#2a619d', accent: '#FE543D', dark: '#162f51' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .main_container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 640px) { .main_container { padding: 0 24px; } }
+    @media (min-width: 1024px) { .main_container { padding: 0 32px; } }
+
+    /* Dropdown hover fix */
+    .group:hover > .absolute { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+    .group:hover > .absolute.opacity-0 { opacity: 1 !important; }
+    .group:hover > .absolute.invisible { visibility: visible !important; }
+    .group:hover > .absolute.-translate-y-1 { transform: translateY(0) !important; }
+    .group > .absolute:hover { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+    .group:hover > .absolute.left-0 { opacity: 1 !important; visibility: visible !important; }
+
+    /* Marquee */
+    .animate-scroll-left { animation: scrollLeft 30s linear infinite; }
+    .pause-on-hover:hover .animate-scroll-left { animation-play-state: paused; }
+    @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* Marquee for hiring partners */
+    .marquee-container { overflow: hidden; position: relative; }
+    .marquee-track { display: flex; will-change: transform; }
+    .marquee-item { flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: transform 0.3s ease; }
+    .marquee-container:hover .marquee-track { animation-play-state: paused; }
+
+    /* Mobile bottom nav */
+    .mobile-bottom-nav a.active { color: #FE543D; }
+  </style>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-white text-gray-800 antialiased">
+  {% include "includes/header.html" %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "includes/footer.html" %}
+
+  <!-- Enquiry Modal -->
+  <div id="enquiryModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 relative">
+      <button onclick="closeEnquiryModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+      <div class="text-center mb-4">
+        <div class="text-2xl text-black font-bold">Get Expert Guidance</div>
+        <div class="text-sm text-gray-900 font-medium">Fill the details to get guidance from expert counsellor</div>
+      </div>
+      <form onsubmit="submitEnquiry(event)" class="space-y-2">
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Name <span class="text-red-500">*</span></label>
+          <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+          <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+          <div class="flex gap-2">
+            <div class="relative flex-1">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium select-none">+91</span>
+              <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2a619d] bg-white">
+            </div>
+            <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#2a619d] text-white hover:bg-[#214d7d] active:scale-95 shadow-sm">Send OTP</button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">I want a career in <span class="text-red-500">*</span></label>
+          <select name="course" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+            <option value="" selected="">I want a career in</option>
+            {% for course in nav_courses %}
+              <option value="{{ course.name }}">{{ course.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">My qualification is <span class="text-red-500">*</span></label>
+          <select name="qualification" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+            <option value="" selected="">My qualification is</option>
+            <option value="Fresher / Student">Fresher / Student</option>
+            <option value="Working IT Professional">Working IT Professional</option>
+            <option value="Career Switcher">Career Switcher</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#2a619d] hover:bg-[#214d7d] active:scale-[0.98] shadow-md">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Callback Modal -->
+  <div id="callbackModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 relative">
+      <button onclick="closeCallbackModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+      <div class="text-center mb-4">
+        <div class="text-2xl text-black font-bold">Request Call Back</div>
+        <div class="text-sm text-gray-900 font-medium">We'll call you back shortly</div>
+      </div>
+      <form onsubmit="submitCallback(event)" class="space-y-2">
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Name <span class="text-red-500">*</span></label>
+          <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+          <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+          <div class="flex gap-2">
+            <div class="relative flex-1">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium select-none">+91</span>
+              <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2a619d] bg-white">
+            </div>
+            <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#2a619d] text-white hover:bg-[#214d7d] active:scale-95 shadow-sm">Send OTP</button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Course <span class="text-red-500">*</span></label>
+          <select name="course" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+            <option value="" selected="">Select a course</option>
+            {% for course in nav_courses %}
+              <option value="{{ course.name }}">{{ course.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-medium text-gray-700 mb-1">Branch <span class="text-red-500">*</span></label>
+          <select name="branch" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+            <option value="" selected="">Select Branch</option>
+            {% for branch in nav_branches %}
+              <option value="{{ branch.name }}">{{ branch.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#2a619d] hover:bg-[#214d7d] active:scale-[0.98] shadow-md">Request Call Back</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openEnquiryModal(courseName) {
+      document.getElementById('enquiryModal').classList.remove('hidden');
+      document.getElementById('enquiryModal').classList.add('flex');
+      if(courseName) {
+        const sel = document.querySelector('#enquiryModal select[name="course"]');
+        if(sel) { for(let o of sel.options) { if(o.value === courseName) { o.selected = true; break; } } }
+      }
+    }
+    function closeEnquiryModal() {
+      document.getElementById('enquiryModal').classList.add('hidden');
+      document.getElementById('enquiryModal').classList.remove('flex');
+    }
+    function openCallbackModal() {
+      document.getElementById('callbackModal').classList.remove('hidden');
+      document.getElementById('callbackModal').classList.add('flex');
+    }
+    function closeCallbackModal() {
+      document.getElementById('callbackModal').classList.add('hidden');
+      document.getElementById('callbackModal').classList.remove('flex');
+    }
+    async function submitEnquiry(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form));
+      try {
+        const resp = await fetch('/api/enquiry/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+        const result = await resp.json();
+        if(result.success) {
+          alert('Enquiry submitted successfully!');
+          form.reset();
+          closeEnquiryModal();
+        } else {
+          alert('Error: ' + JSON.stringify(result.errors));
+        }
+      } catch(err) { alert('Submission failed. Please try again.'); }
+    }
+    async function submitCallback(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form));
+      try {
+        const resp = await fetch('/api/callback/', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+        const result = await resp.json();
+        if(result.success) {
+          alert('Callback request submitted!');
+          form.reset();
+          closeCallbackModal();
+        } else {
+          alert('Error: ' + JSON.stringify(result.errors));
+        }
+      } catch(err) { alert('Submission failed. Please try again.'); }
+    }
+  </script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
