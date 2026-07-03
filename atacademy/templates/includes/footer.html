@@ -1,7 +1,7 @@
 {% load static %}
-<footer class="relative bg-black text-white">
-  <!-- Top Section - Dark Blue -->
-  <div class="bg-[#0E2849]">
+<footer class="relative text-white">
+  <!-- Top Section - Gradient Blue -->
+  <div class="gradient-primary">
     <div class="main_container py-4 lg:py-5">
       <div class="w-full lg:w-11/12 mx-auto">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-5 md:gap-y-0 md:gap-x-6 lg:gap-x-8">
@@ -12,9 +12,9 @@
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="w-5 h-5 text-white"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path></svg>
               </span>
               <div class="flex flex-col">
-                <span class="text-[14px] text-[#FE543D] mb-1">Address:</span>
+                <span class="text-[14px] text-white/80 mb-1">Address:</span>
                 <a target="_blank" rel="noopener noreferrer" href="{{ settings.google_maps_url|default:'#' }}">
-                  <span class="font-normal text-[14px] lg:text-[1rem] text-white hover:text-[#FE543D] transition-colors">{{ settings.address }}</span>
+                  <span class="font-normal text-[14px] lg:text-[1rem] text-white hover:text-white/80 transition-colors">{{ settings.address }}</span>
                 </a>
               </div>
             </div>
@@ -27,9 +27,9 @@
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5 text-white"><path d="M436.9 364.8c-14.7-14.7-50-36.8-67.4-45.1-20.2-9.7-27.6-9.5-41.9.8-11.9 8.6-19.6 16.6-33.3 13.6-13.7-2.9-40.7-23.4-66.9-49.5-26.2-26.2-46.6-53.2-49.5-66.9-2.9-13.8 5.1-21.4 13.6-33.3 10.3-14.3 10.6-21.7.8-41.9C184 125 162 89.8 147.2 75.1c-14.7-14.7-18-11.5-26.1-8.6 0 0-12 4.8-23.9 12.7-14.7 9.8-22.9 18-28.7 30.3-5.7 12.3-12.3 35.2 21.3 95 27.1 48.3 53.7 84.9 93.2 124.3l.1.1.1.1c39.5 39.5 76 66.1 124.3 93.2 59.8 33.6 82.7 27 95 21.3 12.3-5.7 20.5-13.9 30.3-28.7 7.9-11.9 12.7-24.1 12.7-24.1l62.1-62.1c11.7-11.7 11.7-30.7 0-42.4l-36.4-36.4c-11.7-11.7-30.7-11.7-42.4 0l-26.5 26.5c-8.8 8.8-11.4 21.5-6.6 32.5 9.1 20.7 11.6 36.3-3.6 53.5-17.2 19.6-34.5 36.8-54.1 54.1-17.2 15.2-32.8 12.7-53.5 3.6-11-4.8-23.7-2.2-32.5 6.6l-26.5 26.5c-11.7 11.7-11.7 30.7 0 42.4l36.4 36.4c11.7 11.7 30.7 11.7 42.4 0l62.1-62.1z"></path></svg>
               </span>
               <div class="flex flex-col">
-                <span class="text-[14px] text-[#FE543D] mb-1">Phone:</span>
+                <span class="text-[14px] text-white/80 mb-1">Phone:</span>
                 <a href="tel:{{ settings.phone|cut:' ' }}">
-                  <span class="font-normal text-[14px] lg:text-[1rem] text-white hover:text-[#FE543D] transition-colors">{{ settings.phone }}</span>
+                  <span class="font-normal text-[14px] lg:text-[1rem] text-white hover:text-white/80 transition-colors">{{ settings.phone }}</span>
                 </a>
               </div>
             </div>
@@ -42,9 +42,9 @@
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="w-5 h-5 text-white"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4C504.9 141.3 512 127.1 512 112c0-26.5-21.5-48-48-48H48zM0 176v208c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54.4 17.1-77.2 0L0 176z"></path></svg>
               </span>
               <div class="flex flex-col">
-                <span class="text-[14px] text-[#FE543D] mb-1">Email:</span>
+                <span class="text-[14px] text-white/80 mb-1">Email:</span>
                 <a href="mailto:{{ settings.email }}">
-                  <span class="font-normal text-[14px] lg:text-[1rem] text-white hover:text-[#FE543D] transition-colors">{{ settings.email }}</span>
+                  <span class="font-normal text-[14px] lg:text-[1rem] text-white hover:text-white/80 transition-colors">{{ settings.email }}</span>
                 </a>
               </div>
             </div>
@@ -55,13 +55,13 @@
   </div>
 
   <!-- Branch Phones -->
-  <div class="bg-[#0a1f38] py-3">
+  <div class="bg-dark py-3">
     <div class="main_container">
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-300">
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/70">
         {% for branch in nav_branches %}
           {% if branch.phone %}
             <div class="flex items-center gap-1">
-              <span class="text-[#FE543D] font-medium">{{ branch.name }}:</span>
+              <span class="text-white font-medium">{{ branch.name }}:</span>
               <a href="tel:{{ branch.phone }}" class="hover:text-white transition-colors">{{ branch.phone }}</a>
             </div>
           {% endif %}
@@ -71,24 +71,24 @@
   </div>
 
   <!-- Main Footer -->
-  <div class="bg-black py-10 lg:py-12">
+  <div class="gradient-dark py-12 lg:py-16">
     <div class="main_container">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <!-- Column 1 - About -->
         <div>
-          <h3 class="font-bold text-lg mb-4 text-white">AT Academy</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Best software training institute in Hyderabad offering placement oriented courses with real-time projects and expert faculty.</p>
-          <div class="flex gap-3 mt-4">
-            <a href="https://www.facebook.com/atacademy.in" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FE543D] transition-colors">
+          <h3 class="font-heading font-bold text-xl mb-4 text-white">AT Academy</h3>
+          <p class="text-sm text-white/60 leading-relaxed">Best software training institute in Hyderabad offering placement oriented courses with real-time projects and expert faculty.</p>
+          <div class="flex gap-3 mt-5">
+            <a href="https://www.facebook.com/atacademy.in" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00A3E0] hover:scale-110 transition-all duration-300 pulse-glow">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="https://www.instagram.com/at_academy.in/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FE543D] transition-colors">
+            <a href="https://www.instagram.com/at_academy.in/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00A3E0] hover:scale-110 transition-all duration-300 pulse-glow">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="https://www.youtube.com/@ATAcademy-h8g" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FE543D] transition-colors">
+            <a href="https://www.youtube.com/@ATAcademy-h8g" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00A3E0] hover:scale-110 transition-all duration-300 pulse-glow">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-            <a href="https://www.linkedin.com/company/at-academy-in/" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FE543D] transition-colors">
+            <a href="https://www.linkedin.com/company/at-academy-in/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00A3E0] hover:scale-110 transition-all duration-300 pulse-glow">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
           </div>
@@ -96,48 +96,48 @@
 
         <!-- Column 2 - Courses -->
         <div>
-          <h3 class="font-bold text-lg mb-4 text-white">Courses</h3>
-          <ul class="space-y-2">
+          <h3 class="font-heading font-bold text-xl mb-4 text-white">Courses</h3>
+          <ul class="space-y-3">
             {% for course in nav_courses %}
-              <li><a href="{% url 'course_detail' course.slug %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">{{ course.name }}</a></li>
+              <li><a href="{% url 'course_detail' course.slug %}" class="text-sm text-white/60 hover:text-white transition-colors">{{ course.name }}</a></li>
             {% endfor %}
           </ul>
         </div>
 
         <!-- Column 3 - Branches -->
         <div>
-          <h3 class="font-bold text-lg mb-4 text-white">Branches</h3>
-          <ul class="space-y-2">
+          <h3 class="font-heading font-bold text-xl mb-4 text-white">Branches</h3>
+          <ul class="space-y-3">
             {% for branch in nav_branches %}
-              <li><a href="{% url 'branch_detail' branch.slug %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">{{ branch.name }}</a></li>
+              <li><a href="{% url 'branch_detail' branch.slug %}" class="text-sm text-white/60 hover:text-white transition-colors">{{ branch.name }}</a></li>
             {% endfor %}
           </ul>
         </div>
 
         <!-- Column 4 - Links -->
         <div>
-          <h3 class="font-bold text-lg mb-4 text-white">Quick Links</h3>
-          <ul class="space-y-2">
-            <li><a href="{% url 'about' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">About Us</a></li>
-            <li><a href="{% url 'contact' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">Contact Us</a></li>
-            <li><a href="{% url 'blog_list' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">Blogs</a></li>
-            <li><a href="{% url 'gallery' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">Gallery</a></li>
-            <li><a href="{% url 'alumni' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">Placements</a></li>
-            <li><a href="{% url 'success_stories' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">Success Stories</a></li>
-            <li><a href="{% url 'privacy_policy' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">Privacy Policy</a></li>
-            <li><a href="{% url 'terms_of_service' %}" class="text-sm text-gray-400 hover:text-[#FE543D] transition-colors">Terms & Conditions</a></li>
+          <h3 class="font-heading font-bold text-xl mb-4 text-white">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="{% url 'about' %}" class="text-sm text-white/60 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="{% url 'contact' %}" class="text-sm text-white/60 hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="{% url 'blog_list' %}" class="text-sm text-white/60 hover:text-white transition-colors">Blogs</a></li>
+            <li><a href="{% url 'gallery' %}" class="text-sm text-white/60 hover:text-white transition-colors">Gallery</a></li>
+            <li><a href="{% url 'alumni' %}" class="text-sm text-white/60 hover:text-white transition-colors">Placements</a></li>
+            <li><a href="{% url 'success_stories' %}" class="text-sm text-white/60 hover:text-white transition-colors">Success Stories</a></li>
+            <li><a href="{% url 'privacy_policy' %}" class="text-sm text-white/60 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="{% url 'terms_of_service' %}" class="text-sm text-white/60 hover:text-white transition-colors">Terms & Conditions</a></li>
           </ul>
         </div>
       </div>
 
       <!-- Map -->
-      <div class="mt-8 rounded-lg overflow-hidden">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2!2d78.4867!3d17.4399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzIzLjYiTiA3OMKwMjknMTIuMSJF!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="mt-10 rounded-xl overflow-hidden border border-white/10">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.5!2d81.0945138!3d16.7106604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3614cc2ea6ae59%3A0x2e3037c889ff351b!2sEluru%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
 
       <!-- Copyright -->
-      <div class="mt-8 pt-6 border-t border-gray-800 text-center">
-        <p class="text-sm text-gray-500">&copy; {{ current_year|default:"2024" }} AT Academy. All Rights Reserved.</p>
+      <div class="mt-10 pt-6 border-t border-white/10 text-center">
+        <p class="text-sm text-white/50">&copy; {{ current_year|default:"2024" }} AT Academy. All Rights Reserved.</p>
       </div>
     </div>
   </div>

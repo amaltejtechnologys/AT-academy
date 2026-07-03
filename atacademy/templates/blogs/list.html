@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Blog{% endblock %}
 {% block content %}
-<section class="py-10 bg-white">
+<section class="py-10 bg-[#0A1A3A]">
   <div class="main_container">
-    <nav class="text-sm text-gray-500 mb-6"><a href="{% url 'home' %}" class="hover:text-[#2a619d]">Home</a> &raquo; <span class="text-[#162f51]">Blog</span></nav>
-    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8">Blog & <span class="relative inline-block text-[#2a619d]">Articles<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
+    <nav class="text-sm text-gray-400 mb-6"><a href="{% url 'home' %}" class="hover:text-[#00A3E0]">Home</a> &raquo; <span class="text-white">Blog</span></nav>
+    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8 text-white">Blog & <span class="relative inline-block text-[#00A3E0]">Articles<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
     {% if blogs %}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-container">
         {% for blog in blogs %}
-          <a href="{% url 'blog_detail' blog.slug %}" class="bg-white rounded-xl shadow-[0_4px_14px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow">
+          <a href="{% url 'blog_detail' blog.slug %}" class="bg-[#122448] rounded-xl shadow-[0_4px_14px_rgba(0,0,0,0.3)] border border-white/10 overflow-hidden card-3d glow-border">
             {% if blog.get_image_url %}<img src="{{ blog.get_image_url }}" alt="{{ blog.title }}" class="w-full h-48 object-cover">{% endif %}
             <div class="p-4">
-              {% if blog.category %}<span class="text-xs text-[#2a619d] font-medium">{{ blog.category }}</span>{% endif %}
-              <h3 class="font-bold text-[#162f51] mt-1 line-clamp-2">{{ blog.title }}</h3>
-              <p class="text-sm text-gray-500 mt-2">{{ blog.date|date:"M d, Y" }}</p>
+              {% if blog.category %}<span class="text-xs text-[#00A3E0] font-medium">{{ blog.category }}</span>{% endif %}
+              <h3 class="font-bold text-white mt-1 line-clamp-2">{{ blog.title }}</h3>
+              <p class="text-sm text-gray-400 mt-2">{{ blog.date|date:"M d, Y" }}</p>
             </div>
           </a>
         {% endfor %}
       </div>
-    {% else %}<div class="text-center py-12 text-gray-500">No blog posts yet.</div>{% endif %}
+    {% else %}<div class="text-center py-12 text-gray-400">No blog posts yet.</div>{% endif %}
   </div>
 </section>
 {% endblock %}

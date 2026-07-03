@@ -13,19 +13,30 @@
   <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
-          colors: { primary: '#2a619d', accent: '#FE543D', dark: '#162f51' }
+          fontFamily: {
+            heading: ['"Playfair Display"', 'serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          colors: {
+            primary: '#00A3E0',
+            'primary-hover': '#0085BD',
+            accent: '#00B4D8',
+            dark: '#0A1A3A',
+            'dark-light': '#122448'
+          }
         }
       }
     }
   </script>
   <style>
-    body { font-family: 'Poppins', sans-serif; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
     .main_container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
     @media (min-width: 640px) { .main_container { padding: 0 24px; } }
     @media (min-width: 1024px) { .main_container { padding: 0 32px; } }
@@ -50,11 +61,133 @@
     .marquee-container:hover .marquee-track { animation-play-state: paused; }
 
     /* Mobile bottom nav */
-    .mobile-bottom-nav a.active { color: #FE543D; }
+    .mobile-bottom-nav a.active { color: #00A3E0; background: rgba(0, 163, 224, 0.1); }
+
+    /* Modern card style */
+    .card { background: #122448; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04); transition: all 0.3s ease; }
+    .card:hover { box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 10px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+
+    /* Gradient backgrounds */
+    .gradient-primary { background: linear-gradient(135deg, #00A3E0 0%, #00B4D8 100%); }
+    .gradient-dark { background: linear-gradient(180deg, #0A1A3A 0%, #122448 100%); }
+
+    /* 3D Effects */
+    .perspective-container { perspective: 1200px; }
+    
+    .card-3d {
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .card-3d:hover {
+      transform: translateY(-12px) rotateX(3deg) rotateY(-2deg) scale(1.02);
+      box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 163, 224, 0.15);
+      border-color: rgba(0, 163, 224, 0.5) !important;
+    }
+    .card-3d:active {
+      transform: translateY(-4px) rotateX(1deg) rotateY(-1deg) scale(1.01);
+    }
+
+    .card-3d-subtle {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+    }
+    .card-3d-subtle:hover {
+      transform: translateY(-6px) rotateX(2deg);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 8px 16px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 163, 224, 0.1);
+    }
+
+    /* 3D Button Effect */
+    .btn-3d {
+      position: relative;
+      box-shadow: 0 6px 0 #006699, 0 8px 15px rgba(0, 0, 0, 0.4);
+      transition: all 0.15s ease;
+      transform: translateY(0);
+    }
+    .btn-3d:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 9px 0 #006699, 0 12px 20px rgba(0, 0, 0, 0.5);
+    }
+    .btn-3d:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #006699, 0 3px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-3d-outline {
+      position: relative;
+      box-shadow: 0 4px 0 rgba(0, 163, 224, 0.3), 0 6px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.15s ease;
+      transform: translateY(0);
+    }
+    .btn-3d-outline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 rgba(0, 163, 224, 0.4), 0 8px 16px rgba(0, 0, 0, 0.4);
+      background: #00A3E0;
+      color: white;
+    }
+    .btn-3d-outline:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 rgba(0, 163, 224, 0.3), 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Glowing border effect */
+    .glow-border {
+      position: relative;
+    }
+    .glow-border::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #00A3E0, #00B4D8, #00A3E0);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+      filter: blur(8px);
+    }
+    .glow-border:hover::before {
+      opacity: 0.6;
+    }
+
+    /* 3D Flip effect for feature items */
+    .flip-card {
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(5deg) translateZ(10px);
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Pulse glow */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 5px rgba(0, 163, 224, 0.3); }
+      50% { box-shadow: 0 0 20px rgba(0, 163, 224, 0.6), 0 0 30px rgba(0, 163, 224, 0.3); }
+    }
+    .pulse-glow {
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
   </style>
   {% block extra_head %}{% endblock %}
 </head>
-<body class="bg-white text-gray-800 antialiased">
+<body class="bg-[#0A1A3A] text-white antialiased">
   {% include "includes/header.html" %}
 
   <main>
@@ -64,35 +197,35 @@
   {% include "includes/footer.html" %}
 
   <!-- Enquiry Modal -->
-  <div id="enquiryModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 relative">
-      <button onclick="closeEnquiryModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+  <div id="enquiryModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+    <div class="bg-[#122448] rounded-lg p-6 max-w-md w-full mx-4 relative border border-white/10 glow-border">
+      <button onclick="closeEnquiryModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl">&times;</button>
       <div class="text-center mb-4">
-        <div class="text-2xl text-black font-bold">Get Expert Guidance</div>
-        <div class="text-sm text-gray-900 font-medium">Fill the details to get guidance from expert counsellor</div>
+        <div class="text-2xl text-white font-bold">Get Expert Guidance</div>
+        <div class="text-sm text-gray-300 font-medium">Fill the details to get guidance from expert counsellor</div>
       </div>
       <form onsubmit="submitEnquiry(event)" class="space-y-2">
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Name <span class="text-red-500">*</span></label>
-          <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="block text-xs font-medium text-gray-300 mb-1">Name <span class="text-red-400">*</span></label>
+          <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white placeholder-gray-500">
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
-          <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="block text-xs font-medium text-gray-300 mb-1">Email <span class="text-red-400">*</span></label>
+          <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white placeholder-gray-500">
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+          <label class="block text-xs font-medium text-gray-300 mb-1">Mobile Number <span class="text-red-400">*</span></label>
           <div class="flex gap-2">
             <div class="relative flex-1">
               <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium select-none">+91</span>
-              <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2a619d] bg-white">
+              <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white placeholder-gray-500">
             </div>
-            <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#2a619d] text-white hover:bg-[#214d7d] active:scale-95 shadow-sm">Send OTP</button>
+            <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#00A3E0] text-white hover:bg-[#0085BD] active:scale-95 shadow-sm">Send OTP</button>
           </div>
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">I want a career in <span class="text-red-500">*</span></label>
-          <select name="course" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+          <label class="block text-xs font-medium text-gray-300 mb-1">I want a career in <span class="text-red-400">*</span></label>
+          <select name="course" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white">
             <option value="" selected="">I want a career in</option>
             {% for course in nav_courses %}
               <option value="{{ course.name }}">{{ course.name }}</option>
@@ -100,49 +233,49 @@
           </select>
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">My qualification is <span class="text-red-500">*</span></label>
-          <select name="qualification" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+          <label class="block text-xs font-medium text-gray-300 mb-1">My qualification is <span class="text-red-400">*</span></label>
+          <select name="qualification" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white">
             <option value="" selected="">My qualification is</option>
             <option value="Fresher / Student">Fresher / Student</option>
             <option value="Working IT Professional">Working IT Professional</option>
             <option value="Career Switcher">Career Switcher</option>
           </select>
         </div>
-        <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#2a619d] hover:bg-[#214d7d] active:scale-[0.98] shadow-md">Submit</button>
+        <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#00A3E0] hover:bg-[#0085BD] active:scale-[0.98] shadow-md btn-3d">Submit</button>
       </form>
     </div>
   </div>
 
   <!-- Callback Modal -->
-  <div id="callbackModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4 relative">
-      <button onclick="closeCallbackModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl">&times;</button>
+  <div id="callbackModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+    <div class="bg-[#122448] rounded-lg p-6 max-w-md w-full mx-4 relative border border-white/10 glow-border">
+      <button onclick="closeCallbackModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl">&times;</button>
       <div class="text-center mb-4">
-        <div class="text-2xl text-black font-bold">Request Call Back</div>
-        <div class="text-sm text-gray-900 font-medium">We'll call you back shortly</div>
+        <div class="text-2xl text-white font-bold">Request Call Back</div>
+        <div class="text-sm text-gray-300 font-medium">We'll call you back shortly</div>
       </div>
       <form onsubmit="submitCallback(event)" class="space-y-2">
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Name <span class="text-red-500">*</span></label>
-          <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="block text-xs font-medium text-gray-300 mb-1">Name <span class="text-red-400">*</span></label>
+          <input type="text" name="name" placeholder="Enter your name" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white placeholder-gray-500">
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
-          <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <label class="block text-xs font-medium text-gray-300 mb-1">Email <span class="text-red-400">*</span></label>
+          <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white placeholder-gray-500">
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+          <label class="block text-xs font-medium text-gray-300 mb-1">Mobile Number <span class="text-red-400">*</span></label>
           <div class="flex gap-2">
             <div class="relative flex-1">
               <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium select-none">+91</span>
-              <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#2a619d] bg-white">
+              <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white placeholder-gray-500">
             </div>
-            <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#2a619d] text-white hover:bg-[#214d7d] active:scale-95 shadow-sm">Send OTP</button>
+            <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#00A3E0] text-white hover:bg-[#0085BD] active:scale-95 shadow-sm">Send OTP</button>
           </div>
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Course <span class="text-red-500">*</span></label>
-          <select name="course" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+          <label class="block text-xs font-medium text-gray-300 mb-1">Course <span class="text-red-400">*</span></label>
+          <select name="course" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white">
             <option value="" selected="">Select a course</option>
             {% for course in nav_courses %}
               <option value="{{ course.name }}">{{ course.name }}</option>
@@ -150,15 +283,15 @@
           </select>
         </div>
         <div class="mb-4">
-          <label class="block text-xs font-medium text-gray-700 mb-1">Branch <span class="text-red-500">*</span></label>
-          <select name="branch" class="w-full px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white">
+          <label class="block text-xs font-medium text-gray-300 mb-1">Branch <span class="text-red-400">*</span></label>
+          <select name="branch" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white">
             <option value="" selected="">Select Branch</option>
             {% for branch in nav_branches %}
               <option value="{{ branch.name }}">{{ branch.name }}</option>
             {% endfor %}
           </select>
         </div>
-        <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#2a619d] hover:bg-[#214d7d] active:scale-[0.98] shadow-md">Request Call Back</button>
+        <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#00A3E0] hover:bg-[#0085BD] active:scale-[0.98] shadow-md btn-3d">Request Call Back</button>
       </form>
     </div>
   </div>

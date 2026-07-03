@@ -4,64 +4,64 @@
 {% block title %}Courses{% endblock %}
 
 {% block content %}
-<section class="py-10 bg-white">
+<section class="py-10 bg-[#0A1A3A]">
   <div class="main_container">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-6">
-      <h1 class="text-2xl xl:text-3xl font-medium">Our <span class="relative inline-block text-[#2a619d]">Courses<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
+      <h1 class="text-2xl xl:text-3xl font-medium text-white">Our <span class="relative inline-block text-[#00A3E0]">Courses<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
       <!-- Category Filter Pills -->
       <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
-        <a href="{% url 'course_list' %}" class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium border whitespace-nowrap transition {% if not current_category %}bg-[#2a619d] text-white border-[#2a619d]{% else %}bg-white text-gray-700 border-gray-300 hover:bg-gray-100{% endif %}"><span>All</span></a>
+        <a href="{% url 'course_list' %}" class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium border whitespace-nowrap transition {% if not current_category %}bg-[#00A3E0] text-white border-[#00A3E0]{% else %}bg-[#122448] text-gray-300 border-white/20 hover:bg-white/10{% endif %}"><span>All</span></a>
         {% for cat in categories %}
-          <a href="?category={{ cat }}" class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium border whitespace-nowrap transition {% if current_category == cat %}bg-[#2a619d] text-white border-[#2a619d]{% else %}bg-white text-gray-700 border-gray-300 hover:bg-gray-100{% endif %}"><span>#{{ cat }}</span></a>
+          <a href="?category={{ cat }}" class="px-3 py-1.5 rounded-full text-xs md:text-sm font-medium border whitespace-nowrap transition {% if current_category == cat %}bg-[#00A3E0] text-white border-[#00A3E0]{% else %}bg-[#122448] text-gray-300 border-white/20 hover:bg-white/10{% endif %}"><span>#{{ cat }}</span></a>
         {% endfor %}
       </div>
     </div>
 
     <!-- Course Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 perspective-container">
       {% for course in courses %}
-        <div class="rounded-lg hover:shadow-lg transition">
+        <div class="rounded-lg">
           <div class="">
-            <div class="group rounded-xl bg-white overflow-hidden shadow-[0_4px_14px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#2a619d] transition-all duration-300 hover:shadow-xl">
+            <div class="group rounded-xl bg-[#122448] overflow-hidden shadow-[0_4px_14px_rgba(0,0,0,0.3)] border border-white/10 card-3d glow-border">
               <div class="relative w-full h-48 overflow-hidden">
                 {% if course.image %}
                   <img alt="{{ course.name }}" loading="lazy" width="192" height="288" class="object-cover transition-all duration-500 group-hover:scale-105 h-48 w-full" src="{{ course.image }}">
                 {% endif %}
                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:bg-black/20"></div>
                 {% if course.category %}
-                  <span class="absolute top-3 left-3 bg-[#2a619d] text-white text-xs px-2 py-1 rounded-full">{{ course.category }}</span>
+                  <span class="absolute top-3 left-3 bg-[#00A3E0] text-white text-xs px-2 py-1 rounded-full">{{ course.category }}</span>
                 {% endif %}
               </div>
               <div class="p-4 space-y-3">
-                <h3 class="text-md font-bold text-[#162f51] leading-snug line-clamp-2 min-h-[48px]">{{ course.name }}</h3>
+                <h3 class="text-md font-bold text-white leading-snug line-clamp-2 min-h-[48px]">{{ course.name }}</h3>
                 <div class="flex gap-3">
-                  <div class="flex-1 bg-[#faf2ec] rounded-lg p-2">
-                    <div class="text-xs text-gray-500">Fee</div>
-                    <div class="text-[#e6662a] text-sm font-bold">{{ course.fee }}</div>
+                  <div class="flex-1 bg-[#0A1A3A] rounded-lg p-2 border border-white/10">
+                    <div class="text-xs text-gray-400">Fee</div>
+                    <div class="text-[#00A3E0] text-sm font-bold">{{ course.fee }}</div>
                   </div>
-                  <div class="flex-1 bg-[#eef4ff] rounded-lg p-2">
-                    <div class="text-xs text-gray-500">Duration</div>
-                    <div class="text-[#1d3b70] text-sm font-bold">{{ course.duration }}</div>
+                  <div class="flex-1 bg-[#0A1A3A] rounded-lg p-2 border border-white/10">
+                    <div class="text-xs text-gray-400">Duration</div>
+                    <div class="text-white text-sm font-bold">{{ course.duration }}</div>
                   </div>
                 </div>
                 <div class="flex gap-2">
-                  <div class="flex-1 flex items-center justify-center gap-1.5 bg-[#e8f5e9] rounded-lg px-1 py-1.5">
-                    <span class="text-[11px] font-semibold text-[#2e7d32]">Placement Assistance</span>
+                  <div class="flex-1 flex items-center justify-center gap-1.5 bg-[#0A1A3A] rounded-lg px-1 py-1.5 border border-white/10">
+                    <span class="text-[11px] font-semibold text-gray-300">Placement Assistance</span>
                   </div>
-                  <div class="flex-1 flex items-center justify-center gap-1.5 bg-[#d2e7f6] rounded-lg px-1 py-1.5">
-                    <span class="text-[11px] font-semibold text-[#1565c0]">100% Internship</span>
+                  <div class="flex-1 flex items-center justify-center gap-1.5 bg-[#0A1A3A] rounded-lg px-1 py-1.5 border border-white/10">
+                    <span class="text-[11px] font-semibold text-gray-300">100% Internship</span>
                   </div>
                 </div>
                 <div class="flex gap-4 mb-1 justify-between">
-                  <button onclick="openEnquiryModal('{{ course.name }}')" class="px-4 py-2 rounded-md font-semibold text-sm bg-[#2a619d] text-white hover:bg-white hover:text-[#2a619d] hover:border hover:border-[#2a619d] h-10 px-4 flex items-center justify-center flex-1">Enquire Now</button>
-                  <a href="{% url 'course_detail' course.slug %}" class="px-4 py-2 rounded-md font-semibold text-sm border border-[#2a619d] text-[#2a619d] hover:bg-[#2a619d] hover:text-white h-10 px-4 flex items-center justify-center flex-1">Know More</a>
+                  <button onclick="openEnquiryModal('{{ course.name }}')" class="px-4 py-2 rounded-md font-semibold text-sm bg-[#00A3E0] text-white hover:bg-white hover:text-[#00A3E0] hover:border hover:border-[#00A3E0] h-10 px-4 flex items-center justify-center flex-1 btn-3d">Enquire Now</button>
+                  <a href="{% url 'course_detail' course.slug %}" class="px-4 py-2 rounded-md font-semibold text-sm border border-[#00A3E0] text-[#00A3E0] hover:bg-[#00A3E0] hover:text-white h-10 px-4 flex items-center justify-center flex-1 btn-3d-outline">Know More</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       {% empty %}
-        <div class="col-span-full text-center py-12 text-gray-500">No courses found.</div>
+        <div class="col-span-full text-center py-12 text-gray-400">No courses found.</div>
       {% endfor %}
     </div>
 
@@ -69,21 +69,21 @@
     {% if is_paginated %}
     <div class="flex justify-center items-center my-8">
       {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="w-9 h-9 flex items-center justify-center border rounded-md mx-1 hover:bg-gray-200">&laquo;</a>
+        <a href="?page={{ page_obj.previous_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="w-9 h-9 flex items-center justify-center border border-white/20 rounded-md mx-1 hover:bg-white/10 text-gray-300">&laquo;</a>
       {% else %}
-        <button disabled class="w-9 h-9 flex items-center justify-center border rounded-md mx-1 hover:bg-gray-200 disabled:opacity-40 cursor-not-allowed">&laquo;</button>
+        <button disabled class="w-9 h-9 flex items-center justify-center border border-white/20 rounded-md mx-1 disabled:opacity-40 cursor-not-allowed text-gray-500">&laquo;</button>
       {% endif %}
       {% for num in page_obj.paginator.page_range %}
         {% if page_obj.number == num %}
-          <span class="cursor-pointer w-9 h-9 flex items-center justify-center rounded-md border mx-1 text-sm bg-[#2a619d] text-white">{{ num }}</span>
+          <span class="cursor-pointer w-9 h-9 flex items-center justify-center rounded-md border mx-1 text-sm bg-[#00A3E0] text-white border-[#00A3E0]">{{ num }}</span>
         {% else %}
-          <a href="?page={{ num }}{% if current_category %}&category={{ current_category }}{% endif %}" class="cursor-pointer w-9 h-9 flex items-center justify-center rounded-md border mx-1 text-sm border-gray-300 text-gray-700 hover:bg-gray-200">{{ num }}</a>
+          <a href="?page={{ num }}{% if current_category %}&category={{ current_category }}{% endif %}" class="cursor-pointer w-9 h-9 flex items-center justify-center rounded-md border mx-1 text-sm border-white/20 text-gray-300 hover:bg-white/10">{{ num }}</a>
         {% endif %}
       {% endfor %}
       {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="w-9 h-9 flex items-center justify-center border rounded-md mx-1 hover:bg-gray-200">&raquo;</a>
+        <a href="?page={{ page_obj.next_page_number }}{% if current_category %}&category={{ current_category }}{% endif %}" class="w-9 h-9 flex items-center justify-center border border-white/20 rounded-md mx-1 hover:bg-white/10 text-gray-300">&raquo;</a>
       {% else %}
-        <button disabled class="w-9 h-9 flex items-center justify-center border rounded-md mx-1 hover:bg-gray-200 disabled:opacity-40 cursor-not-allowed">&raquo;</button>
+        <button disabled class="w-9 h-9 flex items-center justify-center border border-white/20 rounded-md mx-1 disabled:opacity-40 cursor-not-allowed text-gray-500">&raquo;</button>
       {% endif %}
     </div>
     {% endif %}
