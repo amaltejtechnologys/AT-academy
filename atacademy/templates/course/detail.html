@@ -4,25 +4,25 @@
 {% block title %}{{ course.name }}{% endblock %}
 
 {% block content %}
-<section class="py-10 bg-[#0A1A3A]">
+<section class="py-10 bg-[#F9FAFB]">
   <div class="main_container">
     <!-- Breadcrumb -->
-    <nav class="text-sm text-gray-400 mb-6">
-      <a href="{% url 'home' %}" class="hover:text-[#00A3E0]">Home</a> &raquo;
-      <a href="{% url 'course_list' %}" class="hover:text-[#00A3E0]">Courses</a> &raquo;
-      <span class="text-white">{{ course.name }}</span>
+    <nav class="text-sm text-gray-500 mb-6">
+      <a href="{% url 'home' %}" class="hover:text-[#00D4FF]">Home</a> &raquo;
+      <a href="{% url 'course_list' %}" class="hover:text-[#00D4FF]">Courses</a> &raquo;
+      <span class="text-gray-900">{{ course.name }}</span>
     </nav>
 
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Left Content -->
       <div class="flex-1">
         <!-- Mobile Banner -->
-        <div class="block lg:hidden w-full mb-6" style="background:linear-gradient(160deg, #0A1A3A 0%, #122448 100%)">
+        <div class="block lg:hidden w-full mb-6" style="background:linear-gradient(160deg, #F9FAFB 0%, #FFFFFF 100%)">
           <div class="flex flex-col items-center pt-5 pb-5 px-5">
             <div class="flex items-center gap-3 mb-1">
               <img alt="AT Academy Logo" width="52" height="52" class="w-12 h-12 object-contain" src="{% static 'images/at_academy_logo.png' %}">
               <div class="text-left">
-                <h2 class="text-2xl xl:text-3xl font-medium text-white leading-tight md:text-2xl mb-4">{{ course.name }}</h2>
+                <h2 class="text-2xl xl:text-3xl font-medium text-gray-900 leading-tight md:text-2xl mb-4">{{ course.name }}</h2>
               </div>
             </div>
           </div>
@@ -30,12 +30,12 @@
 
         <!-- Desktop Title -->
         <div class="hidden lg:block mb-6">
-          <h1 class="text-3xl xl:text-4xl font-medium text-white leading-tight">{{ course.name }}</h1>
+          <h1 class="text-3xl xl:text-4xl font-medium text-gray-900 leading-tight">{{ course.name }}</h1>
         </div>
 
         {% if course.description %}
           <div class="prose max-w-none mb-8">
-            <p class="text-gray-300 leading-relaxed">{{ course.description }}</p>
+            <p class="text-gray-600 leading-relaxed">{{ course.description }}</p>
           </div>
         {% endif %}
 
@@ -43,37 +43,37 @@
         {% if programmes %}
         <section id="offeringUniversity" class="px-4 sm:px-0">
           <div class="my-8 md:my-10">
-            <div class="text-2xl xl:text-3xl font-medium text-white">Offering <span class="relative inline-block text-[#00A3E0]">Programs<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></div>
+            <div class="text-2xl xl:text-3xl font-medium text-gray-900">Offering <span class="relative inline-block text-[#00D4FF]">Programs<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></div>
             <div class="mt-6 md:mt-10">
               <!-- Desktop Table -->
-              <div class="hidden lg:block w-full overflow-hidden rounded-xl border border-white/10">
+              <div class="hidden lg:block w-full overflow-hidden rounded-xl border border-gray-200">
                 <table class="w-full border-collapse">
                   <thead>
-                    <tr class="text-white text-xs md:text-sm bg-[#0A1A3A]">
-                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-white/20">Offering Program</th>
-                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-white/20">Mode</th>
-                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-white/20">Duration</th>
-                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-white/20">Price</th>
-                      <th class="px-4 py-3 text-center font-semibold whitespace-nowrap border border-white/20">Action</th>
+                    <tr class="text-gray-900 text-xs md:text-sm bg-[#F9FAFB]">
+                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-gray-200">Offering Program</th>
+                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-gray-200">Mode</th>
+                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-gray-200">Duration</th>
+                      <th class="px-4 py-3 text-left font-semibold whitespace-nowrap border border-gray-200">Price</th>
+                      <th class="px-4 py-3 text-center font-semibold whitespace-nowrap border border-gray-200">Action</th>
                     </tr>
                   </thead>
                   <tbody class="text-xs md:text-sm">
                     {% for p in programmes %}
                     <tr class="hover:bg-white/5 transition-colors">
-                      <td class="px-4 py-3 border border-white/20"><span class="text-sm font-semibold text-white whitespace-nowrap">{{ p.institution_name }}</span></td>
-                      <td class="px-4 py-3 border border-white/20">
+                      <td class="px-4 py-3 border border-gray-200"><span class="text-sm font-semibold text-gray-900 whitespace-nowrap">{{ p.institution_name }}</span></td>
+                      <td class="px-4 py-3 border border-gray-200">
                         <div class="flex flex-col gap-1">
                           {% for mode in p.modes_list %}
-                            <span class="text-xs font-medium bg-[#00A3E0]/20 text-[#00A3E0] px-2.5 py-1 rounded-full border border-[#00A3E0]/30 whitespace-nowrap text-center">{{ mode }}</span>
+                            <span class="text-xs font-medium bg-[#00D4FF]/20 text-[#00D4FF] px-2.5 py-1 rounded-full border border-[#00D4FF]/30 whitespace-nowrap text-center">{{ mode }}</span>
                           {% empty %}
-                            <span class="text-xs font-medium bg-[#00A3E0]/20 text-[#00A3E0] px-2.5 py-1 rounded-full border border-[#00A3E0]/30 whitespace-nowrap text-center">{{ p.mode }}</span>
+                            <span class="text-xs font-medium bg-[#00D4FF]/20 text-[#00D4FF] px-2.5 py-1 rounded-full border border-[#00D4FF]/30 whitespace-nowrap text-center">{{ p.mode }}</span>
                           {% endfor %}
                         </div>
                       </td>
-                      <td class="px-4 py-3 border border-white/20"><span class="text-sm text-gray-300">{{ p.duration }}</span></td>
-                      <td class="px-4 py-3 border border-white/20"><span class="text-sm font-semibold text-white">{{ p.fee_range }}</span></td>
-                      <td class="px-4 py-3 border border-white/20 text-center">
-                        <button onclick="openEnquiryModal('{{ course.name }}')" class="cursor-pointer text-sm bg-[#00A3E0] text-white hover:bg-white hover:text-[#00A3E0] hover:border hover:border-[#00A3E0] h-10 px-4 flex items-center justify-center whitespace-nowrap min-w-[90px] w-full font-semibold btn-3d">Enroll Now</button>
+                      <td class="px-4 py-3 border border-gray-200"><span class="text-sm text-gray-600">{{ p.duration }}</span></td>
+                      <td class="px-4 py-3 border border-gray-200"><span class="text-sm font-semibold text-gray-900">{{ p.fee_range }}</span></td>
+                      <td class="px-4 py-3 border border-gray-200 text-center">
+                        <button onclick="openEnquiryModal('{{ course.name }}')" class="cursor-pointer text-sm bg-[#00D4FF] text-gray-900 hover:bg-white hover:text-[#00D4FF] hover:border hover:border-[#00D4FF] h-10 px-4 flex items-center justify-center whitespace-nowrap min-w-[90px] w-full font-semibold btn-3d">Enroll Now</button>
                       </td>
                     </tr>
                     {% endfor %}
@@ -83,20 +83,20 @@
               <!-- Mobile Cards -->
               <div class="lg:hidden space-y-4">
                 {% for p in programmes %}
-                <div class="bg-[#122448] rounded-xl p-4 shadow-sm border border-white/10">
+                <div class="bg-[#111827] rounded-xl p-4 shadow-2xl border border-white/10">
                   <h3 class="font-semibold text-white mb-2">{{ p.institution_name }}</h3>
                   <div class="flex flex-col gap-1 mb-2">
                     {% for mode in p.modes_list %}
-                      <span class="text-xs font-medium bg-[#00A3E0]/20 text-[#00A3E0] px-2.5 py-1 rounded-full border border-[#00A3E0]/30 whitespace-nowrap text-center w-fit">{{ mode }}</span>
+                      <span class="text-xs font-medium bg-[#00D4FF]/20 text-[#00D4FF] px-2.5 py-1 rounded-full border border-[#00D4FF]/30 whitespace-nowrap text-center w-fit">{{ mode }}</span>
                     {% empty %}
-                      <span class="text-xs font-medium bg-[#00A3E0]/20 text-[#00A3E0] px-2.5 py-1 rounded-full border border-[#00A3E0]/30 whitespace-nowrap text-center w-fit">{{ p.mode }}</span>
+                      <span class="text-xs font-medium bg-[#00D4FF]/20 text-[#00D4FF] px-2.5 py-1 rounded-full border border-[#00D4FF]/30 whitespace-nowrap text-center w-fit">{{ p.mode }}</span>
                     {% endfor %}
                   </div>
                   <div class="flex justify-between text-sm mb-2">
                     <span class="text-gray-400">Duration: <span class="font-semibold text-white">{{ p.duration }}</span></span>
                     <span class="text-gray-400">Price: <span class="font-semibold text-white">{{ p.fee_range }}</span></span>
                   </div>
-                  <button onclick="openEnquiryModal('{{ course.name }}')" class="cursor-pointer text-sm bg-[#00A3E0] text-white hover:bg-white hover:text-[#00A3E0] hover:border hover:border-[#00A3E0] h-10 px-4 flex items-center justify-center whitespace-nowrap w-full font-semibold btn-3d">Enroll Now</button>
+                  <button onclick="openEnquiryModal('{{ course.name }}')" class="cursor-pointer text-sm bg-[#00D4FF] text-gray-900 hover:bg-white hover:text-[#00D4FF] hover:border hover:border-[#00D4FF] h-10 px-4 flex items-center justify-center whitespace-nowrap w-full font-semibold btn-3d">Enroll Now</button>
                 </div>
                 {% endfor %}
               </div>
@@ -108,16 +108,16 @@
         <!-- Technologies -->
         {% if technologies %}
         <div class="my-8 md:my-10">
-          <div class="text-2xl xl:text-3xl font-medium text-white">Explore <span class="relative inline-block text-[#00A3E0]">Core Technologies<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></div>
-          <div class="bg-[#122448] rounded-2xl shadow-md p-6 md:mt-3 border border-white/10">
+          <div class="text-2xl xl:text-3xl font-medium text-gray-900">Explore <span class="relative inline-block text-[#00D4FF]">Core Technologies<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></div>
+          <div class="bg-[#111827] rounded-2xl shadow-2xl p-6 md:mt-3 border border-white/10">
             <div class="hidden md:grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-8 md:gap-x-4 md:gap-y-6">
               {% for tech in technologies %}
               <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
-                <div class="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-[#0A1A3A] to-[#122448] rounded-2xl flex items-center justify-center mb-3 shadow-sm group-hover:shadow-md transition-all duration-300 border border-white/20">
+                <div class="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-2xl flex items-center justify-center mb-3 shadow-sm group-hover:shadow-md transition-all duration-300 border border-white/10">
                   {% if tech.image %}
                     <img alt="{{ tech.name }}" width="100" height="100" class="object-contain p-2" src="{{ tech.image }}">
                   {% else %}
-                    <span class="text-2xl font-bold text-gray-400">{{ tech.name|truncatechars:2 }}</span>
+                    <span class="text-2xl font-bold text-gray-500">{{ tech.name|truncatechars:2 }}</span>
                   {% endif %}
                 </div>
                 <span class="text-xs font-medium text-gray-300 text-center">{{ tech.name }}</span>
@@ -128,11 +128,11 @@
             <div class="md:hidden grid grid-cols-3 gap-4">
               {% for tech in technologies %}
               <div class="flex flex-col items-center">
-                <div class="w-16 h-16 bg-gradient-to-br from-[#0A1A3A] to-[#122448] rounded-xl flex items-center justify-center mb-2 border border-white/20">
+                <div class="w-16 h-16 bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-xl flex items-center justify-center mb-2 border border-white/10">
                   {% if tech.image %}
                     <img alt="{{ tech.name }}" width="48" height="48" class="object-contain p-1" src="{{ tech.image }}">
                   {% else %}
-                    <span class="text-lg font-bold text-gray-400">{{ tech.name|truncatechars:2 }}</span>
+                    <span class="text-lg font-bold text-gray-500">{{ tech.name|truncatechars:2 }}</span>
                   {% endif %}
                 </div>
                 <span class="text-[10px] font-medium text-gray-300 text-center">{{ tech.name }}</span>
@@ -145,7 +145,7 @@
 
         <!-- Download Curriculum -->
         <div class="flex items-center gap-4 my-6">
-          <button class="cursor-pointer text-sm bg-[#00A3E0] text-white hover:bg-white hover:text-[#00A3E0] hover:border hover:border-[#00A3E0] h-10 px-4 flex items-center justify-center rounded-md btn-3d">
+          <button onclick="openBrochureModal()" class="cursor-pointer text-sm bg-[#00D4FF] text-gray-900 hover:bg-white hover:text-[#00D4FF] hover:border hover:border-[#00D4FF] h-10 px-4 flex items-center justify-center rounded-md btn-3d">
             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 me-1" height="1em" width="1em"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             <span>Download Curriculum</span>
           </button>
@@ -159,47 +159,150 @@
 
       <!-- Right - Enquiry Form -->
       <div class="w-full lg:w-[400px]">
-        <div class="sticky top-24 bg-[#122448] p-6 rounded-lg shadow-[0_4px_14px_rgba(0,0,0,0.3)] border border-white/10">
+        <div class="sticky top-24 bg-[#111827] p-6 rounded-lg shadow-2xl border border-white/10">
           <div class="text-center mb-4">
             <div class="text-xl font-bold text-white">Get Expert Guidance</div>
             <div class="text-sm text-gray-400">Fill the details to get guidance</div>
           </div>
           <form onsubmit="submitEnquiry(event)" class="space-y-2">
             <div class="mb-4">
-              <label class="block text-xs font-medium text-gray-300 mb-1">Email <span class="text-red-500">*</span></label>
-              <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#0A1A3A] text-white placeholder-gray-500">
+              <label class="block text-xs font-medium text-gray-400 mb-1">Email <span class="text-red-500">*</span></label>
+              <input type="email" name="email" placeholder="Enter your email" class="w-full px-2 py-2 border border-white/10 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#0B1120] text-white placeholder-gray-500">
             </div>
             <div class="mb-4">
               <div class="w-full">
-                <label class="block text-xs font-medium text-gray-300 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+                <label class="block text-xs font-medium text-gray-400 mb-1">Mobile Number <span class="text-red-500">*</span></label>
                 <div class="flex gap-2">
                   <div class="relative flex-1">
                     <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium select-none">+91</span>
-                    <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00A3E0] bg-[#0A1A3A] text-white placeholder-gray-500">
+                    <input type="tel" name="phone" maxlength="10" inputmode="numeric" placeholder="Enter 10-digit mobile number" class="w-full pl-12 pr-4 py-2 border border-white/10 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00D4FF] bg-[#0B1120] text-white placeholder-gray-500">
                   </div>
-                  <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#00A3E0] text-white hover:bg-[#0085BD] active:scale-95 shadow-sm">Send OTP</button>
+                  <button type="button" class="px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap bg-[#00D4FF] text-gray-900 hover:bg-[#00B8E6] active:scale-95 shadow-sm">Send OTP</button>
                 </div>
               </div>
             </div>
             <div class="mb-4">
-              <label class="block text-xs font-medium text-gray-300 mb-1">Course <span class="text-red-500">*</span></label>
-              <input type="text" disabled class="w-full px-4 py-2 border border-white/20 rounded-md text-sm bg-[#0A1A3A] text-gray-400 cursor-not-allowed" value="{{ course.name }}">
+              <label class="block text-xs font-medium text-gray-400 mb-1">Course <span class="text-red-500">*</span></label>
+              <input type="text" disabled class="w-full px-4 py-2 border border-white/10 rounded-md text-sm bg-[#0B1120] text-gray-500 cursor-not-allowed" value="{{ course.name }}">
               <input type="hidden" name="course" value="{{ course.name }}">
             </div>
             <div class="mb-4">
-              <label class="block text-xs font-medium text-gray-300 mb-1">Branch <span class="text-red-500">*</span></label>
-              <select name="branch" class="w-full px-2 py-2 border border-white/20 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#0A1A3A] text-white">
+              <label class="block text-xs font-medium text-gray-400 mb-1">Branch <span class="text-red-500">*</span></label>
+              <select name="branch" class="w-full px-2 py-2 border border-white/10 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#0B1120] text-white">
                 <option value="" selected="">Select Branch</option>
                 {% for branch in nav_branches %}
                   <option value="{{ branch.name }}">{{ branch.name }}</option>
                 {% endfor %}
               </select>
             </div>
-            <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-white bg-[#00A3E0] hover:bg-[#0085BD] active:scale-[0.98] shadow-md btn-3d">Submit</button>
+            <button type="submit" class="w-full py-2.5 px-4 rounded-md font-semibold text-gray-900 bg-[#00D4FF] hover:bg-[#00B8E6] active:scale-[0.98] shadow-md btn-3d">Submit</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Brochure Download Modal -->
+<div id="brochureModal" class="fixed inset-0 z-[9999] hidden items-center justify-center p-4" style="background:rgba(0,0,0,0.7);backdrop-filter:blur(4px)">
+  <div class="bg-[#FFFFFF] rounded-2xl p-6 w-full max-w-md border border-gray-200 shadow-2xl relative">
+    <button onclick="closeBrochureModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-2xl leading-none">&times;</button>
+    <div class="text-center mb-5">
+      <div class="w-14 h-14 bg-[#00D4FF]/10 rounded-full flex items-center justify-center mx-auto mb-3">
+        <svg class="w-7 h-7 text-[#00D4FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900">Download {{ course.name }} Brochure</h3>
+      <p class="text-sm text-gray-500 mt-1">Fill in your details to download the curriculum</p>
+    </div>
+    <form id="brochureForm" onsubmit="submitBrochure(event)" class="space-y-4">
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1">Full Name <span class="text-red-500">*</span></label>
+        <input type="text" name="name" required placeholder="Enter your full name" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D4FF] bg-[#F9FAFB] text-gray-900 placeholder-gray-400">
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1">Email <span class="text-red-500">*</span></label>
+        <input type="email" name="email" required placeholder="Enter your email" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D4FF] bg-[#F9FAFB] text-gray-900 placeholder-gray-400">
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-gray-600 mb-1">Phone Number <span class="text-red-500">*</span></label>
+        <div class="flex gap-2">
+          <span class="flex items-center px-3 border border-gray-200 rounded-lg text-sm text-gray-500 bg-[#F9FAFB]">+91</span>
+          <input type="tel" name="phone" maxlength="10" inputmode="numeric" required placeholder="10-digit mobile number" class="flex-1 px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#00D4FF] bg-[#F9FAFB] text-gray-900 placeholder-gray-400">
+        </div>
+      </div>
+      <div id="brochureError" class="text-red-400 text-sm hidden"></div>
+      <button type="submit" id="brochureSubmitBtn" class="w-full py-3 rounded-lg font-semibold text-gray-900 bg-[#00D4FF] hover:bg-[#00B8E6] active:scale-[0.98] shadow-2xl shadow-[#00D4FF]/20 btn-3d transition-all">
+        Download Brochure
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+const COURSE_SLUG = '{{ course.slug }}';
+
+function openBrochureModal() {
+  const modal = document.getElementById('brochureModal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBrochureModal() {
+  const modal = document.getElementById('brochureModal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+  document.getElementById('brochureForm').reset();
+  document.getElementById('brochureError').classList.add('hidden');
+}
+
+async function submitBrochure(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('brochureSubmitBtn');
+  const errDiv = document.getElementById('brochureError');
+  const data = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    phone: form.phone.value.trim()
+  };
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  errDiv.classList.add('hidden');
+  try {
+    const resp = await fetch(`/api/brochure/${COURSE_SLUG}/`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken')},
+      body: JSON.stringify(data)
+    });
+    const result = await resp.json();
+    if (result.success && result.download_url) {
+      window.open(result.download_url, '_blank');
+      closeBrochureModal();
+    } else {
+      errDiv.textContent = result.message || 'Brochure not available.';
+      errDiv.classList.remove('hidden');
+    }
+  } catch(err) {
+    errDiv.textContent = 'Something went wrong. Please try again.';
+    errDiv.classList.remove('hidden');
+  }
+  btn.disabled = false;
+  btn.textContent = 'Download Brochure';
+}
+
+function getCookie(name) {
+  const cookies = document.cookie.split(';');
+  for (let c of cookies) {
+    c = c.trim();
+    if (c.startsWith(name + '=')) return decodeURIComponent(c.substring(name.length + 1));
+  }
+  return '';
+}
+
+document.getElementById('brochureModal').addEventListener('click', function(e) {
+  if (e.target === this) closeBrochureModal();
+});
+</script>
 {% endblock %}

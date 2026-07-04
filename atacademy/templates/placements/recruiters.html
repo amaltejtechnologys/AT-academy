@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block title %}Recruiters{% endblock %}
 {% block content %}
-<section class="py-10 bg-[#0A1A3A]">
+<section class="py-10 bg-[#F9FAFB]">
   <div class="main_container">
-    <nav class="text-sm text-gray-400 mb-6"><a href="{% url 'home' %}" class="hover:text-[#00A3E0]">Home</a> &raquo; <span class="text-white">Recruiters</span></nav>
-    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8 text-white">Our <span class="relative inline-block text-[#00A3E0]">Recruiters<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
+    <nav class="text-sm text-gray-400 mb-6"><a href="{% url 'home' %}" class="hover:text-[#00D4FF]">Home</a> &raquo; <span class="text-gray-900">Recruiters</span></nav>
+    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8 text-gray-900">Our <span class="relative inline-block text-[#00D4FF]">Recruiters<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
     {% if hiring_partners %}
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 perspective-container">
         {% for partner in hiring_partners %}
-          <div class="bg-[#122448] rounded-xl p-4 shadow-[0_4px_14px_rgba(0,0,0,0.3)] border border-white/10 flex items-center justify-center card-3d glow-border">
-            <span class="text-lg font-bold text-gray-300">{{ partner.name }}</span>
+          <div class="bg-[#FFFFFF] rounded-xl p-4 shadow-[0_4px_14px_rgba(0,0,0,0.3)] border border-gray-200 flex items-center justify-center card-3d glow-border">
+            <span class="text-lg font-bold text-gray-600">{{ partner.name }}</span>
           </div>
         {% endfor %}
       </div>
     {% else %}<div class="text-center py-12 text-gray-400">Recruiters info coming soon.</div>{% endif %}
     <div class="mt-8 text-center">
-      <h2 class="text-xl font-bold text-white mb-4">Want to hire our students?</h2>
-      <button onclick="openCallbackModal()" class="bg-[#00A3E0] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#0085BD] transition-colors btn-3d">Contact Us</button>
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Want to hire our students?</h2>
+      <button onclick="openCallbackModal()" class="bg-[#00D4FF] text-gray-900 px-6 py-3 rounded-md font-semibold hover:bg-[#00B8E6] transition-colors btn-3d">Contact Us</button>
     </div>
   </div>
 </section>

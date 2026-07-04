@@ -2,16 +2,16 @@
 {% load static %}
 {% block title %}Success Stories{% endblock %}
 {% block content %}
-<section class="py-10 bg-[#0A1A3A]">
+<section class="py-10 bg-[#F9FAFB]">
   <div class="main_container">
-    <nav class="text-sm text-gray-400 mb-6"><a href="{% url 'home' %}" class="hover:text-[#00A3E0]">Home</a> &raquo; <span class="text-white">Success Stories</span></nav>
-    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8 text-white">Success <span class="relative inline-block text-[#00A3E0]">Stories<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="orangered" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
+    <nav class="text-sm text-gray-400 mb-6"><a href="{% url 'home' %}" class="hover:text-[#00D4FF]">Home</a> &raquo; <span class="text-gray-900">Success Stories</span></nav>
+    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8 text-gray-900">Success <span class="relative inline-block text-[#00D4FF]">Stories<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
     {% if stories %}
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-container">
         {% for story in stories %}
-          <div class="bg-[#122448] rounded-xl p-6 shadow-[0_4px_14px_rgba(0,0,0,0.3)] border border-white/10 card-3d glow-border">
+          <div class="bg-[#111827] rounded-xl p-6 shadow-2xl border border-white/10 card-3d glow-border">
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-14 h-14 rounded-full bg-[#00A3E0]/20 flex items-center justify-center pulse-glow"><span class="text-[#00A3E0] font-bold text-lg">{{ story.name|truncatechars:1 }}</span></div>
+              <div class="w-14 h-14 rounded-full bg-[#00D4FF]/20 flex items-center justify-center pulse-glow"><span class="text-[#00D4FF] font-bold text-lg">{{ story.name|truncatechars:1 }}</span></div>
               <div><p class="font-bold text-white">{{ story.name }}</p>{% if story.course %}<p class="text-sm text-gray-400">{{ story.course }}</p>{% endif %}</div>
             </div>
             {% if story.description %}<p class="text-gray-300 text-sm">{{ story.description }}</p>{% endif %}

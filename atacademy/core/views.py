@@ -5,7 +5,7 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from .models import (
     Course, Branch, Testimonial, SuccessStory, Blog, GalleryImage,
-    Programme, Technology, HiringPartner,
+    Programme, Technology, HiringPartner, BrochureRequest,
 )
 from .forms import EnquiryForm, CallbackForm, RecruiterForm
 
@@ -28,7 +28,7 @@ def course_list(request):
     context = {
         'courses': courses,
         'current_category': category,
-        'categories': Course.objects.values_list('category', flat=True).distinct(),
+        'categories': sorted(set(Course.objects.exclude(category='').values_list('category', flat=True))),
     }
     return render(request, 'course/list.html', context)
 
@@ -163,5 +163,24 @@ def submit_recruiter(request):
             form.save()
             return JsonResponse({'success': True, 'message': 'Contact submitted successfully!'})
         return JsonResponse({'success': False, 'errors': form.errors}, status=400)
+    except Exception as e:
+        return JsonResponse({'success': False, 'message': str(e)}, status=500)
+
+
+@csrf_exempt
+@require_POST
+def download_brochure(request, slug):
+    try:
+        course = get_object_or_404(Course, slug=slug)
+        data = json.loads(request.body) if request.content_type == 'application/json' else request.POST
+        name = data.get('name', '')
+        email = data.get('email', '')
+        phone = data.get('phone', '')
+        if not all([name, email, phone]):
+            return JsonResponse({'success': False, 'message': 'All fields are required.'}, status=400)
+        BrochureRequest.objects.create(name=name, email=email, phone=phone, course=course)
+        if course.brochure:
+            return JsonResponse({'success': True, 'download_url': course.brochure.url})
+        return JsonResponse({'success': False, 'message': 'Brochure not available yet.'}, status=404)
     except Exception as e:
         return JsonResponse({'success': False, 'message': str(e)}, status=500)

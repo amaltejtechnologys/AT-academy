@@ -119,6 +119,7 @@ class Course(models.Model):
     description = models.TextField(blank=True, default='')
     features = models.JSONField(default=list, blank=True)
     category = models.CharField(max_length=50, blank=True, default='general')
+    brochure = models.FileField(upload_to='brochures/', blank=True, help_text='PDF brochure for this course')
     order = models.IntegerField(default=0)
     meta_title = models.CharField(max_length=200, blank=True, default='')
     meta_description = models.TextField(blank=True, default='')
@@ -363,3 +364,19 @@ class RecruiterContact(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.company_name}"
+
+
+class BrochureRequest(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='brochure_requests')
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_read = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name_plural = 'Brochure Requests'
+
+    def __str__(self):
+        return f"{self.name} - {self.course.name}"

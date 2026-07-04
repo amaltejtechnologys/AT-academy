@@ -4,7 +4,7 @@ from .models import (
     SiteSettings, NavigationItem, FooterLinkGroup, FooterLink, SearchedTerm,
     Technology, Course, Branch, Programme, Testimonial, SuccessStory,
     HiringPartner, Certification, Blog, GalleryImage,
-    Enquiry, CallbackRequest, RecruiterContact,
+    Enquiry, CallbackRequest, RecruiterContact, BrochureRequest,
 )
 
 
@@ -76,6 +76,7 @@ class CourseAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name', 'category']
     list_filter = ['category']
+    fields = ['name', 'slug', 'fee', 'duration', 'image', 'image_file', 'description', 'features', 'category', 'brochure', 'order', 'meta_title', 'meta_description', 'technologies']
 
 
 @admin.register(Branch, site=admin_site)
@@ -156,5 +157,14 @@ class RecruiterContactAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone', 'company_name', 'designation', 'created_at', 'is_read']
     list_editable = ['is_read']
     list_filter = ['is_read', 'created_at']
-    search_fields = ['name', 'email', 'company_name']
+    search_fields = ['name', 'email', 'phone']
     readonly_fields = ['name', 'email', 'phone', 'company_name', 'designation', 'created_at']
+
+
+@admin.register(BrochureRequest, site=admin_site)
+class BrochureRequestAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'phone', 'course', 'created_at', 'is_read']
+    list_editable = ['is_read']
+    list_filter = ['is_read', 'created_at', 'course']
+    search_fields = ['name', 'email', 'phone']
+    readonly_fields = ['name', 'email', 'phone', 'course', 'created_at']
