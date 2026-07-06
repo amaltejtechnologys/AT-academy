@@ -1,20 +1,57 @@
-# AT Academy - Full Stack Website
+# AT Academy — Full-Stack Django Website
 
-A fully-featured Django backend for **AT Academy** (formerly Teks Academy) — an educational institution website with a complete admin panel, dynamic content management, and responsive templates matching the original site design.
+A fully-featured, production-deployed educational institution website built with Django. Complete admin panel, dynamic content management, responsive design, and live deployment on PythonAnywhere.
+
+**Live Site:** [https://AbdulAyaan.pythonanywhere.com](https://AbdulAyaan.pythonanywhere.com)
 
 ---
 
-## Features
+<!-- Add screenshots here later -->
+<!-- ![Homepage](screenshots/homepage.png) -->
+<!-- ![Course Page](screenshots/course.png) -->
+<!-- ![Admin Panel](screenshots/admin.png) -->
 
-- **Django 6.0.6 Backend** — Clean, scalable Python web framework
-- **SQLite Database** — Lightweight, zero-configuration storage
-- **Custom Admin Panel** — Branded `ATAdminSite` with full CRUD for all content
-- **18 Database Models** — Courses, Branches, Testimonials, Blogs, Gallery, and more
-- **Dynamic Content** — Every piece of text, image, and link editable from admin
-- **Responsive Templates** — Mobile-first design matching the original AT Academy site
-- **API Endpoints** — Enquiry form, Callback request, Recruiter contact (AJAX-powered)
-- **Context Processors** — Dynamic header/footer data from database
-- **Image Uploads** — Admin-uploadable logos, banners, and feature icons
+---
+
+## What I Built
+
+### Design & UI
+- **Floating translucent navbar** — Infosys-style pill-shaped header with scroll effects, backdrop blur, and smooth transitions
+- **Hero video section** — Full-screen looping background video with feature cards overlay
+- **Dark cards on light theme** — High-contrast card design with cyan/purple accent colors
+- **Hover zoom animations** — Smooth scale-up effects on 25+ interactive cards across all sections
+- **Responsive design** — Fully mobile-optimized with bottom navigation bar, slide-out menu, and adaptive layouts
+
+### Sections
+- **Feature Grid** — 4 feature cards (Career Guidance, Study Materials, Interview Prep, Placement)
+- **Top 5 Courses** — Dynamic course cards with images, fees, duration, and enquiry buttons
+- **Excel with AT Academy** — Benefits grid with callback enquiry form
+- **How It Works** — 4-step journey with animated icon circles and connector line
+- **Career Services in a Nutshell** — 6 service cards with numbering
+- **Testimonials** — Auto-scrolling marquee of student reviews
+- **Success Stories** — Student achievement cards
+- **CTA Banner** — Gradient call-to-action section
+
+### Backend
+- **18 Django models** — Courses, Branches, Testimonials, Blogs, Gallery, and more
+- **Custom admin panel** — Branded admin site with full CRUD for all content
+- **AJAX API endpoints** — Enquiry form, callback request, brochure download
+- **Context processors** — Dynamic header/footer data from database
+- **SQLite database** — Zero-configuration storage
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Python 3.11+ | Core Programming |
+| Django 6.x | Web Framework |
+| SQLite | Database |
+| HTML5 | Templates |
+| Tailwind CSS | Styling (via CDN) |
+| JavaScript | Interactive Elements, Animations |
+| AJAX | Async Form Submissions |
 
 ---
 
@@ -23,180 +60,107 @@ A fully-featured Django backend for **AT Academy** (formerly Teks Academy) — a
 ```
 AT website/
 ├── .gitignore
-├── Start Website.bat              # One-click launcher
 ├── atacademy/
 │   ├── manage.py
-│   ├── atacademy/                 # Django project settings
-│   │   ├── __init__.py
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   ├── wsgi.py
-│   │   └── asgi.py
-│   ├── core/                      # Main application
-│   │   ├── models.py              # 18 database models
-│   │   ├── admin.py               # Custom admin site
-│   │   ├── views.py               # 20 views + 3 API endpoints
-│   │   ├── urls.py                # URL routing
-│   │   ├── forms.py               # Enquiry/Callback/Recruiter forms
-│   │   ├── context_processors.py  # Global template context
-│   │   ├── management/
-│   │   │   └── commands/
-│   │   │       └── import_data.py # Data import command
-│   │   └── migrations/            # Database migrations (0001-0004)
-│   ├── templates/                 # 22 HTML templates
-│   │   ├── base.html              # Base template with modals
-│   │   ├── index.html             # Homepage
+│   ├── requirements.txt
+│   ├── atacademy/              # Django project config
+│   │   ├── settings.py         # Production-ready settings
+│   │   ├── urls.py             # URL routing + media serving
+│   │   └── wsgi.py
+│   ├── core/                   # Main application
+│   │   ├── models.py           # 18 database models
+│   │   ├── admin.py            # Custom admin site
+│   │   ├── views.py            # Views + API endpoints
+│   │   ├── urls.py             # 26 URL patterns
+│   │   ├── forms.py            # Enquiry/Callback forms
+│   │   └── context_processors.py
+│   ├── templates/              # 22 HTML templates
+│   │   ├── base.html           # Base template with modals
+│   │   ├── index.html          # Homepage (all sections)
 │   │   ├── includes/
-│   │   │   ├── header.html        # Dynamic header with dropdowns
-│   │   │   └── footer.html        # Dynamic footer from settings
-│   │   ├── course/                # Course list & detail
-│   │   ├── branch/                # Branch detail
-│   │   ├── blogs/                 # Blog list & detail
-│   │   ├── discover/              # About, Contact, Gallery, Videos
-│   │   └── placements/            # Alumni & Recruiters
+│   │   │   ├── header.html     # Floating navbar
+│   │   │   └── footer.html
+│   │   ├── course/             # Course list & detail
+│   │   ├── branch/             # Branch detail
+│   │   ├── blogs/              # Blog list & detail
+│   │   ├── discover/           # About, Contact, Gallery, Videos
+│   │   └── placements/         # Alumni & Recruiters
 │   ├── static/
-│   │   └── images/
-│   │       └── at_academy_logo.png
-│   └── db.sqlite3                 # SQLite database (gitignored)
+│   │   ├── images/             # Logo, favicon
+│   │   └── videos/             # Hero video, experience video
+│   └── media/                  # Uploaded content (gitignored)
 ```
 
 ---
 
-## Tech Stack
-
-| Technology | Purpose |
-|------------|---------|
-| Python 3.14 | Core Programming |
-| Django 6.0.6 | Web Framework |
-| SQLite | Database |
-| HTML5 | Templates |
-| Tailwind CSS (CDN) | Styling |
-| JavaScript | Interactive Elements |
-| AJAX | Form Submissions |
-
----
-
-## Setup
+## Setup (Local Development)
 
 ### Prerequisites
-
-- Python 3.14+
+- Python 3.10+
 - pip
 
-### 1. Clone the repository
+### Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/ayaan-2008/Full_Stack_website_.git
-cd Full_Stack_website_
-```
+cd Full_Stack_website_/atacademy
 
-### 2. Install dependencies
+# Install dependencies
+pip install -r requirements.txt
 
-```bash
-cd atacademy
-pip install django django-cleanup
-```
-
-### 3. Run migrations
-
-```bash
+# Run migrations
 python manage.py migrate
-```
 
-### 4. Create admin account
-
-```bash
+# Create admin account
 python manage.py createsuperuser
+
+# Start the server
+python manage.py runserver
 ```
 
-### 5. Import initial data (optional)
-
-```bash
-python manage.py import_data
-```
-
-### 6. Start the server
-
-```bash
-python manage.py runserver 0.0.0.0:8000
-```
-
-Or double-click **`Start Website.bat`** to launch everything automatically.
+Visit `http://localhost:8000`
 
 ---
 
-## Access
+## Production Deployment (PythonAnywhere)
 
-| Page | URL |
-|------|-----|
-| Website | http://localhost:8000 |
-| Admin Panel | http://localhost:8000/admin/ |
+The site is deployed on PythonAnywhere with the following setup:
 
-### Default Admin Credentials
+1. Code pulled from GitHub
+2. SQLite database uploaded separately
+3. Static files served via Django's staticfiles
+4. Media files served via Django's URL configuration
+5. Auto-detection in `settings.py` sets `DEBUG=False` and configures `ALLOWED_HOSTS`
 
-| Field | Value |
-|-------|-------|
-| Username | admin |
-| Password | admin123 |
+### Future Deployment Workflow
+```bash
+# Local: push changes
+git add -A && git commit -m "description" && git push
+
+# PythonAnywhere: pull and reload
+cd ~/atacademy/atacademy
+git pull
+python3 manage.py migrate
+# Click Reload on Web tab
+```
 
 ---
 
-## Admin Panel — What's Editable
+## Admin Panel
 
-### Site Settings
-- Site name & tagline
-- Phone number, email, address
-- Google Maps URL
-- Social media links
-- Header & footer logos
+**URL:** `https://AbdulAyaan.pythonanywhere.com/admin/`
 
-### Home Page Settings
-- Career Guidance icon
-- Study Materials icon
-- Interview Prep icon
-- Placement Assistance icon
-- Excel banner image
-
-### Nutshell / Career Services
-- Section illustration
-- 6 feature icons (Seminars, Resume, Mock Interviews, Placement, Internship, Projects)
-
-### Content Management
-- **Courses** — Name, category, fee, duration, slug, image, description
-- **Branches** — Name, address, phone, slug, map URL
+### What's Editable
+- **Site Settings** — Name, phone, email, address, social links, logos
+- **Courses** — Name, category, fee, duration, image, description, brochure
+- **Branches** — Name, address, phone, map URL
 - **Testimonials** — Student name, course, feedback
 - **Success Stories** — Student achievements
 - **Hiring Partners** — Company name, logo
 - **Certifications** — Certification names
-- **Blogs** — Title, content, category, date
+- **Blogs** — Title, content, category
 - **Gallery** — Images with categories
-- **Navigation** — Menu items with dropdowns
-- **Footer** — Link groups and links
-
----
-
-## Database Models
-
-| Model | Description |
-|-------|-------------|
-| SiteSettings | Global site configuration (singleton) |
-| NavigationItem | Header menu items |
-| FooterLinkGroup | Footer link categories |
-| FooterLink | Individual footer links |
-| SearchedTerm | Search suggestions |
-| Technology | Tech stack display |
-| Course | Course listings |
-| Branch | Branch locations |
-| Programme | Course programmes |
-| Testimonial | Student testimonials |
-| SuccessStory | Placement success stories |
-| HiringPartner | Partner companies |
-| Certification | Available certifications |
-| Blog | Blog posts |
-| GalleryImage | Gallery photos |
-| Enquiry | Form submissions |
-| CallbackRequest | Callback requests |
-| RecruiterContact | Recruiter inquiries |
 
 ---
 
@@ -206,51 +170,49 @@ Or double-click **`Start Website.bat`** to launch everything automatically.
 |--------|----------|-------------|
 | POST | `/api/enquiry/` | Submit course enquiry |
 | POST | `/api/callback/` | Request a callback |
+| POST | `/api/brochure/<slug>/` | Download course brochure |
 | POST | `/api/recruiter/` | Recruiter contact form |
 
-All endpoints accept JSON and return JSON responses.
+---
+
+## Database Models (18)
+
+| Model | Description |
+|-------|-------------|
+| SiteSettings | Global site configuration |
+| NavigationItem | Header menu items |
+| FooterLinkGroup / FooterLink | Footer links |
+| Course | Course listings |
+| Branch | Branch locations |
+| Programme | Course programmes |
+| Technology | Tech stack display |
+| Testimonial | Student testimonials |
+| SuccessStory | Placement stories |
+| HiringPartner | Partner companies |
+| Certification | Available certifications |
+| Blog | Blog posts |
+| GalleryImage | Gallery photos |
+| Enquiry / CallbackRequest | Form submissions |
+| RecruiterContact / BrochureRequest | Inquiries |
 
 ---
 
-## Key Routes
+## Security
 
-| Route | Page |
-|-------|------|
-| `/` | Homepage |
-| `/course/` | All Courses |
-| `/courses/<slug>/` | Course Detail |
-| `/branch/<slug>/` | Branch Detail |
-| `/discover/about-us/` | About Us |
-| `/discover/contact-us/` | Contact Us |
-| `/discover/gallery/` | Photo Gallery |
-| `/discover/videos/` | Videos |
-| `/blogs/` | Blog List |
-| `/placements/alumni/` | Alumni Stories |
-| `/placements/recruiters/` | Recruiters |
-| `/success-stories/` | Success Stories |
-| `/privacy-policy/` | Privacy Policy |
-| `/policyagreements/terms-of-service/` | Terms of Service |
-| `/apply-for-jobs/` | Job Application |
-| `/find-my-course/` | Course Finder |
-
----
-
-## Security Notes
-
-- `SECRET_KEY` is read from the `DJANGO_SECRET_KEY` environment variable
-- Falls back to a dev key for local development
+- `SECRET_KEY` from environment variable (falls back to dev key locally)
+- `DEBUG=False` on production
+- CSRF protection on all forms
 - Admin panel requires authentication
-- CSRF protection enabled on all forms
-- `db.sqlite3` and `media/` are gitignored
+- `.gitignore` excludes `db.sqlite3`, `media/`, `.env`, `__pycache__/`
 
 ---
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+MIT License
 
 ---
 
 ## Author
 
-Developed by **Abdul Ayaan**
+**Abdul Ayaan** — [GitHub](https://github.com/ayaan-2008)
