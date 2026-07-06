@@ -14,6 +14,7 @@ ON_PYTHONANYWHERE = 'PYTHONANYWHERE_DOMAIN' in os.environ or 'AbdulAyaan' in os.
 if ON_PYTHONANYWHERE:
     DEBUG = False
     ALLOWED_HOSTS = ['AbdulAyaan.pythonanywhere.com']
+    CSRF_TRUSTED_ORIGINS = ['https://AbdulAyaan.pythonanywhere.com']
 else:
     DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
     ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
