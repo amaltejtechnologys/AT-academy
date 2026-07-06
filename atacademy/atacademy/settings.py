@@ -8,9 +8,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-yb99$2ts@nv15!_-%-oqu@7-i8l-lb^8dfzns46s17r3zg3fyl')
 
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
+# Detect PythonAnywhere
+ON_PYTHONANYWHERE = 'PYTHONANYWHERE_DOMAIN' in os.environ or 'AbdulAyaan' in os.getcwd()
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+if ON_PYTHONANYWHERE:
+    DEBUG = False
+    ALLOWED_HOSTS = ['AbdulAyaan.pythonanywhere.com']
+else:
+    DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
+    ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
