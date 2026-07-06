@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <link rel="preconnect" href="https://prod.spline.design" crossorigin>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
-    .main_container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .main_container { max-width: 1400px; margin: 0 auto; padding: 0 16px; }
     @media (min-width: 640px) { .main_container { padding: 0 24px; } }
     @media (min-width: 1024px) { .main_container { padding: 0 32px; } }
 
@@ -194,7 +194,7 @@
 
     /* Performance optimizations */
     .animate-scroll-left { will-change: transform; }
-    spline-viewer { contain: layout style paint; }
+
     .glow-border::before { will-change: opacity; }
   </style>
   {% block extra_head %}{% endblock %}
@@ -370,7 +370,25 @@
       } catch(err) { alert('Submission failed. Please try again.'); }
     }
   </script>
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js"></script>
+
   {% block extra_js %}{% endblock %}
+
+  <script>
+    // Floating header scroll behavior
+    const header = document.getElementById('desktopHeader');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.remove('bg-white/70', 'border-white/50');
+          header.classList.add('bg-white/95', 'border-gray-200');
+          header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
+        } else {
+          header.classList.remove('bg-white/95', 'border-gray-200');
+          header.classList.add('bg-white/70', 'border-white/50');
+          header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.1)';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
