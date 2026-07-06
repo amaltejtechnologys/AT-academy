@@ -4,14 +4,14 @@ A fully-featured, production-deployed educational institution website built with
 
 **Live Site:** [https://AbdulAyaan.pythonanywhere.com](https://AbdulAyaan.pythonanywhere.com)
 
----
+<img width="1911" height="990" alt="image" src="https://github.com/user-attachments/assets/5d8db19f-3b91-4699-a7cd-db94000889b1" />
 
-<!-- Add screenshots here later -->
-<!-- ![Homepage](screenshots/homepage.png) -->
-<!-- ![Course Page](screenshots/course.png) -->
-<!-- ![Admin Panel](screenshots/admin.png) -->
+<img width="1917" height="986" alt="image" src="https://github.com/user-attachments/assets/dc47b9a8-be50-48e2-8071-0779cc5d2c26" />
 
----
+<img width="1919" height="987" alt="image" src="https://github.com/user-attachments/assets/4cfd0a3b-714d-4b24-bd80-bceccd33d9e9" />
+
+<img width="1916" height="993" alt="image" src="https://github.com/user-attachments/assets/7682cc90-2b86-4985-9982-ca49397518e8" />
+
 
 ## What I Built
 
