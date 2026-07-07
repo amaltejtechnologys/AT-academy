@@ -134,6 +134,13 @@ class Course(models.Model):
     def get_absolute_url(self):
         return reverse('course_detail', kwargs={'slug': self.slug})
 
+    def get_image_url(self):
+        if self.image:
+            return self.image
+        if self.image_file:
+            return self.image_file.url
+        return ''
+
 
 class Branch(models.Model):
     name = models.CharField(max_length=100)

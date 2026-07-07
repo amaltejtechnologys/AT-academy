@@ -51,8 +51,8 @@
               <div>
                 <div class="group rounded-xl bg-[#111827] overflow-hidden shadow-2xl border border-white/10 card-3d glow-border">
                   <div class="relative w-full h-48 overflow-hidden">
-                    {% if course.image %}
-                      <img alt="{{ course.name }}" loading="lazy" width="192" height="288" class="object-cover transition-all duration-500 group-hover:blur-0 h-48 w-full group-hover:brightness-100" src="{{ course.image }}">
+                    {% if course.get_image_url %}
+                      <img alt="{{ course.name }}" loading="lazy" width="192" height="288" class="object-cover transition-all duration-500 group-hover:blur-0 h-48 w-full group-hover:brightness-100" src="{{ course.get_image_url }}">
                     {% endif %}
                     <div class="absolute inset-0 bg-black/10 transition-all duration-500 group-hover:bg-black/0 group-hover:backdrop-blur-0"></div>
                   </div>

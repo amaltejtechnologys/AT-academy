@@ -24,9 +24,9 @@
           <div class="">
             <div class="group rounded-xl bg-[#111827] overflow-hidden shadow-2xl border border-white/10 card-3d glow-border">
               <div class="relative w-full h-48 overflow-hidden">
-                {% if course.image %}
-                  <img alt="{{ course.name }}" loading="lazy" width="192" height="288" class="object-cover transition-all duration-500 group-hover:scale-105 h-48 w-full" src="{{ course.image }}">
-                {% endif %}
+{% if course.get_image_url %}
+                  <img alt="{{ course.name }}" loading="lazy" width="192" height="288" class="object-cover transition-all duration-500 group-hover:scale-105 h-48 w-full" src="{{ course.get_image_url }}">
+{% endif %}
                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent transition-all duration-500 group-hover:bg-black/20"></div>
                 {% if course.category %}
                   <span class="absolute top-3 left-3 bg-[#00D4FF] text-gray-900 text-xs px-2 py-1 rounded-full">{{ course.category }}</span>
