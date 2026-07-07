@@ -6,7 +6,7 @@ from django.http import JsonResponse, HttpResponseNotFound
 from django.views.decorators.http import require_POST
 from .models import (
     Course, Branch, Testimonial, SuccessStory, Blog, GalleryImage,
-    Programme, Technology, HiringPartner, BrochureRequest,
+    Programme, Technology, HiringPartner, BrochureRequest, CourseBrochure,
 )
 from .forms import EnquiryForm, CallbackForm, RecruiterForm
 
@@ -181,9 +181,23 @@ def download_brochure(request, slug):
         if not all([name, email, phone]):
             return JsonResponse({'success': False, 'message': 'All fields are required.'}, status=400)
         BrochureRequest.objects.create(name=name, email=email, phone=phone, course=course)
+        brochures = list(course.brochures.values_list('id', flat=True))
+        if brochures:
+            return JsonResponse({'success': True, 'brochure_ids': brochures})
         if course.brochure:
             return JsonResponse({'success': True, 'download_url': course.brochure.url})
         return JsonResponse({'success': False, 'message': 'Brochure not available yet.'}, status=404)
     except Exception as e:
         logger.exception("Error in download_brochure")
+        return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'}, status=500)
+
+
+def download_brochure_file(request, brochure_id):
+    try:
+        brochure = get_object_or_404(CourseBrochure, id=brochure_id)
+        if brochure.file:
+            return JsonResponse({'success': True, 'download_url': brochure.file.url})
+        return JsonResponse({'success': False, 'message': 'File not available.'}, status=404)
+    except Exception as e:
+        logger.exception("Error in download_brochure_file")
         return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'}, status=500)

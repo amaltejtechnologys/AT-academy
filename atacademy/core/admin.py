@@ -4,7 +4,7 @@ from .models import (
     SiteSettings, NavigationItem, FooterLinkGroup, FooterLink, SearchedTerm,
     Technology, Course, Branch, Programme, Testimonial, SuccessStory,
     HiringPartner, Certification, Blog, GalleryImage,
-    Enquiry, CallbackRequest, RecruiterContact, BrochureRequest,
+    Enquiry, CallbackRequest, RecruiterContact, BrochureRequest, CourseBrochure,
 )
 
 
@@ -68,6 +68,11 @@ class TechnologyAdmin(admin.ModelAdmin):
     list_editable = ['order']
 
 
+class BrochureInline(admin.TabularInline):
+    model = CourseBrochure
+    extra = 1
+
+
 @admin.register(Course, site=admin_site)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ['name', 'category', 'fee', 'duration', 'order']
@@ -75,7 +80,8 @@ class CourseAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name', 'category']
     list_filter = ['category']
-    fields = ['name', 'slug', 'fee', 'duration', 'image', 'image_file', 'description', 'features', 'category', 'brochure', 'order', 'meta_title', 'meta_description', 'technologies']
+    fields = ['name', 'slug', 'fee', 'duration', 'image', 'image_file', 'description', 'features', 'category', 'order', 'meta_title', 'meta_description', 'technologies']
+    inlines = [BrochureInline]
 
 
 @admin.register(Branch, site=admin_site)

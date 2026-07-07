@@ -388,3 +388,17 @@ class BrochureRequest(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.course.name}"
+
+
+class CourseBrochure(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='brochures')
+    title = models.CharField(max_length=200, help_text='e.g. Full Stack Python Syllabus 2026')
+    file = models.FileField(upload_to='brochures/', help_text='PDF brochure')
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name_plural = 'Course Brochures'
+
+    def __str__(self):
+        return f"{self.course.name} - {self.title}"

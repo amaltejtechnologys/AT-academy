@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/callback/', views.submit_callback, name='submit_callback'),
     path('api/recruiter/', views.submit_recruiter, name='submit_recruiter'),
     path('api/brochure/<slug:slug>/', views.download_brochure, name='download_brochure'),
+    path('api/brochure-file/<int:brochure_id>/', views.download_brochure_file, name='download_brochure_file'),
 ]

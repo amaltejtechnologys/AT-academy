@@ -231,6 +231,7 @@
         </div>
       </div>
       <div id="brochureError" class="text-red-400 text-sm hidden"></div>
+      <div id="brochureList" class="hidden space-y-2"></div>
       <button type="submit" id="brochureSubmitBtn" class="w-full py-3 rounded-lg font-semibold text-gray-900 bg-[#00D4FF] hover:bg-[#00B8E6] active:scale-[0.98] shadow-2xl shadow-[#00D4FF]/20 btn-3d transition-all">
         Download Brochure
       </button>
@@ -262,6 +263,7 @@ async function submitBrochure(e) {
   const form = e.target;
   const btn = document.getElementById('brochureSubmitBtn');
   const errDiv = document.getElementById('brochureError');
+  const listDiv = document.getElementById('brochureList');
   const data = {
     name: form.name.value.trim(),
     email: form.email.value.trim(),
@@ -270,6 +272,8 @@ async function submitBrochure(e) {
   btn.disabled = true;
   btn.textContent = 'Submitting...';
   errDiv.classList.add('hidden');
+  listDiv.classList.add('hidden');
+  listDiv.innerHTML = '';
   try {
     const resp = await fetch(`/api/brochure/${COURSE_SLUG}/`, {
       method: 'POST',
@@ -277,9 +281,36 @@ async function submitBrochure(e) {
       body: JSON.stringify(data)
     });
     const result = await resp.json();
-    if (result.success && result.download_url) {
-      window.open(result.download_url, '_blank');
-      closeBrochureModal();
+    if (result.success) {
+      if (result.download_url) {
+        window.open(result.download_url, '_blank');
+        closeBrochureModal();
+      } else if (result.brochure_ids && result.brochure_ids.length > 0) {
+        btn.disabled = false;
+        btn.textContent = 'Close';
+        btn.onclick = closeBrochureModal;
+        if (result.brochure_ids.length === 1) {
+          const resp2 = await fetch(`/api/brochure-file/${result.brochure_ids[0]}/`);
+          const res2 = await resp2.json();
+          if (res2.download_url) window.open(res2.download_url, '_blank');
+          closeBrochureModal();
+        } else {
+          listDiv.innerHTML = '<p class="text-sm font-medium text-gray-700 mb-2">Your brochures are ready:</p>';
+          for (const id of result.brochure_ids) {
+            const resp2 = await fetch(`/api/brochure-file/${id}/`);
+            const res2 = await resp2.json();
+            if (res2.download_url) {
+              const link = document.createElement('a');
+              link.href = res2.download_url;
+              link.target = '_blank';
+              link.className = 'block w-full text-center py-2 px-4 rounded-lg border border-[#00D4FF] text-[#00D4FF] hover:bg-[#00D4FF] hover:text-white text-sm font-medium transition-all';
+              link.textContent = 'Download Brochure';
+              listDiv.appendChild(link);
+            }
+          }
+          listDiv.classList.remove('hidden');
+        }
+      }
     } else {
       errDiv.textContent = result.message || 'Brochure not available.';
       errDiv.classList.remove('hidden');
