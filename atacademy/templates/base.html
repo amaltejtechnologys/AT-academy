@@ -329,6 +329,14 @@
       document.getElementById('callbackModal').classList.add('hidden');
       document.getElementById('callbackModal').classList.remove('flex');
     }
+    function getCookie(name) {
+      const cookies = document.cookie.split(';');
+      for (let c of cookies) {
+        c = c.trim();
+        if (c.startsWith(name + '=')) return decodeURIComponent(c.substring(name.length + 1));
+      }
+      return '';
+    }
     async function submitEnquiry(e) {
       e.preventDefault();
       const form = e.target;
@@ -336,7 +344,7 @@
       try {
         const resp = await fetch('/api/enquiry/', {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken')},
           body: JSON.stringify(data)
         });
         const result = await resp.json();
@@ -356,7 +364,7 @@
       try {
         const resp = await fetch('/api/callback/', {
           method: 'POST',
-          headers: {'Content-Type': 'application/json'},
+          headers: {'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken')},
           body: JSON.stringify(data)
         });
         const result = await resp.json();

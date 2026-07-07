@@ -114,8 +114,8 @@
               {% for tech in technologies %}
               <div class="flex flex-col items-center group hover:scale-105 transition-transform duration-300">
                 <div class="w-24 h-24 md:w-28 md:h-28 bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-2xl flex items-center justify-center mb-3 shadow-sm group-hover:shadow-md transition-all duration-300 border border-white/10">
-                  {% if tech.image %}
-                    <img alt="{{ tech.name }}" width="100" height="100" class="object-contain p-2" src="{{ tech.image }}">
+                  {% if tech.logo %}
+                    <img alt="{{ tech.name }}" width="100" height="100" class="object-contain p-2" src="{{ tech.logo.url }}">
                   {% else %}
                     <span class="text-2xl font-bold text-gray-500">{{ tech.name|truncatechars:2 }}</span>
                   {% endif %}
@@ -129,8 +129,8 @@
               {% for tech in technologies %}
               <div class="flex flex-col items-center">
                 <div class="w-16 h-16 bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-xl flex items-center justify-center mb-2 border border-white/10">
-                  {% if tech.image %}
-                    <img alt="{{ tech.name }}" width="48" height="48" class="object-contain p-1" src="{{ tech.image }}">
+                  {% if tech.logo %}
+                    <img alt="{{ tech.name }}" width="48" height="48" class="object-contain p-1" src="{{ tech.logo.url }}">
                   {% else %}
                     <span class="text-lg font-bold text-gray-500">{{ tech.name|truncatechars:2 }}</span>
                   {% endif %}

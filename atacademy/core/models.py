@@ -148,6 +148,7 @@ class Branch(models.Model):
     address = models.CharField(max_length=200, blank=True, default='')
     image = models.ImageField(upload_to='branches/', blank=True)
     phone = models.CharField(max_length=20, blank=True, default='')
+    google_maps_url = models.URLField(blank=True, default='')
     order = models.IntegerField(default=0)
     meta_title = models.CharField(max_length=200, blank=True, default='')
     meta_description = models.TextField(blank=True, default='')

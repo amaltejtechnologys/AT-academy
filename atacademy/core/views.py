@@ -1,13 +1,16 @@
 import json
+import logging
+from datetime import date
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponseNotFound
 from django.views.decorators.http import require_POST
-from django.views.decorators.csrf import csrf_exempt
 from .models import (
     Course, Branch, Testimonial, SuccessStory, Blog, GalleryImage,
     Programme, Technology, HiringPartner, BrochureRequest,
 )
 from .forms import EnquiryForm, CallbackForm, RecruiterForm
+
+logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -64,7 +67,7 @@ def gallery(request):
     context = {
         'gallery_images': GalleryImage.objects.all().order_by('order'),
     }
-    return render(request, 'discover/gallery.html')
+    return render(request, 'discover/gallery.html', context)
 
 
 def videos(request):
@@ -125,7 +128,6 @@ def custom_404(request, exception):
     return HttpResponseNotFound(render(request, '404.html').content)
 
 
-@csrf_exempt
 @require_POST
 def submit_enquiry(request):
     try:
@@ -136,10 +138,10 @@ def submit_enquiry(request):
             return JsonResponse({'success': True, 'message': 'Enquiry submitted successfully!'})
         return JsonResponse({'success': False, 'errors': form.errors}, status=400)
     except Exception as e:
-        return JsonResponse({'success': False, 'message': str(e)}, status=500)
+        logger.exception("Error in submit_enquiry")
+        return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'}, status=500)
 
 
-@csrf_exempt
 @require_POST
 def submit_callback(request):
     try:
@@ -150,10 +152,10 @@ def submit_callback(request):
             return JsonResponse({'success': True, 'message': 'Callback request submitted successfully!'})
         return JsonResponse({'success': False, 'errors': form.errors}, status=400)
     except Exception as e:
-        return JsonResponse({'success': False, 'message': str(e)}, status=500)
+        logger.exception("Error in submit_callback")
+        return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'}, status=500)
 
 
-@csrf_exempt
 @require_POST
 def submit_recruiter(request):
     try:
@@ -164,10 +166,10 @@ def submit_recruiter(request):
             return JsonResponse({'success': True, 'message': 'Contact submitted successfully!'})
         return JsonResponse({'success': False, 'errors': form.errors}, status=400)
     except Exception as e:
-        return JsonResponse({'success': False, 'message': str(e)}, status=500)
+        logger.exception("Error in submit_recruiter")
+        return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'}, status=500)
 
 
-@csrf_exempt
 @require_POST
 def download_brochure(request, slug):
     try:
@@ -183,4 +185,5 @@ def download_brochure(request, slug):
             return JsonResponse({'success': True, 'download_url': course.brochure.url})
         return JsonResponse({'success': False, 'message': 'Brochure not available yet.'}, status=404)
     except Exception as e:
-        return JsonResponse({'success': False, 'message': str(e)}, status=500)
+        logger.exception("Error in download_brochure")
+        return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'}, status=500)
