@@ -135,10 +135,10 @@ class Course(models.Model):
         return reverse('course_detail', kwargs={'slug': self.slug})
 
     def get_image_url(self):
-        if self.image:
-            return self.image
         if self.image_file:
             return self.image_file.url
+        if self.image:
+            return self.image
         return ''
 
 
