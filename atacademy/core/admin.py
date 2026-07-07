@@ -12,7 +12,6 @@ class ATAdminSite(AdminSite):
     site_header = 'AT Academy Admin'
     site_title = 'AT Academy'
     index_title = 'Dashboard'
-    login_template = 'admin/login.html'
 
 
 admin_site = ATAdminSite(name='atacademy_admin')
