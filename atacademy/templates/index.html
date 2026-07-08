@@ -508,7 +508,10 @@
       {% for project in live_projects %}
         <div class="group bg-[#111827] rounded-xl p-8 shadow-2xl border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)]">
           {% if project.get_image_url %}
-            <img src="{{ project.get_image_url }}" alt="{{ project.title }}" class="w-full h-40 object-cover rounded-lg mb-4">
+            <img src="{{ project.get_image_url }}" alt="{{ project.title }}" class="w-full h-40 object-cover rounded-lg mb-4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="w-full h-40 rounded-lg bg-[#00D4FF]/10 items-center justify-center mb-4" style="display:none">
+              <span class="text-[#00D4FF] font-bold text-3xl">{{ project.title|truncatechars:1 }}</span>
+            </div>
           {% else %}
             <div class="w-full h-40 rounded-lg bg-[#00D4FF]/10 flex items-center justify-center mb-4">
               <span class="text-[#00D4FF] font-bold text-3xl">{{ project.title|truncatechars:1 }}</span>
@@ -538,7 +541,10 @@
         <div class="group bg-[#111827] rounded-xl p-8 shadow-2xl border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)]">
           <div class="flex items-center gap-4 mb-4">
             {% if intern.get_intern_image_url %}
-              <img src="{{ intern.get_intern_image_url }}" alt="{{ intern.name }}" class="w-16 h-16 rounded-full object-cover border-2 border-[#00D4FF]/30">
+              <img src="{{ intern.get_intern_image_url }}" alt="{{ intern.name }}" class="w-16 h-16 rounded-full object-cover border-2 border-[#00D4FF]/30" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="w-16 h-16 rounded-full bg-[#00D4FF]/20 items-center justify-center" style="display:none">
+                <span class="text-[#00D4FF] font-bold text-xl">{{ intern.name|truncatechars:1 }}</span>
+              </div>
             {% else %}
               <div class="w-16 h-16 rounded-full bg-[#00D4FF]/20 flex items-center justify-center">
                 <span class="text-[#00D4FF] font-bold text-xl">{{ intern.name|truncatechars:1 }}</span>
@@ -549,7 +555,10 @@
               {% if intern.role %}<p class="text-base text-[#00D4FF]">{{ intern.role }}</p>{% endif %}
             </div>
             {% if intern.get_company_logo_url %}
-              <img src="{{ intern.get_company_logo_url }}" alt="{{ intern.company }}" class="w-12 h-12 object-contain rounded-lg bg-white/5 p-1">
+              <img src="{{ intern.get_company_logo_url }}" alt="{{ intern.company }}" class="w-12 h-12 object-contain rounded-lg bg-white/5 p-1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="w-12 h-12 rounded-lg bg-white/5 items-center justify-center border border-white/10" style="display:none">
+                <span class="text-white font-bold text-xs text-center leading-tight">{{ intern.company }}</span>
+              </div>
             {% elif intern.company %}
               <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
                 <span class="text-white font-bold text-xs text-center leading-tight">{{ intern.company }}</span>

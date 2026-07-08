@@ -76,7 +76,7 @@ def seed_data(apps, schema_editor):
                 description='End-to-end student lifecycle management covering admissions, attendance, grades, fee management, and parent communication portal.',
                 tech_stack='Python, Django, Bootstrap, MySQL',
                 duration='2 months',
-                image_url='https://images.unsplash.com/photo-1523050854058-8df90110c8f1?w=600&h=400&fit=crop',
+                image_url='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=400&fit=crop',
                 order=3,
             ),
         ])

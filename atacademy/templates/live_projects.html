@@ -11,7 +11,10 @@
         {% for project in projects %}
           <div class="bg-[#111827] rounded-xl p-6 shadow-2xl border border-white/10 card-3d glow-border">
             {% if project.get_image_url %}
-              <img src="{{ project.get_image_url }}" alt="{{ project.title }}" class="w-full h-48 object-cover rounded-lg mb-4">
+              <img src="{{ project.get_image_url }}" alt="{{ project.title }}" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="w-full h-48 rounded-lg bg-[#00D4FF]/10 items-center justify-center mb-4" style="display:none">
+                <span class="text-[#00D4FF] font-bold text-4xl">{{ project.title|truncatechars:1 }}</span>
+              </div>
             {% else %}
               <div class="w-full h-48 rounded-lg bg-[#00D4FF]/10 flex items-center justify-center mb-4">
                 <span class="text-[#00D4FF] font-bold text-4xl">{{ project.title|truncatechars:1 }}</span>
