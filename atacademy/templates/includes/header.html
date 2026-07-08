@@ -109,7 +109,9 @@
           </div>
         </li>
 
-        <a href="{% url 'success_stories' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Success Stories</a>
+        <a href="{% url 'internships' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Internships</a>
+
+        <a href="{% url 'live_projects' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Live Projects</a>
 
         <!-- Resources Dropdown -->
         <li class="relative group list-none">
@@ -127,6 +129,8 @@
         </li>
 
         <a href="{% url 'contact' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Contact</a>
+
+        <a href="{% url 'success_stories' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Success Stories</a>
       </nav>
 
       <!-- CTA Buttons -->
@@ -173,10 +177,12 @@
           {% endfor %}
         </div>
       </div>
-      <a href="{% url 'success_stories' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Success Stories</a>
+      <a href="{% url 'internships' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Internships</a>
+      <a href="{% url 'live_projects' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Live Projects</a>
       <a href="{% url 'blog_list' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Blogs</a>
       <a href="{% url 'gallery' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Gallery</a>
       <a href="{% url 'contact' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Contact</a>
+      <a href="{% url 'success_stories' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Success Stories</a>
     </nav>
     <div class="mt-6 space-y-3">
       <button onclick="openCallbackModal(); document.getElementById('mobileMenu').classList.add('translate-x-full');" class="w-full border border-gray-300 text-gray-700 px-4 py-2.5 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors">Enquiry Now</button>

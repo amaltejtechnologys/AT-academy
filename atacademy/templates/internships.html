@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Internships{% endblock %}
+{% block content %}
+<section class="py-10 bg-[#F9FAFB]">
+  <div class="main_container">
+    <nav class="text-sm text-gray-400 mb-6"><a href="{% url 'home' %}" class="hover:text-[#00D4FF]">Home</a> &raquo; <span class="text-gray-900">Internships</span></nav>
+    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8 text-gray-900">Our <span class="relative inline-block text-[#00D4FF]">Interns<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
+    {% if interns %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-container">
+        {% for intern in interns %}
+          <div class="bg-[#111827] rounded-xl p-6 shadow-2xl border border-white/10 card-3d glow-border">
+            <div class="flex items-center gap-4 mb-4">
+              {% if intern.get_intern_image_url %}
+                <img src="{{ intern.get_intern_image_url }}" alt="{{ intern.name }}" class="w-16 h-16 rounded-full object-cover border-2 border-[#00D4FF]/30">
+              {% else %}
+                <div class="w-16 h-16 rounded-full bg-[#00D4FF]/20 flex items-center justify-center pulse-glow">
+                  <span class="text-[#00D4FF] font-bold text-xl">{{ intern.name|truncatechars:1 }}</span>
+                </div>
+              {% endif %}
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-white">{{ intern.name }}</p>
+                {% if intern.role %}<p class="text-sm text-[#00D4FF]">{{ intern.role }}</p>{% endif %}
+                {% if intern.course %}<p class="text-xs text-gray-400">{{ intern.course }}</p>{% endif %}
+              </div>
+              {% if intern.get_company_logo_url %}
+                <img src="{{ intern.get_company_logo_url }}" alt="{{ intern.company }}" class="w-12 h-12 object-contain rounded-lg bg-white/5 p-1">
+              {% elif intern.company %}
+                <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center border border-white/10">
+                  <span class="text-white font-bold text-xs text-center leading-tight">{{ intern.company }}</span>
+                </div>
+              {% endif %}
+            </div>
+            {% if intern.company %}
+              <div class="flex items-center gap-2 mb-3">
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                <span class="text-sm text-gray-300">{{ intern.company }}</span>
+              </div>
+            {% endif %}
+            {% if intern.description %}<p class="text-gray-300 text-sm">{{ intern.description }}</p>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}<div class="text-center py-12 text-gray-400">Internship stories coming soon.</div>{% endif %}
+  </div>
+</section>
+{% endblock %}

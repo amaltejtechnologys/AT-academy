@@ -402,3 +402,62 @@ class CourseBrochure(models.Model):
 
     def __str__(self):
         return f"{self.course.name} - {self.title}"
+
+
+class LiveProject(models.Model):
+    title = models.CharField(max_length=200)
+    client = models.CharField(max_length=100, blank=True, default='')
+    description = models.TextField(blank=True, default='')
+    tech_stack = models.CharField(max_length=200, blank=True, default='')
+    duration = models.CharField(max_length=50, blank=True, default='')
+    image = models.ImageField(upload_to='live_projects/', blank=True)
+    image_url = models.URLField(blank=True, default='')
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name_plural = 'Live Projects'
+
+    def __str__(self):
+        return self.title
+
+    def get_image_url(self):
+        if self.image_url:
+            return self.image_url
+        if self.image:
+            return self.image.url
+        return ''
+
+
+class Internship(models.Model):
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100, blank=True, default='')
+    company = models.CharField(max_length=100, blank=True, default='')
+    course = models.CharField(max_length=100, blank=True, default='')
+    description = models.TextField(blank=True, default='')
+    intern_image = models.ImageField(upload_to='internships/interns/', blank=True)
+    intern_image_url = models.URLField(blank=True, default='')
+    company_logo = models.ImageField(upload_to='internships/companies/', blank=True)
+    company_logo_url = models.URLField(blank=True, default='')
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name_plural = 'Internships'
+
+    def __str__(self):
+        return f"{self.name} - {self.company}"
+
+    def get_intern_image_url(self):
+        if self.intern_image_url:
+            return self.intern_image_url
+        if self.intern_image:
+            return self.intern_image.url
+        return ''
+
+    def get_company_logo_url(self):
+        if self.company_logo_url:
+            return self.company_logo_url
+        if self.company_logo:
+            return self.company_logo.url
+        return ''

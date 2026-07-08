@@ -7,6 +7,7 @@ from django.views.decorators.http import require_POST
 from .models import (
     Course, Branch, Testimonial, SuccessStory, Blog, GalleryImage,
     Programme, Technology, HiringPartner, BrochureRequest, CourseBrochure,
+    LiveProject, Internship,
 )
 from .forms import EnquiryForm, CallbackForm, RecruiterForm
 
@@ -19,6 +20,8 @@ def home(request):
         'testimonials': Testimonial.objects.all().order_by('order'),
         'success_stories': SuccessStory.objects.all().order_by('order'),
         'hiring_partners': HiringPartner.objects.all().order_by('order'),
+        'live_projects': LiveProject.objects.all().order_by('order'),
+        'internships': Internship.objects.all().order_by('order'),
     }
     return render(request, 'index.html', context)
 
@@ -106,6 +109,20 @@ def success_stories(request):
         'stories': SuccessStory.objects.all().order_by('order'),
     }
     return render(request, 'success_stories.html', context)
+
+
+def live_projects(request):
+    context = {
+        'projects': LiveProject.objects.all().order_by('order'),
+    }
+    return render(request, 'live_projects.html', context)
+
+
+def internships(request):
+    context = {
+        'interns': Internship.objects.all().order_by('order'),
+    }
+    return render(request, 'internships.html', context)
 
 
 def privacy_policy(request):

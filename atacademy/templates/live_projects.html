@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Live Projects{% endblock %}
+{% block content %}
+<section class="py-10 bg-[#F9FAFB]">
+  <div class="main_container">
+    <nav class="text-sm text-gray-400 mb-6"><a href="{% url 'home' %}" class="hover:text-[#00D4FF]">Home</a> &raquo; <span class="text-gray-900">Live Projects</span></nav>
+    <h1 class="text-2xl xl:text-3xl font-medium text-center mb-8 text-gray-900">Live <span class="relative inline-block text-[#00D4FF]">Projects<svg class="absolute left-0 top-full mt-1 w-full h-[10px]" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h1>
+    {% if projects %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 perspective-container">
+        {% for project in projects %}
+          <div class="bg-[#111827] rounded-xl p-6 shadow-2xl border border-white/10 card-3d glow-border">
+            {% if project.get_image_url %}
+              <img src="{{ project.get_image_url }}" alt="{{ project.title }}" class="w-full h-48 object-cover rounded-lg mb-4">
+            {% else %}
+              <div class="w-full h-48 rounded-lg bg-[#00D4FF]/10 flex items-center justify-center mb-4">
+                <span class="text-[#00D4FF] font-bold text-4xl">{{ project.title|truncatechars:1 }}</span>
+              </div>
+            {% endif %}
+            <div class="mb-3">
+              <h3 class="font-bold text-white text-lg">{{ project.title }}</h3>
+              {% if project.client %}<p class="text-sm text-[#00D4FF]">{{ project.client }}</p>{% endif %}
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              {% if project.tech_stack %}<span class="text-xs bg-[#00D4FF]/10 text-[#00D4FF] px-2 py-1 rounded-full">{{ project.tech_stack }}</span>{% endif %}
+              {% if project.duration %}<span class="text-xs bg-white/10 text-gray-400 px-2 py-1 rounded-full">{{ project.duration }}</span>{% endif %}
+            </div>
+            {% if project.description %}<p class="text-gray-300 text-sm">{{ project.description }}</p>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}<div class="text-center py-12 text-gray-400">Live projects coming soon.</div>{% endif %}
+  </div>
+</section>
+{% endblock %}

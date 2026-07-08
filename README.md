@@ -157,6 +157,8 @@ python3 manage.py migrate
 - **Branches** — Name, address, phone, map URL
 - **Testimonials** — Student name, course, feedback
 - **Success Stories** — Student achievements
+- **Live Projects** — Client projects with tech stack
+- **Internships** — Intern candidates with company info
 - **Hiring Partners** — Company name, logo
 - **Certifications** — Certification names
 - **Blogs** — Title, content, category
@@ -175,7 +177,7 @@ python3 manage.py migrate
 
 ---
 
-## Database Models (18)
+## Database Models (20)
 
 | Model | Description |
 |-------|-------------|
@@ -188,6 +190,8 @@ python3 manage.py migrate
 | Technology | Tech stack display |
 | Testimonial | Student testimonials |
 | SuccessStory | Placement stories |
+| LiveProject | Client projects with tech stack |
+| Internship | Intern candidates with company info |
 | HiringPartner | Partner companies |
 | Certification | Available certifications |
 | Blog | Blog posts |

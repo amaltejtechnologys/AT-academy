@@ -5,6 +5,7 @@ from .models import (
     Technology, Course, Branch, Programme, Testimonial, SuccessStory,
     HiringPartner, Certification, Blog, GalleryImage,
     Enquiry, CallbackRequest, RecruiterContact, BrochureRequest, CourseBrochure,
+    LiveProject, Internship,
 )
 
 
@@ -108,6 +109,18 @@ class TestimonialAdmin(admin.ModelAdmin):
 @admin.register(SuccessStory, site=admin_site)
 class SuccessStoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'course', 'order']
+    list_editable = ['order']
+
+
+@admin.register(LiveProject, site=admin_site)
+class LiveProjectAdmin(admin.ModelAdmin):
+    list_display = ['title', 'client', 'order']
+    list_editable = ['order']
+
+
+@admin.register(Internship, site=admin_site)
+class InternshipAdmin(admin.ModelAdmin):
+    list_display = ['name', 'role', 'company', 'order']
     list_editable = ['order']
 
 
