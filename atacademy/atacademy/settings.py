@@ -13,7 +13,7 @@ ON_PYTHONANYWHERE = 'PYTHONANYWHERE_DOMAIN' in os.environ or 'AT-academy' in os.
 
 if ON_PYTHONANYWHERE:
     DEBUG = False
-    ALLOWED_HOSTS = ['AmaltejAcademy.pythonanywhere.com']
+    ALLOWED_HOSTS = ['AmalTejAcademy.pythonanywhere.com']
 else:
     DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
     ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
