@@ -456,21 +456,21 @@
 {% if certifications %}
 <section class="py-20 bg-[#F9FAFB]">
   <div class="main_container">
-    <div class="text-center mb-10">
+    <div class="text-center mb-12">
       <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">Our <span class="relative inline-block text-[#00D4FF]">Certifications<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
-      <p class="text-gray-400 text-lg mt-2 max-w-lg mx-auto">Recognized and certified by leading organizations</p>
+      <p class="text-gray-400 text-lg mt-3 max-w-xl mx-auto">Recognized and certified by leading organizations</p>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
       {% for cert in certifications %}
-        <div class="group bg-white rounded-xl p-6 shadow-lg border border-gray-100 flex flex-col items-center justify-center text-center hover:scale-105 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)] transition-all duration-300">
+        <div class="group bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex flex-col items-center justify-center text-center hover:scale-105 hover:shadow-[0_0_40px_rgba(0,212,255,0.2)] transition-all duration-300">
           {% if cert.get_image_url %}
-            <img alt="{{ cert.name }}" loading="lazy" width="120" height="80" class="w-24 h-16 object-contain mb-3" src="{{ cert.get_image_url }}">
+            <img alt="{{ cert.name }}" loading="lazy" width="160" height="120" class="w-40 h-28 object-contain mb-5" src="{{ cert.get_image_url }}">
           {% else %}
-            <div class="w-20 h-20 rounded-full bg-[#00D4FF]/10 flex items-center justify-center mb-3">
-              <span class="text-[#00D4FF] font-bold text-lg">{{ cert.name|truncatechars:2 }}</span>
+            <div class="w-28 h-28 rounded-full bg-[#00D4FF]/10 flex items-center justify-center mb-5">
+              <span class="text-[#00D4FF] font-bold text-2xl">{{ cert.name|truncatechars:2 }}</span>
             </div>
           {% endif %}
-          <p class="text-sm font-semibold text-gray-800">{{ cert.name }}</p>
+          <p class="text-base font-bold text-gray-800">{{ cert.name }}</p>
         </div>
       {% endfor %}
     </div>
