@@ -1,0 +1,49 @@
+{% extends "admin/index.html" %}
+{% load i18n %}
+
+{% block content_title %}{% endblock %}
+
+{% block content %}
+{{ block.super }}
+
+<style>
+  .export-section { margin-top: 30px; }
+  .export-section h2 { font-size: 20px; color: #333; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #417690; }
+  .export-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .export-card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 18px; display: flex; align-items: center; justify-content: space-between; transition: box-shadow 0.2s; }
+  .export-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .export-card h4 { margin: 0 0 2px 0; font-size: 15px; color: #333; }
+  .export-card p { margin: 0; color: #888; font-size: 12px; }
+  .export-btn { display: inline-block; padding: 8px 18px; background: #417690; color: #fff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: background 0.2s; white-space: nowrap; }
+  .export-btn:hover { background: #205067; color: #fff; }
+  .export-all-btn { background: #357a38; font-size: 15px; padding: 12px 28px; }
+  .export-all-btn:hover { background: #264d28; color: #fff; }
+  .export-all-card { border-color: #357a38; background: #f0fff0; }
+</style>
+
+<div class="export-section">
+  <h2>Export Data</h2>
+  <div class="export-grid">
+    <div class="export-card">
+      <div><h4>Enquiries</h4><p>All customer enquiries</p></div>
+      <a href="{% url 'export_enquiries' %}" class="export-btn">Download</a>
+    </div>
+    <div class="export-card">
+      <div><h4>Callback Requests</h4><p>Callback requests</p></div>
+      <a href="{% url 'export_callbacks' %}" class="export-btn">Download</a>
+    </div>
+    <div class="export-card">
+      <div><h4>Brochure Requests</h4><p>Course brochure downloads</p></div>
+      <a href="{% url 'export_brochures' %}" class="export-btn">Download</a>
+    </div>
+    <div class="export-card">
+      <div><h4>Recruiter Contacts</h4><p>Recruiter enquiries</p></div>
+      <a href="{% url 'export_recruiters' %}" class="export-btn">Download</a>
+    </div>
+  </div>
+  <div class="export-card export-all-card" style="max-width: 400px;">
+    <div><h4 style="color:#357a38;">Export All Data</h4><p>Single file, 4 sheets</p></div>
+    <a href="{% url 'export_all' %}" class="export-btn export-all-btn">Download All</a>
+  </div>
+</div>
+{% endblock %}
