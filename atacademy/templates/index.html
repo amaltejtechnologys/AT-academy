@@ -11,22 +11,6 @@
   </video>
 </section>
 
-<!-- Certifications Marquee -->
-<div class="w-full overflow-hidden py-4 pause-on-hover">
-  <div class="marquee-track">
-    {% for cert in certifications %}
-      {% if cert.get_image_url %}
-        <div class="marquee-item"><img alt="{{ cert.name }}" loading="lazy" class="h-16 w-auto object-contain" src="{{ cert.get_image_url }}"></div>
-      {% endif %}
-    {% endfor %}
-    {% for cert in certifications %}
-      {% if cert.get_image_url %}
-        <div class="marquee-item"><img alt="{{ cert.name }}" loading="lazy" class="h-16 w-auto object-contain" src="{{ cert.get_image_url }}"></div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-
 <!-- Hero Section with Enquiry Form -->
 <section class="rounded-lg bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
