@@ -6,16 +6,17 @@ from django.views.static import serve as static_serve
 from core.admin import admin_site
 from core.admin_views import (
     export_enquiries, export_callbacks, export_brochures,
-    export_recruiters, export_all
+    export_recruiters, export_all, export_dashboard
 )
 
 urlpatterns = [
+    path('export/', export_all, name='export_all'),
+    path('export/enquiries/', export_enquiries, name='export_enquiries'),
+    path('export/callbacks/', export_callbacks, name='export_callbacks'),
+    path('export/brochures/', export_brochures, name='export_brochures'),
+    path('export/recruiters/', export_recruiters, name='export_recruiters'),
+    path('export/dashboard/', export_dashboard, name='export_dashboard'),
     path('admin/', admin_site.urls),
-    path('admin/export/', export_all, name='export_all'),
-    path('admin/export/enquiries/', export_enquiries, name='export_enquiries'),
-    path('admin/export/callbacks/', export_callbacks, name='export_callbacks'),
-    path('admin/export/brochures/', export_brochures, name='export_brochures'),
-    path('admin/export/recruiters/', export_recruiters, name='export_recruiters'),
     path('', include('core.urls')),
 ]
 

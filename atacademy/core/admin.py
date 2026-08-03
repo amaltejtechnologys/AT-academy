@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
-from django.shortcuts import render
 from .models import (
     SiteSettings, NavigationItem, FooterLinkGroup, FooterLink, SearchedTerm,
     Technology, Course, Branch, Programme, Testimonial, SuccessStory,
@@ -14,7 +13,6 @@ class ATAdminSite(AdminSite):
     site_header = 'AT Academy Admin'
     site_title = 'AT Academy'
     index_title = 'Dashboard'
-    index_template = 'admin/data_export.html'
 
 
 admin_site = ATAdminSite(name='atacademy_admin')

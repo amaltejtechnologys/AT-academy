@@ -1,6 +1,8 @@
 import io
 from django.http import HttpResponse
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 from django.utils import timezone
 from openpyxl import Workbook
 
@@ -37,6 +39,18 @@ def _make_response(buf, filename):
     )
     response['Content-Disposition'] = f'attachment; filename="{filename}"'
     return response
+
+
+@staff_member_required
+def export_dashboard(request):
+    context = {
+        'enquiry_count': Enquiry.objects.count(),
+        'callback_count': CallbackRequest.objects.count(),
+        'brochure_count': BrochureRequest.objects.count(),
+        'recruiter_count': RecruiterContact.objects.count(),
+        'total': Enquiry.objects.count() + CallbackRequest.objects.count() + BrochureRequest.objects.count() + RecruiterContact.objects.count(),
+    }
+    return render(request, 'admin/export_dashboard.html', context)
 
 
 @staff_member_required
