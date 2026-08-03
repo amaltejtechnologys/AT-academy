@@ -1,0 +1,974 @@
+[
+{
+  "model": "core.sitesettings",
+  "pk": 1,
+  "fields": {
+    "site_name": "AT Academy",
+    "tagline": "Accelerating Triumph, Transforming Lives",
+    "phone": "9542583868",
+    "email": "amaltejtechnologys@gmail.com",
+    "address": "Eluru",
+    "google_maps_url": "https://maps.app.goo.gl/vSSX3gJRk4iZZHaP9",
+    "social_media": {
+      "facebook": "https://facebook.com/atacademy",
+      "instagram": "https://instagram.com/teks_academy/",
+      "youtube": "https://youtube.com/@atacademy",
+      "linkedin": "https://linkedin.com/company/teks-academy"
+    },
+    "student_portal_url": "https://students.atacademy.com/auth/login/",
+    "header_logo": "logos/AT_logo_ACTUAL.png",
+    "footer_logo": "logos/AT_logo_ACTUAL_xmrvC6h.png",
+    "videos_url": "",
+    "career_guidance_icon": "",
+    "materials_icon": "",
+    "interview_prep_icon": "",
+    "placement_icon": "",
+    "excel_banner": "",
+    "nutshell_illustration": "home/Screenshot_2026-07-03_141101.png",
+    "nutshell_1": "",
+    "nutshell_2": "",
+    "nutshell_3": "",
+    "nutshell_4": "",
+    "nutshell_5": "",
+    "nutshell_6": ""
+  }
+},
+{
+  "model": "core.navigationitem",
+  "pk": 1,
+  "fields": {
+    "label": "Home",
+    "href": "/index.html",
+    "order": 1,
+    "has_dropdown": false
+  }
+},
+{
+  "model": "core.navigationitem",
+  "pk": 2,
+  "fields": {
+    "label": "Courses",
+    "href": "/course/index.html",
+    "order": 2,
+    "has_dropdown": true
+  }
+},
+{
+  "model": "core.navigationitem",
+  "pk": 3,
+  "fields": {
+    "label": "Branches",
+    "href": "/branch/best-software-training-institute-ameerpet/index.html",
+    "order": 3,
+    "has_dropdown": true
+  }
+},
+{
+  "model": "core.navigationitem",
+  "pk": 4,
+  "fields": {
+    "label": "Placements",
+    "href": "/placements/alumni/index.html",
+    "order": 4,
+    "has_dropdown": true
+  }
+},
+{
+  "model": "core.navigationitem",
+  "pk": 5,
+  "fields": {
+    "label": "Contact",
+    "href": "/discover/contact-us/index.html",
+    "order": 5,
+    "has_dropdown": true
+  }
+},
+{
+  "model": "core.footerlinkgroup",
+  "pk": 1,
+  "fields": {
+    "title": "Courses",
+    "order": 0
+  }
+},
+{
+  "model": "core.footerlinkgroup",
+  "pk": 2,
+  "fields": {
+    "title": "Company",
+    "order": 1
+  }
+},
+{
+  "model": "core.footerlinkgroup",
+  "pk": 3,
+  "fields": {
+    "title": "Legal",
+    "order": 2
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 1,
+  "fields": {
+    "group": 1,
+    "label": "Full Stack Python",
+    "href": "/courses/best-full-stack-python-development-course-training-institute/index.html",
+    "order": 0
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 2,
+  "fields": {
+    "group": 1,
+    "label": "Full Stack Java",
+    "href": "/courses/best-full-stack-java-development-course-training-institute/index.html",
+    "order": 1
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 3,
+  "fields": {
+    "group": 1,
+    "label": "Data Science",
+    "href": "/courses/best-data-science-course-training-institute/index.html",
+    "order": 2
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 4,
+  "fields": {
+    "group": 1,
+    "label": "AWS + DevOps",
+    "href": "/courses/best-awsplusdevops-course-training-institute/index.html",
+    "order": 3
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 5,
+  "fields": {
+    "group": 1,
+    "label": "Digital Marketing",
+    "href": "/courses/best-digital-marketing-course-training-institute/index.html",
+    "order": 4
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 6,
+  "fields": {
+    "group": 2,
+    "label": "About Us",
+    "href": "/discover/about-us/index.html",
+    "order": 0
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 7,
+  "fields": {
+    "group": 2,
+    "label": "Contact Us",
+    "href": "/discover/contact-us/index.html",
+    "order": 1
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 8,
+  "fields": {
+    "group": 2,
+    "label": "Gallery",
+    "href": "/discover/gallery/index.html",
+    "order": 2
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 9,
+  "fields": {
+    "group": 2,
+    "label": "Videos",
+    "href": "/discover/media/index.html",
+    "order": 3
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 10,
+  "fields": {
+    "group": 2,
+    "label": "Blogs",
+    "href": "/blogs/index.html",
+    "order": 4
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 11,
+  "fields": {
+    "group": 3,
+    "label": "Privacy Policy",
+    "href": "/privacy-policy/index.html",
+    "order": 0
+  }
+},
+{
+  "model": "core.footerlink",
+  "pk": 12,
+  "fields": {
+    "group": 3,
+    "label": "Terms of Service",
+    "href": "/policyagreements/terms-of-service/index.html",
+    "order": 1
+  }
+},
+{
+  "model": "core.searchedterm",
+  "pk": 1,
+  "fields": {
+    "label": "Python Course in Hyderabad",
+    "href": "#",
+    "order": 0
+  }
+},
+{
+  "model": "core.searchedterm",
+  "pk": 2,
+  "fields": {
+    "label": "Java Course in Hyderabad",
+    "href": "#",
+    "order": 1
+  }
+},
+{
+  "model": "core.searchedterm",
+  "pk": 3,
+  "fields": {
+    "label": "Data Science Course in Hyderabad",
+    "href": "#",
+    "order": 2
+  }
+},
+{
+  "model": "core.searchedterm",
+  "pk": 4,
+  "fields": {
+    "label": "AWS Course in Hyderabad",
+    "href": "#",
+    "order": 3
+  }
+},
+{
+  "model": "core.searchedterm",
+  "pk": 5,
+  "fields": {
+    "label": "Digital Marketing Course in Hyderabad",
+    "href": "#",
+    "order": 4
+  }
+},
+{
+  "model": "core.searchedterm",
+  "pk": 6,
+  "fields": {
+    "label": "Best Software Training Institute",
+    "href": "#",
+    "order": 5
+  }
+},
+{
+  "model": "core.course",
+  "pk": 1,
+  "fields": {
+    "name": "Full Stack Python Development",
+    "slug": "best-full-stack-python-development-course",
+    "fee": "₹28,000",
+    "duration": "4-6 Months",
+    "image": "https://abdulayaan.pythonanywhere.com/media/courses/python_fullstack.webp",
+    "image_file": "courses/python_fullstack.webp",
+    "description": "Complete Python full stack development course with Django and React",
+    "features": [
+      "Placement Assistance",
+      "100% Internship"
+    ],
+    "category": "development",
+    "brochure": "",
+    "order": 3,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 2,
+  "fields": {
+    "name": "Full Stack Java Development",
+    "slug": "best-full-stack-java-development-course",
+    "fee": "₹28,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/java-fullstack-development-online-training-1024x585.jpeg",
+    "description": "Complete Java full stack development course with Spring Boot and Angular",
+    "features": [
+      "Placement Assistance",
+      "100% Internship"
+    ],
+    "category": "development",
+    "brochure": "",
+    "order": 2,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 3,
+  "fields": {
+    "name": "Data Science",
+    "slug": "best-data-science-course-training-institute",
+    "fee": "₹33,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/644a18b637053fa3709c5ba2_what-is-data-science.jpg",
+    "description": "Complete data science course with Python, ML, and AI",
+    "features": [
+      "Placement Assistance",
+      "100% Internship"
+    ],
+    "category": "data",
+    "brochure": "",
+    "order": 5,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 4,
+  "fields": {
+    "name": "AWS + DevOps",
+    "slug": "best-awsplusdevops-course-training-institute",
+    "fee": "₹32,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/Aws-DevOps-1024x615.png",
+    "description": "Complete AWS and DevOps course with hands-on projects",
+    "features": [
+      "Placement Assistance",
+      "100% Internship"
+    ],
+    "category": "cloud",
+    "brochure": "",
+    "order": 4,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 5,
+  "fields": {
+    "name": "Cyber Security with AI",
+    "slug": "best-cyber-security-course-training-institute",
+    "fee": "₹32,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/OIP_1.webp",
+    "description": "Complete cybersecurity course with AI integration",
+    "features": [
+      "Placement Assistance",
+      "100% Internship"
+    ],
+    "category": "security",
+    "brochure": "",
+    "order": 7,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 6,
+  "fields": {
+    "name": "Digital Marketing",
+    "slug": "best-digital-marketing-course-training-institute",
+    "fee": "₹22,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/OIP_2.webp",
+    "description": "Complete digital marketing course with SEO, SEM, and social media",
+    "features": [
+      "Placement Assistance",
+      "100% Internship"
+    ],
+    "category": "marketing",
+    "brochure": "",
+    "order": 8,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 7,
+  "fields": {
+    "name": "Generative AI",
+    "slug": "best-generative-ai-course-training-institute",
+    "fee": "₹35,000",
+    "duration": "4-6 Months",
+    "image": "https://abdulayaan.pythonanywhere.com/media/courses/OIP_3.webp",
+    "image_file": "courses/gen_ai.webp",
+    "description": "Complete generative AI course with LLMs and prompt engineering",
+    "features": [
+      "Placement Assistance",
+      "100% Internship"
+    ],
+    "category": "ai",
+    "brochure": "brochures/ai_broucher1.png",
+    "order": 9,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 8,
+  "fields": {
+    "name": "VLSI",
+    "slug": "vlsi",
+    "fee": "₹30,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/vlsi.jpg",
+    "description": "",
+    "features": [],
+    "category": "general",
+    "brochure": "",
+    "order": 0,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 9,
+  "fields": {
+    "name": "IOT",
+    "slug": "iot",
+    "fee": "₹25,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/iot.jpg",
+    "description": "",
+    "features": [],
+    "category": "general",
+    "brochure": "",
+    "order": 6,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.course",
+  "pk": 10,
+  "fields": {
+    "name": "Embedded systems",
+    "slug": "embedded-systems",
+    "fee": "₹28,000",
+    "duration": "4-6 Months",
+    "image": "",
+    "image_file": "courses/embed.jpg",
+    "description": "",
+    "features": [],
+    "category": "general",
+    "brochure": "",
+    "order": 1,
+    "meta_title": "",
+    "meta_description": "",
+    "technologies": []
+  }
+},
+{
+  "model": "core.branch",
+  "pk": 8,
+  "fields": {
+    "name": "Eluru",
+    "slug": "yunv56",
+    "address": "Eluru",
+    "image": "",
+    "phone": "+918143724232",
+    "google_maps_url": "",
+    "order": 0,
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "core.branch",
+  "pk": 11,
+  "fields": {
+    "name": "Hyderabad",
+    "slug": "hyderabad",
+    "address": "Hyderabad, Telangana",
+    "image": "",
+    "phone": "+918143724232",
+    "google_maps_url": "",
+    "order": 1,
+    "meta_title": "",
+    "meta_description": ""
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 1,
+  "fields": {
+    "name": "Faisal Ali",
+    "course": "Data Science",
+    "image": "",
+    "image_url": "",
+    "video_url": "",
+    "order": 2
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 2,
+  "fields": {
+    "name": "Sruthi",
+    "course": "Full Stack Java",
+    "image": "",
+    "image_url": "",
+    "video_url": "",
+    "order": 3
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 3,
+  "fields": {
+    "name": "Nikhita",
+    "course": "Cyber Security",
+    "image": "",
+    "image_url": "",
+    "video_url": "",
+    "order": 4
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 4,
+  "fields": {
+    "name": "Saidufan",
+    "course": "Generative AI",
+    "image": "",
+    "image_url": "",
+    "video_url": "",
+    "order": 5
+  }
+},
+{
+  "model": "core.hiringpartner",
+  "pk": 1,
+  "fields": {
+    "name": "Google",
+    "logo": "",
+    "logo_url": "",
+    "order": 1
+  }
+},
+{
+  "model": "core.hiringpartner",
+  "pk": 2,
+  "fields": {
+    "name": "Microsoft",
+    "logo": "",
+    "logo_url": "",
+    "order": 2
+  }
+},
+{
+  "model": "core.hiringpartner",
+  "pk": 3,
+  "fields": {
+    "name": "Amazon",
+    "logo": "",
+    "logo_url": "",
+    "order": 3
+  }
+},
+{
+  "model": "core.hiringpartner",
+  "pk": 4,
+  "fields": {
+    "name": "Adobe",
+    "logo": "",
+    "logo_url": "",
+    "order": 4
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 1,
+  "fields": {
+    "name": "Skill NASSCOM",
+    "image": "",
+    "image_url": "",
+    "order": 1
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 2,
+  "fields": {
+    "name": "NSDC",
+    "image": "",
+    "image_url": "",
+    "order": 2
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 3,
+  "fields": {
+    "name": "Skill India",
+    "image": "",
+    "image_url": "",
+    "order": 3
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 4,
+  "fields": {
+    "name": "MSME",
+    "image": "",
+    "image_url": "",
+    "order": 4
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 5,
+  "fields": {
+    "name": "DDU-GKY",
+    "image": "",
+    "image_url": "",
+    "order": 5
+  }
+},
+{
+  "model": "core.certification",
+  "pk": 6,
+  "fields": {
+    "name": "ISO",
+    "image": "",
+    "image_url": "",
+    "order": 6
+  }
+},
+{
+  "model": "core.blog",
+  "pk": 1,
+  "fields": {
+    "title": "Welcome to AT Academy: Empowering Tech Leaders for Over 6 Years",
+    "slug": "welcome-to-at-academy-empowering-tech-leaders",
+    "category": "general",
+    "content": "Welcome to AT Academy: Empowering Tech Leaders for Over 6 Years\n\nThe technology landscape is evolving at a breakneck pace. From the silicon chips powering our devices to the AI algorithms shaping our decisions, staying ahead of the curve requires more than just textbook knowledge - it demands hands-on expertise and industry-aligned training.\n\nWelcome to AT Academy (Amal Tej Academy). For over six years, we have been at the forefront of technical education, bridging the gap between academic learning and industry demands. With a legacy of transforming passionate learners into highly sought-after tech professionals, we are thrilled to announce our latest roster of comprehensive, industry-grade courses.\n\nWhether you are a fresh graduate looking to launch your career or a working professional aiming to upskill, AT Academy offers a specialized pathway for you. Here is a thorough breakdown of the cutting-edge courses we offer.\n\nHardware & Core Engineering\n\n1. Embedded Systems\nThe modern world runs on embedded systems - from smart appliances to automotive controllers. This course takes you deep into the intersection of hardware and software.\nCore Curriculum: Master microcontrollers (8051, AVR, ARM Cortex-M), C and embedded C++ programming, and sensor interfacing.\nAdvanced Topics: Dive into Real-Time Operating Systems (RTOS), memory management, and communication protocols (I2C, SPI, UART, CAN).\nOutcomes: You will learn to design, program, and debug dedicated hardware systems that operate efficiently under strict timing and memory constraints.\n\n2. VLSI (Very Large Scale Integration)\nFor those fascinated by what happens inside a microchip, our VLSI program provides the specialized skills needed for the semiconductor industry.\nCore Curriculum: Digital logic design, CMOS theory, and hardware description languages like Verilog and SystemVerilog.\nAdvanced Topics: ASIC design flow, FPGA prototyping, logic synthesis, and physical design (floorplanning, placement, and routing).\nOutcomes: Students will gain the ability to design complex integrated circuits and understand the complete silicon lifecycle from RTL (Register-Transfer Level) to GDSII.\n\n3. IoT (Internet of Things)\nConnect the physical world to the digital realm. The IoT course bridges embedded hardware with cloud networks to create smart, interconnected environments.\nCore Curriculum: Working with development boards like Raspberry Pi and NodeMCU, sensor data acquisition, and edge computing.\nAdvanced Topics: Communication protocols (MQTT, CoAP), IoT security, cloud integration (AWS IoT, Azure IoT), and building custom dashboards.\nOutcomes: You will be able to architect end-to-end IoT solutions, from programming edge devices to deploying data analytics in the cloud.\n\nSoftware Development & Cloud\n\n4. Full Stack Python Development\nPython remains the undisputed king of versatile programming. This course molds you into a complete web developer capable of handling both the client and server sides.\nFront-End: HTML5, CSS3, JavaScript (ES6+), and modern UI frameworks like React or Vue.js.\nBack-End: Deep dive into Python, mastering frameworks like Django and FastAPI for robust server-side logic.\nDatabase & Deployment: SQL (PostgreSQL/MySQL), ORM integration, RESTful API development, and version control using Git.\n\n5. Full Stack Java Development\nEnterprise-scale applications rely heavily on Java. This course is designed to make you an enterprise-ready developer.\nFront-End: Building dynamic user interfaces using Angular or React alongside core web technologies.\nBack-End: Core Java (OOP, multithreading, collections), Spring Boot, and Hibernate for rapid backend development.\nDatabase & Deployment: Microservices architecture, JDBC, building scalable REST APIs, and containerizing applications with Docker.\n\n6. AWS + DevOps Cloud\nThe era of manual server management is over. This course merges cloud infrastructure with continuous delivery to streamline the software development lifecycle.\nCloud Infrastructure: Comprehensive training on Amazon Web Services (EC2, S3, VPC, RDS, IAM, Lambda).\nDevOps Tools: Version control (Git), continuous integration and continuous deployment (CI/CD) pipelines using Jenkins or GitLab CI.\nAutomation & Orchestration: Infrastructure as Code (IaC) using Terraform, configuration management (Ansible), and container orchestration with Docker and Kubernetes.\n\nData, AI & Security\n\n7. Data Science\nData is the new oil, and this course teaches you how to refine it. Learn to extract actionable insights from massive, complex datasets.\nCore Curriculum: Statistical mathematics, probability, and exploratory data analysis using Python (NumPy, pandas, Matplotlib).\nMachine Learning: Implementing predictive models using scikit-learn, covering regression, classification, clustering, and ensemble methods.\nAdvanced Topics: Introduction to deep learning, natural language processing (NLP), and data visualization tools like Tableau or Power BI.\n\n8. Generative AI\nStep into the future of technology with our Generative AI program. This is for developers who want to build the next generation of intelligent applications.\nCore Curriculum: Understanding Large Language Models (LLMs), transformer architectures, and embedding spaces.\nApplied AI: Prompt engineering, fine-tuning open-source models (like Llama or Mistral), and building RAG (Retrieval-Augmented Generation) pipelines.\nFrameworks: Hands-on experience with LangChain, LlamaIndex, vector databases (Pinecone, Milvus), and integrating AI agents into existing software.\n\n9. Cyber Security with AI\nAs cyber threats grow more sophisticated, traditional defense mechanisms are no longer enough. This course combines ethical hacking with artificial intelligence.\nCore Curriculum: Network security, cryptography, vulnerability assessment, and penetration testing methodologies.\nAI Integration: Using machine learning algorithms for anomaly detection, automated threat hunting, and behavioral analysis.\nOutcomes: You will learn to secure enterprise networks, conduct ethical hacks, and build AI-driven defense systems that adapt to zero-day vulnerabilities.\n\nBusiness & Strategy\n\n10. Digital Marketing\nGreat products need great visibility. This course turns you into a digital growth engine, combining creative strategy with analytical rigor.\nCore Curriculum: Search Engine Optimization (SEO), Search Engine Marketing (SEM), and content marketing strategies.\nCampaign Management: Mastery of Google Ads, Meta Ads (Facebook/Instagram), and email marketing automation.\nAnalytics & Optimization: Using Google Analytics to track user behavior, A/B testing, and Conversion Rate Optimization (CRO) to maximize ROI.\n\nWhy Choose Amal Tej Academy?\n\nWith over 6 years of educational excellence, AT Academy is not just about handing out certificates. We focus on building real-world competence.\n\nIndustry-Veteran Instructors: Learn from professionals who have spent years in the trenches of top tech companies.\nProject-Based Learning: Every course requires the completion of live, industry-grade projects that you can showcase in your portfolio.\nComprehensive Placement Support: We offer resume building, mock interviews, and dedicated career guidance to ensure our graduates land their dream jobs.\n\nTechnology does not wait, and neither should you. Whether you want to design the next microchip, build scalable cloud architectures, or pioneer Generative AI, AT Academy has the roadmap for your success.\n\nEnroll today and build the future with Amal Tej Academy!",
+    "image": "",
+    "image_url": "",
+    "date": "2026-07-04",
+    "meta_title": "Welcome to AT Academy | Empowering Tech Leaders for Over 6 Years",
+    "meta_description": "Discover AT Academy - 6+ years of empowering tech leaders with industry-grade courses in Embedded Systems, VLSI, Full Stack Development, Data Science, AI, and more.",
+    "order": 0
+  }
+},
+{
+  "model": "core.enquiry",
+  "pk": 1,
+  "fields": {
+    "name": "Test User",
+    "email": "test@test.com",
+    "phone": "1234567890",
+    "course": "Data Science",
+    "branch": "Ameerpet",
+    "qualification": "Fresher / Student",
+    "created_at": "2026-07-01T06:31:31.777Z",
+    "is_read": false,
+    "notes": ""
+  }
+},
+{
+  "model": "core.enquiry",
+  "pk": 2,
+  "fields": {
+    "name": "Test",
+    "email": "test@test.com",
+    "phone": "1234567890",
+    "course": "Data Science",
+    "branch": "",
+    "qualification": "Fresher / Student",
+    "created_at": "2026-07-01T07:09:00.201Z",
+    "is_read": false,
+    "notes": ""
+  }
+},
+{
+  "model": "core.callbackrequest",
+  "pk": 1,
+  "fields": {
+    "name": "Callback User",
+    "email": "cb@test.com",
+    "phone": "9876543210",
+    "course": "Full Stack Java",
+    "branch": "Hitec City",
+    "created_at": "2026-07-01T06:31:34.584Z",
+    "is_read": false,
+    "notes": ""
+  }
+},
+{
+  "model": "core.recruitercontact",
+  "pk": 1,
+  "fields": {
+    "name": "Recruiter",
+    "email": "hr@company.com",
+    "phone": "5555555555",
+    "company_name": "TechCorp",
+    "designation": "HR Manager",
+    "created_at": "2026-07-01T06:31:34.821Z",
+    "is_read": false
+  }
+},
+{
+  "model": "core.brochurerequest",
+  "pk": 5,
+  "fields": {
+    "name": "Kothuri sravani",
+    "email": "sravanikothuri443@gmail.com",
+    "phone": "9542583868",
+    "course": 7,
+    "created_at": "2026-07-06T11:08:06.096Z",
+    "is_read": false
+  }
+},
+{
+  "model": "core.brochurerequest",
+  "pk": 6,
+  "fields": {
+    "name": "Abdul Ayaan",
+    "email": "ayaan2008.adams@gmail.com",
+    "phone": "8143724232",
+    "course": 10,
+    "created_at": "2026-07-07T06:38:12.509Z",
+    "is_read": false
+  }
+},
+{
+  "model": "core.brochurerequest",
+  "pk": 7,
+  "fields": {
+    "name": "Abdul Ayaan",
+    "email": "ayaan2008.adams@gmail.com",
+    "phone": "8143724232",
+    "course": 10,
+    "created_at": "2026-07-08T06:57:09.278Z",
+    "is_read": false
+  }
+},
+{
+  "model": "core.brochurerequest",
+  "pk": 8,
+  "fields": {
+    "name": "Abdul Ayaan",
+    "email": "ayaan2008.adams@gmail.com",
+    "phone": "8143724232",
+    "course": 10,
+    "created_at": "2026-08-03T05:39:18.818Z",
+    "is_read": false
+  }
+},
+{
+  "model": "core.brochurerequest",
+  "pk": 9,
+  "fields": {
+    "name": "Abdul Ayaan",
+    "email": "ayaan2008.adams@gmail.com",
+    "phone": "8143724232",
+    "course": 10,
+    "created_at": "2026-08-03T05:40:03.996Z",
+    "is_read": false
+  }
+},
+{
+  "model": "core.brochurerequest",
+  "pk": 10,
+  "fields": {
+    "name": "Abdul Ayaan",
+    "email": "ayaan2008.adams@gmail.com",
+    "phone": "8143724232",
+    "course": 8,
+    "created_at": "2026-08-03T05:40:59.679Z",
+    "is_read": false
+  }
+},
+{
+  "model": "core.coursebrochure",
+  "pk": 1,
+  "fields": {
+    "course": 10,
+    "title": "Embedded linux internals",
+    "file": "brochures/broucher_3.png",
+    "order": 0
+  }
+},
+{
+  "model": "core.coursebrochure",
+  "pk": 2,
+  "fields": {
+    "course": 10,
+    "title": "embedded firmware development",
+    "file": "brochures/broucher_1.png",
+    "order": 0
+  }
+},
+{
+  "model": "core.coursebrochure",
+  "pk": 3,
+  "fields": {
+    "course": 9,
+    "title": "iot edge and embedded systems",
+    "file": "brochures/broucher_2.png",
+    "order": 0
+  }
+},
+{
+  "model": "core.coursebrochure",
+  "pk": 4,
+  "fields": {
+    "course": 9,
+    "title": "iot edge",
+    "file": "brochures/broucher_4.png",
+    "order": 0
+  }
+},
+{
+  "model": "core.liveproject",
+  "pk": 1,
+  "fields": {
+    "title": "E-Commerce Platform",
+    "client": "RetailHub",
+    "description": "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Built for a mid-size retail business.",
+    "tech_stack": "Python, Django, React, Stripe",
+    "duration": "3 months",
+    "image": "",
+    "image_url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    "order": 1
+  }
+},
+{
+  "model": "core.liveproject",
+  "pk": 2,
+  "fields": {
+    "title": "Healthcare Dashboard",
+    "client": "MedCare",
+    "description": "Real-time patient monitoring dashboard with appointment scheduling, medical records management, and telemedicine integration.",
+    "tech_stack": "Python, Django, Vue.js, PostgreSQL",
+    "duration": "4 months",
+    "image": "",
+    "image_url": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
+    "order": 2
+  }
+},
+{
+  "model": "core.liveproject",
+  "pk": 3,
+  "fields": {
+    "title": "Student Management System",
+    "client": "EduTech",
+    "description": "End-to-end student lifecycle management covering admissions, attendance, grades, fee management, and parent communication portal.",
+    "tech_stack": "Python, Django, Bootstrap, MySQL",
+    "duration": "2 months",
+    "image": "",
+    "image_url": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=400&fit=crop",
+    "order": 3
+  }
+},
+{
+  "model": "core.internship",
+  "pk": 1,
+  "fields": {
+    "name": "Priya Sharma",
+    "role": "Software Engineering Intern",
+    "company": "Galactix solutions",
+    "course": "Full Stack Development",
+    "description": "Completed a 6-month internship at Google working on cloud-based web applications. Gained hands-on experience with React, Node.js, and Google Cloud Platform.",
+    "intern_image": "internships/interns/intern11.jpg",
+    "intern_image_url": "https://abdulayaan.pythonanywhere.com/media/internships/interns/intern11.jpg",
+    "company_logo": "internships/companies/comp11.png",
+    "company_logo_url": "https://abdulayaan.pythonanywhere.com/media/internships/companies/comp11.png",
+    "order": 1
+  }
+},
+{
+  "model": "core.internship",
+  "pk": 2,
+  "fields": {
+    "name": "Rahul Verdata",
+    "role": "Data Analyst Intern",
+    "company": "Avtrix",
+    "course": "Data Science",
+    "description": "Worked with the Azure data analytics team to build dashboards and predictive models. Utilized Python, SQL, and Power BI for data visualization.",
+    "intern_image": "internships/interns/intern1_u46iS6h.png",
+    "intern_image_url": "https://abdulayaan.pythonanywhere.com/media/internships/interns/intern1_u46iS6h.png",
+    "company_logo": "internships/companies/comp2.webp",
+    "company_logo_url": "https://abdulayaan.pythonanywhere.com/media/internships/companies/comp2.webp",
+    "order": 2
+  }
+},
+{
+  "model": "core.internship",
+  "pk": 3,
+  "fields": {
+    "name": "Sneha Patel",
+    "role": "Cyber Security Intern",
+    "company": "HCL",
+    "course": "Cyber Security",
+    "description": "Assisted the security team in vulnerability assessments and penetration testing. Learned about AWS security services and compliance frameworks.",
+    "intern_image": "internships/interns/intern2_lIvJQpA.jpg",
+    "intern_image_url": "https://abdulayaan.pythonanywhere.com/media/internships/interns/intern2.jpg",
+    "company_logo": "internships/companies/comp123.png",
+    "company_logo_url": "https://abdulayaan.pythonanywhere.com/media/internships/companies/comp123.png",
+    "order": 3
+  }
+},
+{
+  "model": "core.internship",
+  "pk": 4,
+  "fields": {
+    "name": "Abdul Safiyaan",
+    "role": "Cloud Engineer Intern",
+    "company": "TCS",
+    "course": "Cloud Computing",
+    "description": "Deployed and managed cloud infrastructure on AWS and Azure. Gained experience with Docker, Kubernetes, and CI/CD pipelines.",
+    "intern_image": "internships/interns/indian_intern3.jpg",
+    "intern_image_url": "https://abdulayaan.pythonanywhere.com/media/internships/interns/indian_intern3.jpg",
+    "company_logo": "internships/companies/comp4.png",
+    "company_logo_url": "https://abdulayaan.pythonanywhere.com/media/internships/companies/comp4.png",
+    "order": 4
+  }
+}
+]
