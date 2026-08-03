@@ -444,7 +444,7 @@
           {% if cert.get_image_url %}
             <img alt="{{ cert.name }}" loading="lazy" class="w-full h-40 object-contain mb-4" src="{{ cert.get_image_url }}">
           {% else %}
-            <div class="w-full h-40 rounded-xl bg-[#00D4FF]/10 flex items-center justify-center mb-4">
+            <div class="w-full h-40 rounded-xl bg-[#00D4FF]/10 dark:bg-[#00D4FF]/20 flex items-center justify-center mb-4">
               <span class="text-[#00D4FF] font-bold text-3xl">{{ cert.name|truncatechars:2 }}</span>
             </div>
           {% endif %}

@@ -70,6 +70,8 @@
     .pause-on-hover:hover .marquee-track { animation-play-state: paused; }
     .marquee-item { flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 0 1rem; }
     @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-scroll-left { animation: scrollLeft 30s linear infinite; }
+    .pause-on-hover:hover .animate-scroll-left { animation-play-state: paused; }
 
     /* Marquee for hiring partners */
     .marquee-container { overflow: hidden; position: relative; }
@@ -215,6 +217,9 @@
     .dark .card { background: #111827; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
     #desktopHeader { background-color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.5); }
     .dark #desktopHeader { background-color: rgba(17,24,39,1); border-color: rgba(255,255,255,0.1); }
+    /* Force dark mode section backgrounds */
+    .dark section.bg-\[\#F9FAFB\] { background-color: #111827 !important; }
+    .dark section { color: #fff; }
   </style>
   {% block extra_head %}{% endblock %}
 </head>
