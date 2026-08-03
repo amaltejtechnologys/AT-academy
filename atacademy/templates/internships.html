@@ -27,7 +27,7 @@
                 {% if intern.course %}<p class="text-xs text-gray-400">{{ intern.course }}</p>{% endif %}
               </div>
               {% if intern.get_company_logo_url %}
-                <img src="{{ intern.get_company_logo_url }}" alt="{{ intern.company }}" class="w-12 h-12 object-contain rounded-lg bg-white/5 p-1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <img src="{{ intern.get_company_logo_url }}" alt="{{ intern.company }}" class="w-14 h-14 object-contain rounded-lg bg-white p-2 shadow-lg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                 <div class="w-12 h-12 rounded-lg bg-white/5 items-center justify-center border border-white/10" style="display:none">
                   <span class="text-white font-bold text-xs text-center leading-tight">{{ intern.company }}</span>
                 </div>
