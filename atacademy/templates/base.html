@@ -66,8 +66,9 @@
     .group:hover > .absolute.left-0 { opacity: 1 !important; visibility: visible !important; }
 
     /* Marquee */
-    .animate-scroll-left { animation: scrollLeft 30s linear infinite; }
-    .pause-on-hover:hover .animate-scroll-left { animation-play-state: paused; }
+    .marquee-track { display: flex; gap: 3rem; width: max-content; animation: scrollLeft 20s linear infinite; }
+    .pause-on-hover:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item { flex-shrink: 0; display: flex; align-items: center; justify-content: center; padding: 0 1rem; }
     @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* Marquee for hiring partners */
