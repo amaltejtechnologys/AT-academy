@@ -5,7 +5,7 @@
 
 {% block content %}
 <!-- Full-Screen Hero Video -->
-<section class="relative w-full h-screen bg-[#F9FAFB] overflow-hidden">
+<section class="relative w-full h-screen bg-[#F9FAFB] dark:bg-[#111827] dark:bg-[#0B1120] overflow-hidden">
   <video autoplay loop muted playsinline class="w-full h-full object-cover" style="transform:scale(1.0);transform-origin:center center;">
     <source src="{% static 'videos/hero-video.mp4' %}" type="video/mp4">
   </video>
@@ -34,7 +34,7 @@
 </div>
 
 <!-- Hero Section with Enquiry Form -->
-<section class="rounded-lg bg-[#F9FAFB]">
+<section class="rounded-lg bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="py-14 lg:py-20">
       <!-- Mobile Logo -->
@@ -43,7 +43,7 @@
           <div class="flex items-center gap-3 mb-1">
             <img alt="AT Academy Logo" width="52" height="52" class="w-12 h-12 object-contain" src="{% static 'images/at_academy_logo.png' %}">
             <div class="text-left">
-              <h2 class="text-3xl xl:text-4xl font-medium text-gray-900 leading-tight md:text-2xl mb-4">Excel with <span class="relative inline-block text-[#00D4FF]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
+              <h2 class="text-3xl xl:text-4xl font-medium text-gray-900 dark:text-white leading-tight md:text-2xl mb-4">Excel with <span class="relative inline-block text-[#00D4FF]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
 
       <!-- Desktop Title -->
       <div class="hidden lg:block mb-6">
-        <h1 class="text-4xl xl:text-5xl font-medium text-gray-900 leading-tight">Excel with <span class="relative inline-block text-[#00D4FF]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h1>
+        <h1 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white leading-tight">Excel with <span class="relative inline-block text-[#00D4FF]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px]" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h1>
       </div>
 
       <!-- Feature Grid - Full Width -->
@@ -183,10 +183,10 @@
 
 <!-- Top 5 Courses -->
 {% if featured_courses %}
-<section class="py-20 bg-[#F9FAFB]">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="text-center mb-8">
-      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">Top 5 <span class="relative inline-block text-[#00D4FF]">Courses<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">Top 5 <span class="relative inline-block text-[#00D4FF]">Courses<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 perspective-container">
       {% for course in featured_courses %}
@@ -218,27 +218,27 @@
               </div>
             </div>
             <div class="flex gap-4 mb-1 justify-between">
-              <button onclick="openEnquiryModal('{{ course.name }}')" class="px-4 py-2 rounded-md font-semibold text-sm bg-[#00D4FF] text-gray-900 hover:bg-white hover:text-[#00D4FF] hover:border hover:border-[#FFFFFF] h-12 flex items-center justify-center flex-1 btn-3d shadow-[0_0_20px_rgba(168,85,247,0.3)]">Enquire Now</button>
-              <a href="{% url 'course_detail' course.slug %}" class="px-5 py-2.5 rounded-md font-semibold text-base border border-white text-[#00D4FF] hover:bg-[#00D4FF] hover:text-gray-900 h-12 flex items-center justify-center flex-1 btn-3d-outline">Know More</a>
+              <button onclick="openEnquiryModal('{{ course.name }}')" class="px-4 py-2 rounded-md font-semibold text-sm bg-[#00D4FF] text-gray-900 dark:text-white hover:bg-white hover:text-[#00D4FF] hover:border hover:border-[#FFFFFF] h-12 flex items-center justify-center flex-1 btn-3d shadow-[0_0_20px_rgba(168,85,247,0.3)]">Enquire Now</button>
+              <a href="{% url 'course_detail' course.slug %}" class="px-5 py-2.5 rounded-md font-semibold text-base border border-white text-[#00D4FF] hover:bg-[#00D4FF] hover:text-gray-900 dark:text-white h-12 flex items-center justify-center flex-1 btn-3d-outline">Know More</a>
             </div>
           </div>
         </div>
       {% endfor %}
     </div>
     <div class="flex justify-center mt-8">
-      <a href="{% url 'course_list' %}" class="cursor-pointer text-base bg-[#00D4FF] text-gray-900 hover:bg-white hover:text-[#00D4FF] hover:border hover:border-[#FFFFFF] h-12 px-6 flex items-center justify-center font-semibold rounded-md btn-3d shadow-[0_0_20px_rgba(168,85,247,0.3)]">View All Courses</a>
+      <a href="{% url 'course_list' %}" class="cursor-pointer text-base bg-[#00D4FF] text-gray-900 dark:text-white hover:bg-white hover:text-[#00D4FF] hover:border hover:border-[#FFFFFF] h-12 px-6 flex items-center justify-center font-semibold rounded-md btn-3d shadow-[0_0_20px_rgba(168,85,247,0.3)]">View All Courses</a>
     </div>
   </div>
 </section>
 {% endif %}
 
 <!-- Excel with Teks Academy -->
-<section class="rounded-lg bg-[#F9FAFB]">
+<section class="rounded-lg bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container py-20">
     <div class="flex flex-col lg:flex-row gap-10 items-center">
       <div class="flex-1">
         <div class="mb-6">
-          <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">Excel with <span class="relative inline-block text-[#00D4FF]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px] neon-underline" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
+          <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">Excel with <span class="relative inline-block text-[#00D4FF]">{{ settings.site_name }}<svg class="absolute left-0 -bottom-2 w-full h-[14px] neon-underline" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
         </div>
         <div class="grid grid-cols-2 gap-5 mb-6">
           <div class="group flex items-center gap-3 rounded-xl px-4 py-5 shadow-2xl bg-[#111827] border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)]">
@@ -331,10 +331,10 @@
 </section>
 
 <!-- How It Works -->
-<section class="py-20 bg-[#F9FAFB] overflow-visible">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827] overflow-visible">
   <div class="main_container overflow-visible">
     <div class="text-center mb-10">
-      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">How It <span class="relative inline-block text-[#00D4FF]">Works<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">How It <span class="relative inline-block text-[#00D4FF]">Works<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
       <p class="text-gray-400 text-lg mt-2 max-w-lg mx-auto">Your journey from learning to landing your dream job in 4 simple steps</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative overflow-visible">
@@ -381,7 +381,7 @@
 </section>
 
 <!-- CTA Banner -->
-<section class="py-20 bg-[#F9FAFB]">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="relative rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #0B1120 0%, #1E293B 50%, #0B1120 100%);">
       <div class="absolute inset-0 opacity-10">
@@ -401,11 +401,11 @@
 </section>
 
 <!-- Career Services in a Nutshell -->
-<section class="rounded-lg bg-[#F9FAFB]">
+<section class="rounded-lg bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container md:pb-5">
     <div class="hidden md:block px-4 py-10">
       <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-gray-900">Career Services <span class="relative inline-block text-[#00D4FF]">in a Nutshell<svg class="absolute left-0 -bottom-2 w-full h-[14px] neon-underline" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Career Services <span class="relative inline-block text-[#00D4FF]">in a Nutshell<svg class="absolute left-0 -bottom-2 w-full h-[14px] neon-underline" viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M2 10 Q50 0 98 10" stroke="#374151" stroke-width="2" fill="transparent" stroke-linecap="round"></path></svg></span></h2>
       </div>
       <div class="mb-5 flex justify-center">
         {% if settings.nutshell_illustration %}
@@ -454,15 +454,15 @@
 
 <!-- Our Certifications -->
 {% if certifications %}
-<section class="py-20 bg-[#F9FAFB]">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="text-center mb-12">
-      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">Our <span class="relative inline-block text-[#00D4FF]">Certifications<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">Our <span class="relative inline-block text-[#00D4FF]">Certifications<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
       <p class="text-gray-400 text-lg mt-3 max-w-xl mx-auto">Recognized and certified by leading organizations</p>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
       {% for cert in certifications %}
-        <div class="group bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex flex-col items-center justify-center text-center hover:scale-105 hover:shadow-[0_0_40px_rgba(0,212,255,0.2)] transition-all duration-300">
+        <div class="group bg-white dark:bg-[#1E293B] rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-white/10 flex flex-col items-center justify-center text-center hover:scale-105 hover:shadow-[0_0_40px_rgba(0,212,255,0.2)] transition-all duration-300">
           {% if cert.get_image_url %}
             <img alt="{{ cert.name }}" loading="lazy" width="160" height="120" class="w-40 h-28 object-contain mb-5" src="{{ cert.get_image_url }}">
           {% else %}
@@ -470,7 +470,7 @@
               <span class="text-[#00D4FF] font-bold text-2xl">{{ cert.name|truncatechars:2 }}</span>
             </div>
           {% endif %}
-          <p class="text-base font-bold text-gray-800">{{ cert.name }}</p>
+          <p class="text-base font-bold text-gray-800 dark:text-gray-200">{{ cert.name }}</p>
         </div>
       {% endfor %}
     </div>
@@ -480,10 +480,10 @@
 
 <!-- Testimonials -->
 {% if testimonials %}
-<section class="py-20 bg-[#F9FAFB]">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="text-center mb-8">
-      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">What Our <span class="relative inline-block text-[#00D4FF]">Students Say<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">What Our <span class="relative inline-block text-[#00D4FF]">Students Say<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
     </div>
     <div class="overflow-hidden">
       <div class="flex gap-8 animate-scroll-left" style="width: 5000px;">
@@ -525,10 +525,10 @@
 
 <!-- Live Projects -->
 {% if live_projects %}
-<section class="py-20 bg-[#F9FAFB]">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="text-center mb-8">
-      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">Live <span class="relative inline-block text-[#00D4FF]">Projects<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">Live <span class="relative inline-block text-[#00D4FF]">Projects<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-container">
       {% for project in live_projects %}
@@ -557,10 +557,10 @@
 
 <!-- Internships -->
 {% if internships %}
-<section class="py-20 bg-[#F9FAFB]">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="text-center mb-8">
-      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">Our <span class="relative inline-block text-[#00D4FF]">Interns<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">Our <span class="relative inline-block text-[#00D4FF]">Interns<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-container">
       {% for intern in internships %}
@@ -601,10 +601,10 @@
 
 <!-- Success Stories -->
 {% if success_stories %}
-<section class="py-20 bg-[#F9FAFB]">
+<section class="py-20 bg-[#F9FAFB] dark:bg-[#111827]">
   <div class="main_container">
     <div class="text-center mb-8">
-      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900">Success <span class="relative inline-block text-[#00D4FF]">Stories<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
+      <h2 class="text-4xl xl:text-5xl font-medium text-gray-900 dark:text-white">Success <span class="relative inline-block text-[#00D4FF]">Stories<svg class="absolute left-0 top-full mt-1 w-full h-[10px] neon-underline" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 8 Q50 0 100 8" stroke="#374151" stroke-width="1.5" fill="transparent"></path></svg></span></h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-container">
       {% for story in success_stories %}

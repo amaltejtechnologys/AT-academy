@@ -48,7 +48,7 @@
 </div>
 
 <!-- Desktop Floating Header -->
-<header id="desktopHeader" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl transition-all duration-300 rounded-full bg-white/70 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/50">
+<header id="desktopHeader" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl transition-all duration-300 rounded-full bg-white/70 dark:bg-[#111827]/70 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-white/50 dark:border-white/5">
   <div class="main_container">
     <div class="flex items-center justify-between h-16 lg:h-[64px]">
       <!-- Logo -->
@@ -58,23 +58,23 @@
 
       <!-- Desktop Navigation (centered) -->
       <nav class="hidden lg:flex items-center gap-1">
-        <a href="{% url 'home' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Home</a>
+        <a href="{% url 'home' %}" class="font-semibold text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Home</a>
 
         <!-- Courses Dropdown -->
         <li class="relative group list-none">
-          <div class="font-semibold flex items-center gap-1 cursor-pointer text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">
+          <div class="font-semibold flex items-center gap-1 cursor-pointer text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">
             <a href="{% url 'course_list' %}" class="transition-colors">Courses</a>
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="transition-transform duration-150 ease-in-out text-xs mt-0.5 rotate-0 group-hover:rotate-180" height="1em" width="1em"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L224 284.505l154.707-154.07c9.373-9.373 24.569-9.373 33.941 0l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
           </div>
           <div class="absolute left-0 top-full pt-2 opacity-0 invisible -translate-y-1 transition-all duration-200 z-50">
-            <div class="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-100 p-4 w-[500px]">
+            <div class="bg-white dark:bg-[#1E293B] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-gray-100 dark:border-white/10 p-4 w-[500px]">
               <div class="grid grid-cols-2 gap-2">
                 {% for course in nav_courses %}
-                  <a href="{% url 'course_detail' course.slug %}" class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group/item">
+                  <a href="{% url 'course_detail' course.slug %}" class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group/item">
                     <div class="w-8 h-8 rounded-full bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center flex-shrink-0">
                       <svg class="w-4 h-4 text-[#00D4FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v14m-7-7h14"></path></svg>
                     </div>
-                    <span class="text-sm font-medium text-gray-700 group-hover/item:text-[#00D4FF] transition-colors">{{ course.name }}</span>
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover/item:text-[#00D4FF] transition-colors">{{ course.name }}</span>
                   </a>
                 {% endfor %}
               </div>
@@ -84,15 +84,15 @@
 
         <!-- Branches Dropdown -->
         <li class="relative group list-none">
-          <div class="font-semibold flex items-center gap-1 cursor-pointer text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">
+          <div class="font-semibold flex items-center gap-1 cursor-pointer text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">
             <span class="transition-colors">Branches</span>
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="transition-transform duration-150 ease-in-out text-xs mt-0.5 rotate-0 group-hover:rotate-180" height="1em" width="1em"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L224 284.505l154.707-154.07c9.373-9.373 24.569-9.373 33.941 0l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
           </div>
           <div class="absolute left-0 top-full pt-2 opacity-0 invisible -translate-y-1 transition-all duration-200 z-50">
-            <div class="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-100 p-4 w-[600px]">
+            <div class="bg-white dark:bg-[#1E293B] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-gray-100 dark:border-white/10 p-4 w-[600px]">
               <div class="grid grid-cols-2 gap-2">
                 {% for branch in nav_branches %}
-                  <a href="{% url 'branch_detail' branch.slug %}" class="flex items-center gap-2 p-2 rounded-lg border border-gray-100 hover:border-[#00D4FF] hover:shadow-md transition-all group/branch">
+                  <a href="{% url 'branch_detail' branch.slug %}" class="flex items-center gap-2 p-2 rounded-lg border border-gray-100 dark:border-white/10 hover:border-[#00D4FF] hover:shadow-md transition-all group/branch">
                     <div class="flex-1 min-w-0">
                       <h3 class="font-semibold text-[#00D4FF] text-xs leading-tight truncate">{{ branch.name }}</h3>
                       {% if branch.phone %}
@@ -109,84 +109,95 @@
           </div>
         </li>
 
-        <a href="{% url 'internships' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Internships</a>
+        <a href="{% url 'internships' %}" class="font-semibold text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Internships</a>
 
-        <a href="{% url 'live_projects' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Live Projects</a>
+        <a href="{% url 'live_projects' %}" class="font-semibold text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Live Projects</a>
 
         <!-- Resources Dropdown -->
         <li class="relative group list-none">
-          <div class="font-semibold flex items-center gap-1 cursor-pointer text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">
+          <div class="font-semibold flex items-center gap-1 cursor-pointer text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">
             <span class="transition-colors">Resources</span>
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="transition-transform duration-150 ease-in-out text-xs mt-0.5 rotate-0 group-hover:rotate-180" height="1em" width="1em"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L224 284.505l154.707-154.07c9.373-9.373 24.569-9.373 33.941 0l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
           </div>
           <div class="absolute left-0 top-full pt-2 opacity-0 invisible -translate-y-1 transition-all duration-200 z-50">
-            <div class="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-100 p-4 w-48">
-              <a href="{% url 'blog_list' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Blogs</a>
-              <a href="{% url 'gallery' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Gallery</a>
-              <a href="{% url 'videos' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Videos</a>
+            <div class="bg-white dark:bg-[#1E293B] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-gray-100 dark:border-white/10 p-4 w-48">
+              <a href="{% url 'blog_list' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors">Blogs</a>
+              <a href="{% url 'gallery' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors">Gallery</a>
+              <a href="{% url 'videos' %}" class="block px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors">Videos</a>
             </div>
           </div>
         </li>
 
-        <a href="{% url 'contact' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Contact</a>
+        <a href="{% url 'contact' %}" class="font-semibold text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Contact</a>
 
-        <a href="{% url 'success_stories' %}" class="font-semibold text-gray-700 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Success Stories</a>
+        <a href="{% url 'success_stories' %}" class="font-semibold text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors px-3 py-2 rounded-full text-sm">Success Stories</a>
       </nav>
 
       <!-- CTA Buttons -->
       <div class="hidden lg:flex items-center gap-2">
-        <button onclick="openCallbackModal()" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors">Enquiry</button>
-        <a href="tel:{{ settings.phone|cut:' ' }}" class="bg-[#0B1120] text-white px-5 py-2 rounded-full font-semibold text-sm hover:bg-[#1E293B] transition-colors flex items-center gap-2 shadow-lg">
+        <!-- Dark Mode Toggle -->
+        <button onclick="toggleDarkMode()" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors" title="Toggle dark mode">
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+        <button onclick="openCallbackModal()" class="border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full font-semibold text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">Enquiry</button>
+        <a href="tel:{{ settings.phone|cut:' ' }}" class="bg-[#0B1120] dark:bg-[#00D4FF] text-white dark:text-[#0B1120] px-5 py-2 rounded-full font-semibold text-sm hover:bg-[#1E293B] dark:hover:bg-white transition-colors flex items-center gap-2 shadow-lg">
           <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="14" width="14"><path fill="none" d="M0 0h24v24H0z"></path><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"></path></svg>
           Call Now
         </a>
       </div>
 
       <!-- Mobile Menu Button (inside pill) -->
-      <button onclick="document.getElementById('mobileMenu').classList.toggle('translate-x-full')" class="lg:hidden p-2 text-gray-700 hover:text-[#00D4FF] transition-colors">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-      </button>
+      <div class="lg:hidden flex items-center gap-1">
+        <button onclick="toggleDarkMode()" class="p-2 text-gray-600 dark:text-gray-300">
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('translate-x-full')" class="p-2 text-gray-700 dark:text-gray-200 hover:text-[#00D4FF] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
 
 <!-- Mobile Slide Menu -->
-<div id="mobileMenu" class="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto border-l border-gray-100">
+<div id="mobileMenu" class="fixed inset-y-0 right-0 w-80 bg-white dark:bg-[#111827] shadow-2xl z-50 transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto border-l border-gray-100 dark:border-white/10">
   <div class="p-4">
     <div class="flex items-center justify-between mb-6">
       <img src="{% static 'images/at_academy_logo.png' %}" alt="AT Academy Logo" class="h-10 object-contain">
-      <button onclick="document.getElementById('mobileMenu').classList.toggle('translate-x-full')" class="p-2 text-gray-500 hover:text-gray-700">
+      <button onclick="document.getElementById('mobileMenu').classList.toggle('translate-x-full')" class="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
       </button>
     </div>
     <nav class="space-y-1">
-      <a href="{% url 'home' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Home</a>
-      <a href="{% url 'course_list' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Courses</a>
+      <a href="{% url 'home' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Home</a>
+      <a href="{% url 'course_list' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Courses</a>
       <div class="px-4 py-3">
-        <span class="font-semibold text-gray-700">Branches</span>
+        <span class="font-semibold text-gray-700 dark:text-gray-200">Branches</span>
         <div class="mt-2 space-y-2 pl-2">
           {% for branch in nav_branches %}
-            <a href="{% url 'branch_detail' branch.slug %}" class="flex items-center gap-2 p-2 rounded-lg border border-gray-100 hover:border-[#00D4FF] hover:shadow-md transition-all">
+            <a href="{% url 'branch_detail' branch.slug %}" class="flex items-center gap-2 p-2 rounded-lg border border-gray-100 dark:border-white/10 hover:border-[#00D4FF] hover:shadow-md transition-all">
               <div class="flex-1 min-w-0">
                 <h3 class="font-semibold text-[#00D4FF] text-xs leading-tight truncate">{{ branch.name }}</h3>
                 {% if branch.phone %}
-                  <span class="text-[11px] text-gray-400 truncate block">{{ branch.phone }}</span>
+                  <span class="text-[11px] text-gray-400 dark:text-gray-500 truncate block">{{ branch.phone }}</span>
                 {% endif %}
               </div>
             </a>
           {% endfor %}
         </div>
       </div>
-      <a href="{% url 'internships' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Internships</a>
-      <a href="{% url 'live_projects' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Live Projects</a>
-      <a href="{% url 'blog_list' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Blogs</a>
-      <a href="{% url 'gallery' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Gallery</a>
-      <a href="{% url 'contact' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Contact</a>
-      <a href="{% url 'success_stories' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-50 transition-colors">Success Stories</a>
+      <a href="{% url 'internships' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Internships</a>
+      <a href="{% url 'live_projects' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Live Projects</a>
+      <a href="{% url 'blog_list' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Blogs</a>
+      <a href="{% url 'gallery' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Gallery</a>
+      <a href="{% url 'contact' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Contact</a>
+      <a href="{% url 'success_stories' %}" class="block px-4 py-3 rounded-lg font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">Success Stories</a>
     </nav>
     <div class="mt-6 space-y-3">
-      <button onclick="openCallbackModal(); document.getElementById('mobileMenu').classList.add('translate-x-full');" class="w-full border border-gray-300 text-gray-700 px-4 py-2.5 rounded-full font-semibold text-sm hover:bg-gray-100 transition-colors">Enquiry Now</button>
-      <a href="tel:{{ settings.phone|cut:' ' }}" class="w-full bg-[#0B1120] text-white px-4 py-2.5 rounded-full font-semibold text-sm hover:bg-[#1E293B] transition-colors flex items-center justify-center gap-2">
+      <button onclick="openCallbackModal(); document.getElementById('mobileMenu').classList.add('translate-x-full');" class="w-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-200 px-4 py-2.5 rounded-full font-semibold text-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">Enquiry Now</button>
+      <a href="tel:{{ settings.phone|cut:' ' }}" class="w-full bg-[#0B1120] dark:bg-[#00D4FF] text-white dark:text-[#0B1120] px-4 py-2.5 rounded-full font-semibold text-sm hover:bg-[#1E293B] dark:hover:bg-white transition-colors flex items-center justify-center gap-2">
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16" width="16"><path fill="none" d="M0 0h24v24H0z"></path><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"></path></svg>
         {{ settings.phone }}
       </a>
