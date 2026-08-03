@@ -1,5 +1,8 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
+from django.http import HttpResponse
+from openpyxl import Workbook
+import io
 from .models import (
     SiteSettings, NavigationItem, FooterLinkGroup, FooterLink, SearchedTerm,
     Technology, Course, Branch, Programme, Testimonial, SuccessStory,
@@ -16,6 +19,63 @@ class ATAdminSite(AdminSite):
 
 
 admin_site = ATAdminSite(name='atacademy_admin')
+
+
+def _export_xlsx(title, headers, rows, filename):
+    wb = Workbook()
+    ws = wb.active
+    ws.title = title
+    for col_idx, h in enumerate(headers, 1):
+        cell = ws.cell(row=1, column=col_idx, value=h)
+        cell.font = cell.font.copy(bold=True)
+    for row_idx, row_data in enumerate(rows, 2):
+        for col_idx, val in enumerate(row_data, 1):
+            ws.cell(row=row_idx, column=col_idx, value=str(val) if val else '')
+    for col in ws.columns:
+        max_len = 0
+        col_letter = col[0].column_letter
+        for cell in col:
+            if cell.value:
+                max_len = max(max_len, len(str(cell.value)))
+        ws.column_dimensions[col_letter].width = min(max_len + 4, 40)
+    buf = io.BytesIO()
+    wb.save(buf)
+    buf.seek(0)
+    resp = HttpResponse(buf.getvalue(), content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    resp['Content-Disposition'] = f'attachment; filename="{filename}"'
+    return resp
+
+
+def export_selected_enquiries(modeladmin, request, queryset):
+    headers = ['Name', 'Email', 'Phone', 'Course', 'Branch', 'Qualification', 'Date', 'Read']
+    rows = [[e.name, e.email, e.phone, e.course, e.branch, e.qualification,
+             e.created_at.strftime('%Y-%m-%d %H:%M'), 'Yes' if e.is_read else 'No'] for e in queryset.order_by('-created_at')]
+    return _export_xlsx('Enquiries', headers, rows, 'enquiries.xlsx')
+export_selected_enquiries.short_description = 'Export selected as Excel'
+
+
+def export_selected_callbacks(modeladmin, request, queryset):
+    headers = ['Name', 'Email', 'Phone', 'Course', 'Branch', 'Date', 'Read']
+    rows = [[c.name, c.email, c.phone, c.course, c.branch,
+             c.created_at.strftime('%Y-%m-%d %H:%M'), 'Yes' if c.is_read else 'No'] for c in queryset.order_by('-created_at')]
+    return _export_xlsx('Callback Requests', headers, rows, 'callbacks.xlsx')
+export_selected_callbacks.short_description = 'Export selected as Excel'
+
+
+def export_selected_recruiters(modeladmin, request, queryset):
+    headers = ['Name', 'Email', 'Phone', 'Company', 'Designation', 'Date', 'Read']
+    rows = [[r.name, r.email, r.phone, r.company_name, r.designation,
+             r.created_at.strftime('%Y-%m-%d %H:%M'), 'Yes' if r.is_read else 'No'] for r in queryset.order_by('-created_at')]
+    return _export_xlsx('Recruiter Contacts', headers, rows, 'recruiters.xlsx')
+export_selected_recruiters.short_description = 'Export selected as Excel'
+
+
+def export_selected_brochures(modeladmin, request, queryset):
+    headers = ['Name', 'Email', 'Phone', 'Course', 'Date', 'Read']
+    rows = [[b.name, b.email, b.phone, b.course.name if b.course else '',
+             b.created_at.strftime('%Y-%m-%d %H:%M'), 'Yes' if b.is_read else 'No'] for b in queryset.select_related('course').order_by('-created_at')]
+    return _export_xlsx('Brochure Requests', headers, rows, 'brochures.xlsx')
+export_selected_brochures.short_description = 'Export selected as Excel'
 
 
 @admin.register(SiteSettings, site=admin_site)
@@ -159,6 +219,7 @@ class EnquiryAdmin(admin.ModelAdmin):
     list_filter = ['is_read', 'created_at', 'course', 'branch']
     search_fields = ['name', 'email', 'phone']
     readonly_fields = ['name', 'email', 'phone', 'course', 'branch', 'qualification', 'created_at']
+    actions = [export_selected_enquiries]
 
 
 @admin.register(CallbackRequest, site=admin_site)
@@ -168,6 +229,7 @@ class CallbackRequestAdmin(admin.ModelAdmin):
     list_filter = ['is_read', 'created_at']
     search_fields = ['name', 'email', 'phone']
     readonly_fields = ['name', 'email', 'phone', 'course', 'branch', 'created_at']
+    actions = [export_selected_callbacks]
 
 
 @admin.register(RecruiterContact, site=admin_site)
@@ -177,6 +239,7 @@ class RecruiterContactAdmin(admin.ModelAdmin):
     list_filter = ['is_read', 'created_at']
     search_fields = ['name', 'email', 'phone']
     readonly_fields = ['name', 'email', 'phone', 'company_name', 'designation', 'created_at']
+    actions = [export_selected_recruiters]
 
 
 @admin.register(BrochureRequest, site=admin_site)
@@ -186,3 +249,4 @@ class BrochureRequestAdmin(admin.ModelAdmin):
     list_filter = ['is_read', 'created_at', 'course']
     search_fields = ['name', 'email', 'phone']
     readonly_fields = ['name', 'email', 'phone', 'course', 'created_at']
+    actions = [export_selected_brochures]
